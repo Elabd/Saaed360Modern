@@ -1,0 +1,17 @@
+using System;
+using System.Collections.Generic;
+
+namespace Infrastructure.Persistence.Entities;
+
+public partial class EventsIntegrationTokenLog
+{
+    public Guid Id { get; set; }
+
+    public string Token { get; set; } = null!;
+
+    public byte[] TimeStamp { get; set; } = null!;
+
+    public DateTime CreationDate { get; set; }
+
+    public long UserId { get; set; }
+}

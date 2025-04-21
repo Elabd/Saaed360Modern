@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+
+namespace Infrastructure.Persistence.Entities;
+
+public partial class ArrestCharge
+{
+    public long ArrestChargeId { get; set; }
+
+    public Guid ArrestChargeGuid { get; set; }
+
+    public string ArrestChargeDescription { get; set; } = null!;
+
+    public long ActivityId { get; set; }
+
+    public Guid ActivityGuid { get; set; }
+
+    public Guid ChargeGuid { get; set; }
+
+    public long ChargeId { get; set; }
+
+    public long SourceId { get; set; }
+
+    public DateTime? CreateDateTimeStamp { get; set; }
+
+    public DateTime? ModifiedDateTimeStamp { get; set; }
+
+    public bool? IsDeleted { get; set; }
+
+    public int? RowStatusId { get; set; }
+
+    public virtual Activity Activity { get; set; } = null!;
+
+    public virtual Charge Charge { get; set; } = null!;
+
+    public virtual RowStatusDim? RowStatus { get; set; }
+
+    public virtual Source Source { get; set; } = null!;
+}

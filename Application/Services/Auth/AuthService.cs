@@ -15,21 +15,21 @@ public class AuthService
 
     public async Task<(bool isValid, Guid? userId)> ValidateUserCredentials(string username, string password)
     {
-        var user = await _context.aspnet_User
-            .Include(u => u.aspnet_Membership)
+        var user = await _context.AspnetUsers
+            .Include(u => u.AspnetMembership)
             .FirstOrDefaultAsync(u => u.LoweredUserName == username.ToLower());
 
-        if (user == null || user.aspnet_Membership == null)
+        if (user == null || user.AspnetMembership == null)
         {
             return (false, null);
         }
 
         var isValid = VerifyPassword(password, 
-            user.aspnet_Membership.Password, 
-            user.aspnet_Membership.PasswordSalt, 
-            user.aspnet_Membership.PasswordFormat) && 
-            user.aspnet_Membership.IsApproved && 
-            !user.aspnet_Membership.IsLockedOut;
+            user.AspnetMembership.Password, 
+            user.AspnetMembership.PasswordSalt, 
+            user.AspnetMembership.PasswordFormat) && 
+            user.AspnetMembership.IsApproved && 
+            !user.AspnetMembership.IsLockedOut;
 
         return (isValid, isValid ? user.UserId : null);
     }

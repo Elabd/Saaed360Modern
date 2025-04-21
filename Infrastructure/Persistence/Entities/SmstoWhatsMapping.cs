@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+
+namespace Infrastructure.Persistence.Entities;
+
+public partial class SmstoWhatsMapping
+{
+    public long SmstoWhatsupId { get; set; }
+
+    public int SmstemplateId { get; set; }
+
+    public int WhatsUpTemplateId { get; set; }
+
+    public string SmsarabicLangToWhatsLang { get; set; } = null!;
+
+    public string SmsenglishLangToWhatsLang { get; set; } = null!;
+
+    public bool IsWhatsForced { get; set; }
+
+    public bool IsSmsretry { get; set; }
+
+    public int SmsretryPeriodSecs { get; set; }
+
+    public virtual ICollection<SmstoWhatsDetail> SmstoWhatsDetails { get; set; } = new List<SmstoWhatsDetail>();
+
+    public virtual NotificationMessageTemplate WhatsUpTemplate { get; set; } = null!;
+}
