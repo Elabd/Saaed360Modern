@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Infrastructure.Persistence.Entities;
 
@@ -68,7 +69,7 @@ public partial class EsRepairPermission
     public virtual EsVehicleInquiry? Inquiry { get; set; }
 
     public virtual MobileUser? MobileUser { get; set; }
-
+    [NotMapped]
     public virtual Objection Objection { get; set; } = null!;
 
     public virtual ItemRegistrationPlateCategoryDim? PlateCategory { get; set; }
