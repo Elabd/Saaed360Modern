@@ -4,6 +4,21 @@ using System.ComponentModel;
 
 namespace Domain.Enums
 {
+
+    public enum RepairPermissionStatus
+    {
+        New = 1,
+        ApprovedBySAAED = 2,
+        RejectedBySAAED = 3,
+        ApprovedByPolice = 4,
+        RejectedByPolice = 5
+    }
+
+    public enum VehicleRepairPermissionType
+    {
+        AbroadVehicle = 1,
+        ImportedVehicle = 2
+    }
     public enum PersistanceInstruction : int
     {
         None = 0,

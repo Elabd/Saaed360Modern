@@ -48,6 +48,8 @@ public class AuthController : ControllerBase
                 userDTO.FirstName,
                 userDTO.MiddleName,
                 userDTO.LastName,
+                userDTO.FullName,
+                userDTO.UserName,
                 userDTO.UserCode,
                 userDTO.Email,
                 userDTO.Roles,

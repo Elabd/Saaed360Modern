@@ -176,6 +176,9 @@ public class AuthService
             UserCode = person?.Description ?? string.Empty,
             UserName = user.UserName ?? user.UserName,
             Email = user.AspnetMembership.Email,
+            FirstName   = person?.FirstName ?? string.Empty,
+            MiddleName = person?.MiddleName ?? string.Empty,
+            LastName = person?.LastName ?? string.Empty,
             Roles = user.AspnetUsersInRoles.Select(ur => new RoleDTO
             {
                 Description = ur.Role.Description,

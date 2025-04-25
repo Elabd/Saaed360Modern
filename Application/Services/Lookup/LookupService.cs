@@ -172,19 +172,84 @@ public class LookupService : ILookupService
 
     public List<LookupDto> GetEmiratesByUserId(long PersonId)
     {
-        var emirates = _context.EmirateDims
-            .Where(e => _context.EmirateAreas
-                .Any(ea => _context.PersonAreas
-                    .Any(pa => pa.PersonId == PersonId && pa.AreaId == ea.AreaId && ea.EmirateId == e.EmirateId)))
-            .ToList();
-
-        return emirates.Select(e => new LookupDto
+        try
         {
-            Id = e.EmirateId,
-            Description = e.EmirateName,
-            Code = e.EmirateCode ?? string.Empty,
-            InEmirates = true
-        }).ToList();
+            var areaCategoryId = _context.AreaCategoryDims
+                .FirstOrDefault(x => x.Code == "2")?.AreaCategoryId ?? 0;
+            var sectorCategoryId = _context.AreaCategoryDims
+                .FirstOrDefault(x => x.Code == "4")?.AreaCategoryId ?? 0;
+            var aieRelationType = _context.AreaRelationshipTypeDims
+                .FirstOrDefault(x => x.Code == "AIE")?.AreaRelationshipTypeId ?? 0;
+            var saeRelationType = _context.AreaRelationshipTypeDims
+                .FirstOrDefault(x => x.Code == "SA")?.AreaRelationshipTypeId ?? 0;
+
+            // Get areas for the person
+            var areas = _context.PersonAreas
+                .Where(x => x.PersonId == PersonId)
+                .Select(x => x.Area)
+                .Where(x => x.IsDeleted.HasValue && !x.IsDeleted.Value && x.AreaCategoryId == areaCategoryId)
+                .ToList();
+
+            // Get sectors for the person
+            var sectors = _context.PersonAreas
+                .Where(x => x.PersonId == PersonId)
+                .Select(x => x.Area)
+                .Where(x => x.IsDeleted.HasValue && !x.IsDeleted.Value && x.AreaCategoryId == sectorCategoryId)
+                .ToList();
+
+            // Process sectors to get related areas
+            foreach (var sector in sectors)
+            {
+                var relatedAreaIds = _context.AreaAssociations
+                    .Where(m => m.AreaId == sector.AreaId && m.AreaRelationshipTypeId == saeRelationType)
+                    .Select(m => m.RelatedAreaId)
+                    .ToList();
+
+                var relatedAreas = _context.Areas
+                    .Where(m => relatedAreaIds.Contains(m.AreaId))
+                    .ToList();
+
+                foreach (var area in relatedAreas)
+                {
+                    if (!areas.Contains(area))
+                        areas.Add(area);
+                }
+            }
+
+            var emirates = new List<Area>();
+
+            // Process areas to get related emirates
+            foreach (var area in areas)
+            {
+                var relatedAreaIds = _context.AreaAssociations
+                    .Where(m => m.AreaId == area.AreaId && m.AreaRelationshipTypeId == aieRelationType)
+                    .Select(m => m.RelatedAreaId)
+                    .ToList();
+
+                var relatedEmirates = _context.Areas
+                    .Where(m => relatedAreaIds.Contains(m.AreaId))
+                    .ToList();
+
+                foreach (var emirate in relatedEmirates)
+                {
+                    if (!emirates.Contains(emirate))
+                        emirates.Add(emirate);
+                }
+            }
+
+            return emirates.Select(e => new LookupDto
+            {
+                Id = e.AreaId,
+                Description = e.Description,
+                Code = e.Code ?? string.Empty,
+                InEmirates = true
+            }).ToList();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error getting emirates for user: {PersonId}", PersonId);
+            return new List<LookupDto>();
+        }
     }
 
     public List<LookupDto> GetReasonByOrganizationId(long organizationId)

@@ -16,15 +16,15 @@ builder.Services.AddControllers();
 // Add logging
 builder.Services.AddLogging();
 
-// UPDATED CORS configuration for debugging
+// Add CORS configuration
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.AllowAnyOrigin() // More permissive for debugging
+        policy.AllowAnyOrigin()
               .AllowAnyMethod()
-              .AllowAnyHeader();
-        // Removed .AllowCredentials() which requires a specific origin
+              .AllowAnyHeader()
+              .SetIsOriginAllowed(origin => true);
     });
 });
 
@@ -39,7 +39,6 @@ builder.Services.AddSwaggerGen(c =>
         Description = "Saaed360 API Documentation"
     });
 
-    // Simplify the Bearer token configuration
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "JWT Authorization header using the Bearer scheme. Just enter your token without the 'Bearer ' prefix",
@@ -134,6 +133,49 @@ if (app.Environment.IsDevelopment())
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Saaed360 API V1");
         c.RoutePrefix = string.Empty;
         c.ConfigObject.AdditionalItems.Add("persistAuthorization", "true");
+        c.ConfigObject.AdditionalItems.Add("syntaxHighlight.theme", "monokai");
+    });
+}
+else
+{
+    app.UseSwagger(c =>
+    {
+        c.PreSerializeFilters.Add((swagger, httpReq) =>
+        {
+            var serverUrl = $"https://{httpReq.Host.Value}/Saaed360TSAPI";
+            swagger.Servers = new List<OpenApiServer>
+            {
+                new OpenApiServer { Url = serverUrl }
+            };
+        });
+    });
+
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/Saaed360TSAPI/swagger/v1/swagger.json", "Saaed360 API V1");
+        c.RoutePrefix = "swagger";
+        c.ConfigObject.AdditionalItems.Add("persistAuthorization", "true");
+        c.ConfigObject.AdditionalItems.Add("syntaxHighlight.theme", "monokai");
+    });
+
+    // Serve index.html for the root path
+    app.MapGet("/", () => Results.File("wwwroot/index.html", "text/html"));
+
+    // Add a route to serve the Swagger JSON from root
+    app.MapGet("/Saaed360TSAPI/swagger/v1/swagger.json", async (HttpContext context) =>
+    {
+        var jsonPath = Path.Combine(AppContext.BaseDirectory, "swagger", "v1", "swagger.json");
+        if (File.Exists(jsonPath))
+        {
+            var json = await File.ReadAllTextAsync(jsonPath);
+            context.Response.ContentType = "application/json";
+            context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            await context.Response.WriteAsync(json);
+        }
+        else
+        {
+            context.Response.StatusCode = 404;
+        }
     });
 }
 
@@ -173,7 +215,7 @@ app.Use(async (context, next) =>
 
 //app.UseHttpsRedirection();
 
-// Use CORS - must be before authentication
+// Use CORS before other middleware
 app.UseCors();
 
 // Authentication must come before Authorization
