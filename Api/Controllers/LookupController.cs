@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Application.Services.Lookup;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using Application.DTOs;
-using System.ComponentModel.DataAnnotations;
 using Application.DTOs.Lookup;
 using Domain.Entities;
 
