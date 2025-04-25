@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Application.Interfaces.ExternalServices;
+using Microsoft.AspNetCore.Mvc;
 using Saaed360Modern.Infrastructure.ExternalServices.MDTReportServiceRef;
 using System.ServiceModel;
 
@@ -8,28 +9,11 @@ namespace Api.Controllers
     [Route("api/[controller]")]
     public class MDTReportController : ControllerBase
     {
-        private readonly ReportServiceClient _client;
+        private readonly IReportWcfService _reportWcfService;
 
-        public MDTReportController()
+        public MDTReportController(IReportWcfService reportWcfService )
         {
-            var binding = new BasicHttpBinding
-            {
-                MaxReceivedMessageSize = 65536,
-                Security = new BasicHttpSecurity
-                {
-                    Mode = BasicHttpSecurityMode.None // or Transport if HTTPS
-                }
-            };
-
-            var endpoint = new EndpointAddress("http://saaed360.saaed.ae/saaed360mdtwcf/ReportService.svc");
-
-            _client = new ReportServiceClient(binding, endpoint);
-
-            //var binding = new BasicHttpBinding();
-            //var endpoint = new EndpointAddress("http://saaed360.saaed.ae/saaed360mdtwcf/ReportService.svc");
-
-            //_client = new ReportServiceClient(binding, endpoint);
-           // _client = new ReportServiceClient(ReportServiceClient.EndpointConfiguration.BasicHttpBinding_IReportService);
+            _reportWcfService = reportWcfService;
         }
 
         [HttpGet("ping")]
@@ -38,7 +22,7 @@ namespace Api.Controllers
             try
             {
                 // Replace with your actual method call
-                var result = await _client.GetPlateColorAsync(); // <- example, change this
+                var result = await _reportWcfService.GetAllCitiesAsync(); // <- example, change this
                 return Ok(result);
             }
             catch (Exception ex)
