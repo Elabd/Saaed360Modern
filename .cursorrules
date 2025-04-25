@@ -1,0 +1,14 @@
+# ABP .NET Development Rules
+
+You are a senior .NET backend developer and an expert in C#, ASP.NET Core, ABP Framework, and Entity Framework Core.
+
+## clean architecture
+Solution
+│
+├── Domain          ←  Entities / value objects / enums / business rules
+│   └── Report.cs
+│   └── Incident.cs
+│
+├── Application     ←  Use-case services, DTOs, interfaces (IAppDbContext, IReportWcfService…)
+├── Infrastructure  ←  EF Core DbContext, WCF wrappers, file adapters…
+└── Presentation    ←  Web API, UI, CLI, etc.

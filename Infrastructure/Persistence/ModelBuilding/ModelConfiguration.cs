@@ -1,7 +1,5 @@
-﻿using Infrastructure.Persistence.Entities;
-using Microsoft.EntityFrameworkCore;
-
-using File = Infrastructure.Persistence.Entities.File;
+﻿using Microsoft.EntityFrameworkCore;
+using Domain.Entities;
 
 namespace Infrastructure.Persistence.ModelBuilding
 {
@@ -6963,16 +6961,16 @@ namespace Infrastructure.Persistence.ModelBuilding
                 entity.Property(e => e.IsDeleted).HasDefaultValue(false);
             });
 
-            modelBuilder.Entity<Application>(entity =>
-            {
-                entity.HasKey(e => e.ApplicationId)
-                    .HasName("PK__Applicat__C93A4C996BDC47F9")
-                    .HasFillFactor(80);
+            //modelBuilder.Entity<Application>(entity =>
+            //{
+            //    entity.HasKey(e => e.ApplicationId)
+            //        .HasName("PK__Applicat__C93A4C996BDC47F9")
+            //        .HasFillFactor(80);
 
-                entity.Property(e => e.ApplicationId).ValueGeneratedNever();
-                entity.Property(e => e.ApplicationName).HasMaxLength(235);
-                entity.Property(e => e.Description).HasMaxLength(256);
-            });
+            //    entity.Property(e => e.ApplicationId).ValueGeneratedNever();
+            //    entity.Property(e => e.ApplicationName).HasMaxLength(235);
+            //    entity.Property(e => e.Description).HasMaxLength(256);
+            //});
 
             modelBuilder.Entity<ApplicationPage>(entity =>
             {
@@ -17603,47 +17601,47 @@ namespace Infrastructure.Persistence.ModelBuilding
                 entity.Property(e => e.IsActive).HasDefaultValue(false);
             });
 
-            modelBuilder.Entity<File>(entity =>
-            {
-                entity.HasKey(e => e.FileId)
-                    .HasName("PK__Files__6F0F98BF8A4F86F7")
-                    .HasFillFactor(80);
+            //modelBuilder.Entity<File>(entity =>
+            //{
+            //    entity.HasKey(e => e.FileId)
+            //        .HasName("PK__Files__6F0F98BF8A4F86F7")
+            //        .HasFillFactor(80);
 
-                entity.HasIndex(e => e.FileGuid, "UQ__Files__6DB18C95B91C00E4")
-                    .IsUnique()
-                    .HasFillFactor(80);
+            //    entity.HasIndex(e => e.FileGuid, "UQ__Files__6DB18C95B91C00E4")
+            //        .IsUnique()
+            //        .HasFillFactor(80);
 
-                entity.Property(e => e.CreatedDate)
-                    .HasDefaultValueSql("(getdate())")
-                    .HasColumnType("datetime");
-                entity.Property(e => e.EmailBody)
-                    .HasMaxLength(4000)
-                    .IsUnicode(false);
-                entity.Property(e => e.FileGuid).HasDefaultValueSql("(newid())");
-                entity.Property(e => e.FileName).HasMaxLength(100);
-                entity.Property(e => e.ModifiedDate)
-                    .HasDefaultValueSql("(getdate())")
-                    .HasColumnType("datetime");
-                entity.Property(e => e.Recepient).HasMaxLength(1000);
-                entity.Property(e => e.RetryCount).HasDefaultValue(0);
-                entity.Property(e => e.SendSuccessFully).HasDefaultValue(false);
+            //    entity.Property(e => e.CreatedDate)
+            //        .HasDefaultValueSql("(getdate())")
+            //        .HasColumnType("datetime");
+            //    entity.Property(e => e.EmailBody)
+            //        .HasMaxLength(4000)
+            //        .IsUnicode(false);
+            //    entity.Property(e => e.FileGuid).HasDefaultValueSql("(newid())");
+            //    entity.Property(e => e.FileName).HasMaxLength(100);
+            //    entity.Property(e => e.ModifiedDate)
+            //        .HasDefaultValueSql("(getdate())")
+            //        .HasColumnType("datetime");
+            //    entity.Property(e => e.Recepient).HasMaxLength(1000);
+            //    entity.Property(e => e.RetryCount).HasDefaultValue(0);
+            //    entity.Property(e => e.SendSuccessFully).HasDefaultValue(false);
 
-                entity.HasOne(d => d.CreatedByNavigation).WithMany(p => p.FileCreatedByNavigations)
-                    .HasForeignKey(d => d.CreatedBy)
-                    .HasConstraintName("FK__Files__CreatedBy__3C6170A6");
+            //    entity.HasOne(d => d.CreatedByNavigation).WithMany(p => p.FileCreatedByNavigations)
+            //        .HasForeignKey(d => d.CreatedBy)
+            //        .HasConstraintName("FK__Files__CreatedBy__3C6170A6");
 
-                entity.HasOne(d => d.FileCategory).WithMany(p => p.Files)
-                    .HasForeignKey(d => d.FileCategoryId)
-                    .HasConstraintName("FK__Files__FileCateg__398503FB");
+            //    entity.HasOne(d => d.FileCategory).WithMany(p => p.Files)
+            //        .HasForeignKey(d => d.FileCategoryId)
+            //        .HasConstraintName("FK__Files__FileCateg__398503FB");
 
-                entity.HasOne(d => d.ModifiedByNavigation).WithMany(p => p.FileModifiedByNavigations)
-                    .HasForeignKey(d => d.ModifiedBy)
-                    .HasConstraintName("FK__Files__ModifiedB__3D5594DF");
+            //    entity.HasOne(d => d.ModifiedByNavigation).WithMany(p => p.FileModifiedByNavigations)
+            //        .HasForeignKey(d => d.ModifiedBy)
+            //        .HasConstraintName("FK__Files__ModifiedB__3D5594DF");
 
-                entity.HasOne(d => d.RowStatus).WithMany(p => p.Files)
-                    .HasForeignKey(d => d.RowStatusId)
-                    .HasConstraintName("FK__Files__RowStatus__4032018A");
-            });
+            //    entity.HasOne(d => d.RowStatus).WithMany(p => p.Files)
+            //        .HasForeignKey(d => d.RowStatusId)
+            //        .HasConstraintName("FK__Files__RowStatus__4032018A");
+            //});
 
             modelBuilder.Entity<FileCategoryDim>(entity =>
             {

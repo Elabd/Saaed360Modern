@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Application.DTOs;
 using Application.DTOs.Objection;
-using Infrastructure.Persistence.Entities;
+using Domain.Entities;
 
 namespace Application.Services
 {

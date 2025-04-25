@@ -7,6 +7,7 @@ using System.Text;
 using Microsoft.OpenApi.Models;
 using Application.Services.Lookup;
 using Application.Services;
+using Saaed360Modern.Application.Abstractions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -74,6 +75,12 @@ builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<ILookupService, LookupService>();
 builder.Services.AddScoped<IObjectionService, ObjectionService>();
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
+
+// Database configuration
+builder.Services.AddDbContext<ApplicationDbContext>(opt =>
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddScoped<IAppDbContext>(sp =>
+    sp.GetRequiredService<ApplicationDbContext>());
 
 // Configure JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

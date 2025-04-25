@@ -1,6 +1,6 @@
 using Application.DTOs;
 using Application.DTOs.Lookup;
-using Infrastructure.Persistence.Entities;
+using Domain.Entities;
 
 namespace Application.Services.Lookup;
 

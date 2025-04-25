@@ -1,19 +1,18 @@
 using Application.DTOs.Lookup;
 using Domain.Enums;
-using Infrastructure.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
-using Infrastructure.Persistence.Entities;
 using Microsoft.Extensions.Logging;
-using Application.DTOs;
+using Domain.Entities;
+using Saaed360Modern.Application.Abstractions;
 
 namespace Application.Services.Lookup;
 
 public class LookupService : ILookupService
 {
-    private readonly ApplicationDbContext _context;
+    private readonly IAppDbContext _context;
     private readonly ILogger<LookupService> _logger;
 
-    public LookupService(ApplicationDbContext context, ILogger<LookupService> logger)
+    public LookupService(IAppDbContext context, ILogger<LookupService> logger)
     {
         _context = context;
         _logger = logger;
@@ -271,7 +270,7 @@ public class LookupService : ILookupService
     {
         try
         {
-            var areaItem = new Infrastructure.Persistence.Entities.AreaItem
+            var areaItem = new AreaItem
             {
                 AreaId = checkin.AreaId,
                 ItemId = checkin.PatrolId,
@@ -279,7 +278,7 @@ public class LookupService : ILookupService
             };
 
             _context.AreaItems.Add(areaItem);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
 
             return true;
         }

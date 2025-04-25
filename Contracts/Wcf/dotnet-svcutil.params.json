@@ -1,0 +1,15 @@
+{
+  "providerId": "Microsoft.Tools.ServiceModel.Svcutil",
+  "version": "8.0.0",
+  "options": {
+    "inputs": [
+      "http://saaed360.saaed.ae/Saaed360MDTWCF/ReportService.svc?wsdl"
+    ],
+    "namespaceMappings": [
+      "*, Saaed360Modern.Contracts.Wcf"
+    ],
+    "outputFile": "Reference.cs",
+    "targetFramework": "net9.0",
+    "typeReuseMode": "All"
+  }
+}

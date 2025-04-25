@@ -1,0 +1,15 @@
+{
+  "providerId": "Microsoft.Tools.ServiceModel.Svcutil",
+  "version": "8.0.0",
+  "options": {
+    "inputs": [
+      "http://saaed360.saaed.ae/saaed360mdtwcf/ReportService.svc"
+    ],
+    "namespaceMappings": [
+      "*, Saaed360Modern.Infrastructure.ExternalServices.MDTReportServiceRef"
+    ],
+    "outputFile": "Reference.cs",
+    "targetFramework": "net9.0",
+    "typeReuseMode": "All"
+  }
+}

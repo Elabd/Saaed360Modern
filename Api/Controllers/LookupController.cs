@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Application.DTOs;
 using System.ComponentModel.DataAnnotations;
 using Application.DTOs.Lookup;
-using Infrastructure.Persistence.Entities;
+using Domain.Entities;
 
 namespace Api.Controllers;
 

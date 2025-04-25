@@ -1,11 +1,12 @@
-using Infrastructure.Persistence.Entities;
 using Infrastructure.Persistence.ModelBuilding;
 using Microsoft.EntityFrameworkCore;
+using Domain.Entities;
 using System.Reflection.Emit;
-using File = Infrastructure.Persistence.Entities.File;
+using File = Domain.Entities.File;
+using Saaed360Modern.Application.Abstractions;
 namespace Infrastructure.Persistence.Contexts;
 
-public partial class ApplicationDbContext : DbContext
+public partial class ApplicationDbContext : DbContext, IAppDbContext
 {
     public ApplicationDbContext()
     {
@@ -408,7 +409,7 @@ public partial class ApplicationDbContext : DbContext
 
 
 
-    public virtual DbSet<Application> Applications { get; set; }
+    //public virtual DbSet<Application> Applications { get; set; }
 
     public virtual DbSet<ApplicationPage> ApplicationPages { get; set; }
 

@@ -4,8 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.DTOs;
 using Application.Services;
-using Infrastructure.Persistence.Contexts;
-using Infrastructure.Persistence.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
@@ -15,19 +13,21 @@ using Application.Services.Lookup;
 using Application.DTOs.Objection;
 using Domain.Enums;
 using Application.Services.Auth;
+using Domain.Entities;
+using Saaed360Modern.Application.Abstractions;
 
 namespace Application.Services
 {
     public class ObjectionService : IObjectionService
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IAppDbContext _context;
         private readonly ILogger<ObjectionService> _logger;
         private readonly ILookupService _lookupService;
         private readonly IConfiguration _configuration;
         private readonly ICurrentUserService _currentUserService;
 
         public ObjectionService(
-            ApplicationDbContext context,
+            IAppDbContext context,
             ILogger<ObjectionService> logger,
             ILookupService lookupService,
             IConfiguration configuration,
@@ -129,18 +129,19 @@ namespace Application.Services
         }
 
         public async Task<List<SPObjection>> GetObjectionSourceAsync(string reportNumber, int languageId)
-        {
-            try
-            {
-                return await _context.Database
-                    .SqlQueryRaw<SPObjection>("SP_ObjectionSource @ReportNumber = @p0, @LanguageId = @p1", reportNumber, languageId)
-                    .ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error getting objection source for report: {ReportNumber}", reportNumber);
-                return new List<SPObjection>();
-            }
+        { ///toDo 
+            return new List<SPObjection>();
+            //try
+            //{
+            //    return await _context.Database
+            //        .SqlQueryRaw<SPObjection>("SP_ObjectionSource @ReportNumber = @p0, @LanguageId = @p1", reportNumber, languageId)
+            //        .ToListAsync();
+            //}
+            //catch (Exception ex)
+            //{
+            //    _logger.LogError(ex, "Error getting objection source for report: {ReportNumber}", reportNumber);
+            //    return new List<SPObjection>();
+            //}
         }
 
         public async System.Threading.Tasks.Task<ViewObjection> GetViewObjectionByIdAsync(long objectionId)

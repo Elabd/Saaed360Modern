@@ -1,4 +1,3 @@
-using Infrastructure.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Application.Helpers;
 using System.IdentityModel.Tokens.Jwt;
@@ -7,16 +6,17 @@ using System.Security.Claims;
 using System.Text;
 using Application.DTOs;
 using Microsoft.Extensions.Configuration;
-using Infrastructure.Persistence.Entities;
 using System.Linq;
 using System.Security.Cryptography;
 using Microsoft.Extensions.Logging;
+using Saaed360Modern.Application.Abstractions;
+using Domain.Entities;
 
 namespace Application.Services.Auth;
 
 public class AuthService
 {
-    private readonly ApplicationDbContext _context;
+    private readonly IAppDbContext _context;
     private readonly IConfiguration _configuration;
     private readonly ILogger<AuthService> _logger;
     private readonly string _jwtKey;
@@ -26,7 +26,7 @@ public class AuthService
     private readonly int _refreshTokenExpirationDays;
 
     public AuthService(
-        ApplicationDbContext context, 
+        IAppDbContext context, 
         IConfiguration configuration,
         ILogger<AuthService> logger)
     {
