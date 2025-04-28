@@ -59,7 +59,7 @@ namespace Api.Controllers
             }
             catch (Exception ex)
             {
-                // General error
+                // Genera l error
                 return StatusCode(500, $"WCF call failed: {ex.Message}");
             }
         }
