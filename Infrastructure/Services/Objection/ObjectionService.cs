@@ -3,20 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Application.DTOs;
-using Application.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Http;
-using Application.Services.Lookup;
 using Application.DTOs.Objection;
 using Domain.Enums;
-using Application.Services.Auth;
 using Domain.Entities;
 using Saaed360Modern.Application.Abstractions;
+using Application.Abstractions;
 
-namespace Application.Services
+namespace Infrastructure.Services.Objection
 {
     public class ObjectionService : IObjectionService
     {
@@ -65,7 +61,7 @@ namespace Application.Services
         {
             try
             {
-                var _currentUser = _currentUserService.GetCurrentUser();
+                var _currentUser =await _currentUserService.GetCurrentUserAsync();
                 var query = _context.ViewObjectionsPayments.AsQueryable();
 
                 if (search.from.HasValue)
@@ -95,12 +91,12 @@ namespace Application.Services
                 else if (!IsSuperUser(search.UserName))
                 {
 
-                    var emirates = _lookupService.GetEmiratesByUserId(_currentUser.UserId);
+                    var emirates = _lookupService.GetEmiratesByUserId(_currentUser.PersonId);
                     var emirateIds = emirates.Select(x => x.Id);
                     query = query.Where(x =>
-                        (x.AreaId.HasValue && search.areaId.Contains(x.AreaId.Value)) ||
-                        (!x.AreaId.HasValue && !x.ObjectionEmirateId.HasValue) ||
-                        (x.ObjectionEmirateId.HasValue && emirateIds.Contains(x.ObjectionEmirateId.Value)) ||
+                        x.AreaId.HasValue && search.areaId.Contains(x.AreaId.Value) ||
+                        !x.AreaId.HasValue && !x.ObjectionEmirateId.HasValue ||
+                        x.ObjectionEmirateId.HasValue && emirateIds.Contains(x.ObjectionEmirateId.Value) ||
                         x.AreaId == null);
                 }
 
@@ -113,7 +109,7 @@ namespace Application.Services
             }
         }
 
-        public async Task<Objection> GetObjectionByIdAsync(long objectionId)
+        public async Task<Domain.Entities.Objection> GetObjectionByIdAsync(long objectionId)
         {
             try
             {
@@ -144,7 +140,7 @@ namespace Application.Services
             //}
         }
 
-        public async System.Threading.Tasks.Task<ViewObjection> GetViewObjectionByIdAsync(long objectionId)
+        public async Task<ViewObjection> GetViewObjectionByIdAsync(long objectionId)
         {
             try
             {
@@ -509,13 +505,13 @@ namespace Application.Services
                 }
                 else if (!IsSuperUser(search.UserName))
                 {
-                    var _currentUser = _currentUserService.GetCurrentUser();
-                    var emirates = _lookupService.GetEmiratesByUserId(_currentUser.UserId);
+                    var _currentUser = await _currentUserService.GetCurrentUserAsync();
+                    var emirates = _lookupService.GetEmiratesByUserId(_currentUser.PersonId);
                     var emirateIds = emirates.Select(x => x.Id);
                     query = query.Where(x =>
-                        (x.AreaId.HasValue && search.areaId.Contains(x.AreaId.Value)) ||
-                        (!x.AreaId.HasValue && !x.ObjectionEmirateId.HasValue) ||
-                        (x.ObjectionEmirateId.HasValue && emirateIds.Contains(x.ObjectionEmirateId.Value)) ||
+                        x.AreaId.HasValue && search.areaId.Contains(x.AreaId.Value) ||
+                        !x.AreaId.HasValue && !x.ObjectionEmirateId.HasValue ||
+                        x.ObjectionEmirateId.HasValue && emirateIds.Contains(x.ObjectionEmirateId.Value) ||
                         x.AreaId == null);
                 }
 
@@ -528,7 +524,7 @@ namespace Application.Services
             }
         }
 
-        public async System.Threading.Tasks.Task<List<ObjectionStatusDim>> GetObjectionStatusAsync()
+        public async Task<List<ObjectionStatusDim>> GetObjectionStatusAsync()
         {
             try
             {

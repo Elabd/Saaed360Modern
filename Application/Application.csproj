@@ -14,9 +14,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
 
-	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4"
-						  PrivateAssets="all"
-						  ExcludeAssets="runtime" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" PrivateAssets="all" ExcludeAssets="runtime" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.4" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.3.1" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.3.1" />

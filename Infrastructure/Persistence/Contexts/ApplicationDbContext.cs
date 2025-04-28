@@ -16,6 +16,7 @@ public partial class ApplicationDbContext : DbContext, IAppDbContext
         : base(options)
     {
     }
+    public virtual DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
 
     public virtual DbSet<AccidentAreaCategorization> AccidentAreaCategorizations { get; set; }
 

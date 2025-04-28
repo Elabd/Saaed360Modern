@@ -195,9 +195,9 @@ public partial class Person
 
     public virtual ICollection<Evidence> Evidences { get; set; } = new List<Evidence>();
 
-    public virtual ICollection<File> FileCreatedByNavigations { get; set; } = new List<File>();
+    //public virtual ICollection<File> FileCreatedByNavigations { get; set; } = new List<File>();
 
-    public virtual ICollection<File> FileModifiedByNavigations { get; set; } = new List<File>();
+    //public virtual ICollection<File> FileModifiedByNavigations { get; set; } = new List<File>();
 
     public virtual ICollection<FmsbranchUser> FmsbranchUsers { get; set; } = new List<FmsbranchUser>();
 

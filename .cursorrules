@@ -1,14 +1,64 @@
-# ABP .NET Development Rules
-
-You are a senior .NET backend developer and an expert in C#, ASP.NET Core, ABP Framework, and Entity Framework Core.
-
-## clean architecture
-Solution
-│
-├── Domain          ←  Entities / value objects / enums / business rules
-│   └── Report.cs
-│   └── Incident.cs
-│
-├── Application     ←  Use-case services, DTOs, interfaces (IAppDbContext, IReportWcfService…)
-├── Infrastructure  ←  EF Core DbContext, WCF wrappers, file adapters…
-└── Presentation    ←  Web API, UI, CLI, etc.
+{
+  "rules": [
+    {
+      "role": "architect",
+      "instruction": "Follow strict Clean Architecture principles. Separate concerns clearly between Application, Domain, Infrastructure, and API layers."
+    },
+    {
+      "role": "developer",
+      "instruction": "In the Application layer, only define interfaces, services, DTOs, and basic logic. No database or external technology dependencies allowed here."
+    },
+    {
+      "role": "developer",
+      "instruction": "In the Infrastructure layer, implement external dependencies such as EF Core DbContexts, token generation (JwtFactory), and refresh token stores (EfRefreshTokenStore)."
+    },
+    {
+      "role": "developer",
+      "instruction": "Use Dependency Injection for all services. Register services like IAuthService, IJwtFactory, IRefreshTokenStore, ICurrentUserService properly."
+    },
+    {
+      "role": "developer",
+      "instruction": "User authentication must be JWT-based. Access tokens must include claims like sub (user id), email, and roles."
+    },
+    {
+      "role": "developer",
+      "instruction": "Refresh tokens must be stored securely in the database. Rotate tokens after usage and expire old tokens."
+    },
+    {
+      "role": "developer",
+      "instruction": "Use CancellationToken in all async methods for scalability."
+    },
+    {
+      "role": "developer",
+      "instruction": "For user context, implement ICurrentUserService that reads user info from HttpContext.User claims. Support fallback to standard JWT claims."
+    },
+    {
+      "role": "developer",
+      "instruction": "All domain entities (such as AspnetUser, RefreshToken) must be placed in the Domain layer."
+    },
+    {
+      "role": "developer",
+      "instruction": "Application DTOs like UserDTO, TokenDTO must only contain plain data without any EF Core tracking or database dependencies."
+    },
+    {
+      "role": "developer",
+      "instruction": "In the API layer (Presentation), do not contain business logic. Only expose endpoints using clean controllers that call Application Services."
+    },
+    {
+      "role": "developer",
+      "instruction": "Organize the solution structure by projects: Api, Application, Domain, Infrastructure, and Contracts."
+    },
+    {
+      "role": "developer",
+      "instruction": "When generating any new services or controllers, follow the same style and dependency injection setup as AuthService, JwtFactory, and EfRefreshTokenStore."
+    },
+    {
+      "role": "developer",
+      "instruction": "All new AuthService methods must use JwtFactory to create tokens, not manual JWT handling."
+    },
+    {
+      "role": "developer",
+      "instruction": "Unit tests must mock IJwtFactory, IRefreshTokenStore, and IAppDbContext to test services in isolation."
+    }
+  ]
+}

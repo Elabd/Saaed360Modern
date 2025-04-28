@@ -2,11 +2,8 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Saaed360Modern.Infrastructure;           // AddInfrastructure extension
-using Application.Services;                   // your domain/application services
-using Application.Services.Auth;
-using Application.Services.Lookup;
 using System.Text;
+using Infrastructure.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -64,11 +61,6 @@ builder.Services.AddSwaggerGen(c =>
 // INFRASTRUCTURE  (DbContext, WCF wrapper, repositories …)
 builder.Services.AddInfrastructure(builder.Configuration);
 
-// APPLICATION-LEVEL SERVICES
-builder.Services.AddScoped<AuthService>();
-builder.Services.AddScoped<ILookupService, LookupService>();
-builder.Services.AddScoped<IObjectionService, ObjectionService>();
-builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 
 // JWT AUTHENTICATION
 var jwt = builder.Configuration.GetSection("Jwt");
@@ -87,6 +79,34 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(
                                             Encoding.UTF8.GetBytes(jwt["Key"]!)),
             ClockSkew = TimeSpan.Zero
+        };
+        opts.Events = new JwtBearerEvents
+        {
+            OnAuthenticationFailed = context =>
+            {
+                Console.WriteLine($"Authentication failed: {context.Exception.Message}");
+                Console.WriteLine($"Token: {context.Request.Headers["Authorization"]}");
+                return Task.CompletedTask;
+            },
+            OnTokenValidated = context =>
+            {
+                Console.WriteLine("Token validated successfully");
+                Console.WriteLine($"Token: {context.Request.Headers["Authorization"]}");
+                return Task.CompletedTask;
+            },
+            OnChallenge = context =>
+            {
+                Console.WriteLine($"Challenge: {context.Error}");
+                Console.WriteLine($"Token: {context.Request.Headers["Authorization"]}");
+                return Task.CompletedTask;
+            },
+            OnMessageReceived = context =>
+            {
+                // Add this for better debugging - log the exact token being received
+                var authHeader = context.Request.Headers["Authorization"].ToString();
+                Console.WriteLine($"OnMessageReceived - Authorization header: {authHeader}");
+                return Task.CompletedTask;
+            }
         };
     });
 

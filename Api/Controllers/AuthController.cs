@@ -1,4 +1,4 @@
-using Application.Services.Auth;
+using Application.Abstractions.AuthService;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
@@ -9,9 +9,9 @@ namespace Api.Controllers;
 [Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
-    private readonly AuthService _authService;
+    private readonly IAuthService _authService;
 
-    public AuthController(AuthService authService)
+    public AuthController(IAuthService authService)
     {
         _authService = authService;
     }
@@ -19,40 +19,24 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
-        var (isValid, userDTO) = await _authService.ValidateUserCredentials(request.Username, request.Password);
+        var result = await _authService.ValidateUserCredentialsAsync(request.Username, request.Password);
 
-        if (!isValid)
+        if (result==null)
         {
             return Unauthorized(new { message = "Invalid username or password" });
         }
 
         // Set refresh token cookie
-        Response.Cookies.Append("refreshToken", userDTO.UserToken.RefreshToken,
+        Response.Cookies.Append("refreshToken", result.RefreshToken,
             new CookieOptions
             {
                 HttpOnly = true,
                 Secure = true,
                 SameSite = SameSiteMode.Strict,
-                Expires = userDTO.UserToken.RefreshTokenExpiration
+                Expires = result.RefreshTokenExpiration
             });
 
-        return Ok(new
-        {
-            accessToken = userDTO.UserToken.Token,
-            user = new
-            {
-                userDTO.Id,
-                userDTO.FirstName,
-                userDTO.MiddleName,
-                userDTO.LastName,
-                userDTO.FullName,
-                userDTO.UserName,
-                userDTO.UserCode,
-                userDTO.Email,
-                userDTO.Roles,
-                userDTO.AccessablePages
-            }
-        });
+        return Ok(result);
     }
 
     [HttpPost("refresh-token")]
@@ -75,37 +59,23 @@ public class AuthController : ControllerBase
             }
 
             // Validate refresh token and get new tokens
-            var (isValid, userDTO) = await _authService.RefreshToken(refreshToken, userId);
-            if (!isValid)
+            var result = await _authService.RefreshTokenAsync(refreshToken, userId);
+            if (result==null)
             {
                 return Unauthorized(new { message = "Invalid refresh token" });
             }
 
             // Set new refresh token cookie
-            Response.Cookies.Append("refreshToken", userDTO.UserToken.RefreshToken,
-                new CookieOptions
-                {
-                    HttpOnly = true,
-                    Secure = true,
-                    SameSite = SameSiteMode.Strict,
-                    Expires = userDTO.UserToken.RefreshTokenExpiration
-                });
+            Response.Cookies.Append("refreshToken", result.RefreshToken,
+           new CookieOptions
+           {
+               HttpOnly = true,
+               Secure = true,
+               SameSite = SameSiteMode.Strict,
+               Expires = result.RefreshTokenExpiration
+           });
 
-            return Ok(new
-            {
-                accessToken = userDTO.UserToken.Token,
-                user = new
-                {
-                    userDTO.Id,
-                    userDTO.FirstName,
-                    userDTO.MiddleName,
-                    userDTO.LastName,
-                    userDTO.UserCode,
-                    userDTO.Email,
-                    userDTO.Roles,
-                    userDTO.AccessablePages
-                }
-            });
+            return Ok(result);
         }
         catch (Exception ex)
         {

@@ -7,6 +7,22 @@ namespace Infrastructure.Persistence.ModelBuilding
     {
         public void Apply(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<RefreshToken>(cfg =>
+            {
+                cfg.ToTable("RefreshTokens");
+
+                cfg.HasKey(rt => rt.Id);
+
+                cfg.Property(rt => rt.Token).HasMaxLength(200).IsRequired();
+                cfg.Property(rt => rt.ReplacedByToken).HasMaxLength(200);
+                cfg.HasIndex(rt => rt.Token).IsUnique();
+
+                cfg.HasOne(rt => rt.User)            // <<<<<< مهم جداً تربطه هكذا
+                   .WithMany()                       // لو AspnetUser لا يحتوي على ICollection<RefreshToken> 
+                   .HasForeignKey(rt => rt.UserId)    // <<<<<< هذا الذي يحل مشكلة UserId1
+                   .OnDelete(DeleteBehavior.Cascade);
+            });
+
             modelBuilder.Entity<AccidentAreaCategorization>(entity =>
             {
                 entity.ToTable("AccidentAreaCategorization");

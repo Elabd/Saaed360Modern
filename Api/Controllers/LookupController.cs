@@ -1,8 +1,8 @@
-using Application.Services.Lookup;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Application.DTOs.Lookup;
 using Domain.Entities;
+using Application.Abstractions;
 
 namespace Api.Controllers;
 

@@ -1,4 +1,4 @@
-﻿using Application.Interfaces.ExternalServices;
+﻿using Application.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using Saaed360Modern.Infrastructure.ExternalServices.MDTReportServiceRef;
 using System.ServiceModel;

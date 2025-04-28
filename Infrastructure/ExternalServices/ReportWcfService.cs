@@ -5,7 +5,7 @@
 // ---------------------------------------------------------------
 
 using System.ServiceModel;
-using Application.Interfaces.ExternalServices;
+using Application.Abstractions;
 using Saaed360Modern.Contracts.Wcf;
 using Saaed360Modern.Infrastructure.ExternalServices.MDTReportServiceRef;
 
@@ -65,6 +65,19 @@ namespace Saaed360Modern.Infrastructure.ExternalServices
         public Task<string> GetServerDateAsync() => _client.GetServerDateAsync();
         public Task<ClientCredentials> GetGoogleMapClientCredentialsAsync() => _client.GetGoogleMapClientCredentialsAsync();
         public Task<string> GetGoogleMapAPIKeyAsync() => _client.GetGoogleMapAPIKeyAsync();
+
+        // --------------------  REQUESTS  --------------------
+        public Task<RequestListDTO[]> GetRequestsListAsync(ReportRequestSearchCriteriaDTO searchCriteria, long[] permittedAreas, Guid[] roleId, bool isExternal, bool myTask)
+            => _client.GetRequestsListAsync(searchCriteria, permittedAreas, roleId, isExternal, myTask);
+
+        public Task<RequestListDTO[]> GetClosedRequestsListAsync(ReportRequestSearchCriteriaDTO searchCriteria, long[] permittedAreas, Guid[] roleId, bool isExternal)
+            => _client.GetClosedRequestsListAsync(searchCriteria, permittedAreas, roleId, isExternal);
+
+        public Task<ReportRequestDto> GetRequestByIdAsync(long requestId, Guid[] roleId)
+            => _client.GetRequestByIdAsync(requestId, roleId);
+
+        public Task<ReportRequestDto> GetTransferedRequestByIdAsync(long requestId)
+            => _client.GetTransferedRequestByIdAsync(requestId);
 
         // ------------------------------------------------------------
         // NOTE: Only the most frequently‑used operations are included

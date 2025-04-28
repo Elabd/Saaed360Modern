@@ -4,7 +4,7 @@ using Application.DTOs;
 using Application.DTOs.Objection;
 using Domain.Entities;
 
-namespace Application.Services
+namespace Application.Abstractions
 {
     public interface IObjectionService
     {

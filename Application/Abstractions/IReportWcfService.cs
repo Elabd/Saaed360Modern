@@ -6,7 +6,7 @@
 
 using System.Threading.Tasks;
 using Saaed360Modern.Contracts.Wcf;
-namespace Application.Interfaces.ExternalServices
+namespace Application.Abstractions
 {
     /// <summary>
     ///     A DI‑friendly façade that exposes *all* operations of <see cref="ReportServiceClient"/>.
@@ -56,5 +56,10 @@ namespace Application.Interfaces.ExternalServices
         Task<string> GetGoogleMapAPIKeyAsync();
         // ....  ✂️
 
+        // --------------------  REQUESTS  --------------------
+        Task<RequestListDTO[]> GetRequestsListAsync(ReportRequestSearchCriteriaDTO searchCriteria, long[] permittedAreas, Guid[] roleId, bool isExternal, bool myTask);
+        Task<RequestListDTO[]> GetClosedRequestsListAsync(ReportRequestSearchCriteriaDTO searchCriteria, long[] permittedAreas, Guid[] roleId, bool isExternal);
+        Task<ReportRequestDto> GetRequestByIdAsync(long requestId, Guid[] roleId);
+        Task<ReportRequestDto> GetTransferedRequestByIdAsync(long requestId);
     }
 }

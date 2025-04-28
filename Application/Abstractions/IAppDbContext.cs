@@ -7,6 +7,8 @@ namespace Saaed360Modern.Application.Abstractions;
 
 public interface IAppDbContext
 {
+    public DbSet<RefreshToken> RefreshTokens { get; }
+
     DbSet<AccidentAreaCategorization> AccidentAreaCategorizations { get; }
     DbSet<AccidentDamageSizeDim> AccidentDamageSizeDims { get; }
     DbSet<AccidentLocationDescriptionDim> AccidentLocationDescriptionDims { get; }

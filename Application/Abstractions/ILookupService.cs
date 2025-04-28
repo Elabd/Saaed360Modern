@@ -2,7 +2,7 @@ using Application.DTOs;
 using Application.DTOs.Lookup;
 using Domain.Entities;
 
-namespace Application.Services.Lookup;
+namespace Application.Abstractions;
 
 public interface ILookupService
 {

@@ -4,8 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Domain.Entities;
 using Saaed360Modern.Application.Abstractions;
+using Application.Abstractions;
 
-namespace Application.Services.Lookup;
+namespace Infrastructure.Services.Lookup;
 
 public class LookupService : ILookupService
 {
