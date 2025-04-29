@@ -4,6 +4,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using Infrastructure.DependencyInjection;
+using Saaed360Modern.Application.Abstractions;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -112,7 +114,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 // BUILD PIPELINE
 var app = builder.Build();
+app.Lifetime.ApplicationStarted.Register(async () =>
+{
+    using var scope = app.Services.CreateScope();
+    var db = scope.ServiceProvider.GetRequiredService<IAppDbContext>();
 
+    // Warm up by forcing EF to build the model and cache connections
+    await db.AspnetUsers.FirstOrDefaultAsync();
+});
 // Swagger UI
 if (app.Environment.IsDevelopment())
 {
