@@ -16,11 +16,20 @@ using Infrastructure.Repositories;
 using Infrastructure.Services.Auth;
 using Infrastructure.Services.Lookup;
 using Infrastructure.Services.Objection;
+using Microsoft.Extensions.Options;
 
 namespace Infrastructure.DependencyInjection;
 
 public static class ServiceRegistration
 {
+
+    /// <summary>
+    /// dotnet ef dbcontext optimize --output-dir Infrastructure/Persistence/CompiledModels --namespace Infrastructure.Persistence.CompiledModels --context ApplicationDbContext --project Infrastructure --startup-project Api
+    /// </summary>
+    /// <param name="services"></param>
+    /// <param name="cfg"></param>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException"></exception>
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration cfg)
     {
         // --------------------  Persistence  --------------------
@@ -29,8 +38,12 @@ public static class ServiceRegistration
 
         //services.AddDbContext<ApplicationDbContext>(opt =>
         //    opt.UseSqlServer(connStr, sql => sql.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
-        services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(cfg.GetConnectionString("DefaultConnection"), o => o.UseCompatibilityLevel(110)));
+        services.AddDbContext<ApplicationDbContext>(options => {
+            options.UseSqlServer(cfg.GetConnectionString("DefaultConnection"), o => o.UseCompatibilityLevel(110));
+            options.UseModel(Infrastructure.Persistence.CompiledModels.ApplicationDbContextModel.Instance);
+        }
+    );
+        
 
         // Expose DbContext to upper layers via abstraction
         services.AddScoped<IAppDbContext>(sp => sp.GetRequiredService<ApplicationDbContext>());
