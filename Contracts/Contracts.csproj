@@ -5,11 +5,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Folder Include="Wcf\" />
-  </ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="System.ServiceModel.Primitives" Version="8.1.2" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Wcf\MdtUserServiceRef\" />
 	</ItemGroup>
 </Project>

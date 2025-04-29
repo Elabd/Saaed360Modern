@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <Folder Include="ExternalServices\MDTReportServiceRef\" />
+    <Folder Include="ExternalServices\MdtUserServiceRef\" />
   </ItemGroup>
 
 </Project>

@@ -21,7 +21,7 @@ public class AuthController : ControllerBase
     {
         var result = await _authService.ValidateUserCredentialsAsync(request.Username, request.Password);
 
-        if (result==null)
+        if (result == null)
         {
             return Unauthorized(new { message = "Invalid username or password" });
         }
@@ -36,7 +36,7 @@ public class AuthController : ControllerBase
                 Expires = result.CookieDetails.Expiration
             });
 
-        return Ok(result);
+        return Ok(result.ClientResponse);
     }
 
     [HttpPost("refresh-token")]
@@ -60,7 +60,7 @@ public class AuthController : ControllerBase
 
             // Validate refresh token and get new tokens
             var result = await _authService.RefreshTokenAsync(refreshToken, userId);
-            if (result==null)
+            if (result == null)
             {
                 return Unauthorized(new { message = "Invalid refresh token" });
             }
@@ -75,7 +75,7 @@ public class AuthController : ControllerBase
                Expires = result.CookieDetails.Expiration
            });
 
-            return Ok(result);
+            return Ok(result.ClientResponse.AccessToken); // Return only the access token string
         }
         catch (Exception ex)
         {
@@ -92,4 +92,4 @@ public class LoginRequest
 
     [Required]
     public required string Password { get; set; }
-} 
+}
