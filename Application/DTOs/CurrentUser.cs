@@ -12,10 +12,8 @@ namespace Application.DTOs
         public long PersonId { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
-        public string UserCode { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string MiddleName { get; set; }
 
         public List<Guid> Roles { get; set; } = new();
         public List<long> Areas { get; set; } = new();

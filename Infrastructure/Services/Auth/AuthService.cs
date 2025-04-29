@@ -31,6 +31,8 @@ public sealed class AuthService : IAuthService
     private readonly IRefreshTokenStore _refreshTokenStore;
     private readonly ILogger<AuthService> _logger;
     private readonly IConfiguration _configuration; // Added IConfiguration
+    private readonly int _expiryMinutes;
+    private readonly int _refreshexpiryDays;
 
     // --- COMPILED QUERY DEFINITION for User Validation ---
     // Includes necessary data for validation and building the initial response
@@ -59,6 +61,9 @@ public sealed class AuthService : IAuthService
         _refreshTokenStore = refreshTokenStore ?? throw new ArgumentNullException(nameof(refreshTokenStore));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration)); // Added IConfiguration
+        var jwtSection = configuration.GetSection("Jwt");
+        _expiryMinutes = int.Parse(jwtSection["ExpiryInMinutes"] ?? "60");
+        _refreshexpiryDays = int.Parse(jwtSection["RefreshTokenExpiryInDays"] ?? "7");
     }
 
     // Updated return type to AuthResult?
@@ -212,14 +217,14 @@ public sealed class AuthService : IAuthService
         };
 
         // Generate the JWT access token
-        var accessToken = _jwtFactory.Create(user.UserId, userInfo.Email, extraClaims);
+        var accessToken = _jwtFactory.Create(user.UserId, userInfo.Email ,user.UserName, extraClaims);
 
         // Use the provided rotated token if available (from refresh), otherwise issue a new one (from login)
         var refreshTokenString = rotatedRefreshToken ?? await _refreshTokenStore.IssueAsync(user.UserId, ct);
 
         // Get expiry times from configuration with defaults
-        var accessTokenExpiryMinutes = 60;// _configuration.GetValue<int?>("Jwt:ExpiryInMinutes") ?? 60;
-        var refreshTokenExpiryDays = 7;//_configuration.GetValue<int?>("Jwt:RefreshTokenExpiryInDays") ?? 7; // Ensure this matches EfRefreshTokenStore logic
+        var accessTokenExpiryMinutes = _expiryMinutes;
+        var refreshTokenExpiryDays = _refreshexpiryDays;
         var refreshTokenExpiryDate = DateTime.UtcNow.AddDays(refreshTokenExpiryDays);
 
         _logger.LogInformation("Successfully built login response for UserId: {UserId}", user.UserId);

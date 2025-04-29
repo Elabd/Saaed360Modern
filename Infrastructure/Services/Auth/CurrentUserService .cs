@@ -5,7 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using Saaed360Modern.Application.Abstractions;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Text.Json;
+using System.Text.Json; // Keep for potential future use, but not for current claims
+using Saaed360Modern.Application.Abstractions.AuthService; // Added for IPermissionService
+using Microsoft.Extensions.Logging; // Added for logging
 
 namespace Infrastructure.Services.Auth
 {
@@ -13,156 +15,137 @@ namespace Infrastructure.Services.Auth
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IAppDbContext _dbContext;
+        private readonly IPermissionService _permissionService; // Added IPermissionService
+        private readonly ILogger<CurrentUserService> _logger; // Added logger
 
-        public CurrentUserService(IHttpContextAccessor httpContextAccessor, IAppDbContext dbContext)
+        // Cached user for the current request scope
+        private CurrentUser? _cachedCurrentUser;
+
+        public CurrentUserService(
+            IHttpContextAccessor httpContextAccessor,
+            IAppDbContext dbContext,
+            IPermissionService permissionService, // Added IPermissionService
+            ILogger<CurrentUserService> logger) // Added logger
         {
             _httpContextAccessor = httpContextAccessor;
             _dbContext = dbContext;
+            _permissionService = permissionService; // Added IPermissionService
+            _logger = logger; // Added logger
         }
 
         public async Task<CurrentUser?> GetCurrentUserAsync()
         {
-            var user = _httpContextAccessor.HttpContext?.User;
-            //if (user == null || !user.Identity?.IsAuthenticated ?? true)
-            if (user == null || !(user.Identity?.IsAuthenticated ?? false))
+            // --- Request-Scoped Caching --- 
+            if (_cachedCurrentUser != null)
+            {
+                _logger.LogDebug("Returning cached CurrentUser for request.");
+                return _cachedCurrentUser;
+            }
+            // --- End Caching ---
 
+            var httpContext = _httpContextAccessor.HttpContext;
+            if (httpContext == null)
+            {
+                _logger.LogWarning("HttpContext is null, cannot retrieve current user.");
                 return null;
+            }
+
+            var user = httpContext.User;
+            if (user == null || !(user.Identity?.IsAuthenticated ?? false))
+            {
+                _logger.LogDebug("User is not authenticated.");
+                return null;
+            }
 
             var userIdClaim = user.FindFirst(ClaimTypes.NameIdentifier) ?? user.FindFirst(JwtRegisteredClaimNames.Sub);
             if (userIdClaim == null || !Guid.TryParse(userIdClaim.Value, out var userId))
+            {
+                _logger.LogWarning("Could not parse UserId claim.");
                 return null;
+            }
 
+            _logger.LogDebug("Building CurrentUser for UserId: {UserId}", userId);
+
+            // Initialize with data primarily from claims (lean token)
             var currentUser = new CurrentUser
             {
                 UserId = userId,
-                PersonId = ParseLongClaim(user, "PersonId"),
+                // Attempt to get basic info from claims first
                 UserName = user.FindFirst(ClaimTypes.Name)?.Value ?? string.Empty,
                 Email = user.FindFirst(ClaimTypes.Email)?.Value ?? string.Empty,
-                FirstName = user.FindFirst("FirstName")?.Value ?? string.Empty,
-                LastName = user.FindFirst("LastName")?.Value ?? string.Empty,
-                MiddleName = user.FindFirst("MiddleName")?.Value ?? string.Empty,
-                UserCode = user.FindFirst("UserCode")?.Value ?? string.Empty,
-                Roles = ParseGuidListClaim(user, "Roles"),
-                Areas = ParseLongListClaim(user, "Areas"),
-                Organizations = ParseLongListClaim(user, "Organizations")
+                FirstName = user.FindFirst(ClaimTypes.GivenName)?.Value ?? string.Empty, // Use standard claim type
+                LastName = user.FindFirst(ClaimTypes.Surname)?.Value ?? string.Empty, // Use standard claim type
+                PersonId = long.TryParse(user.FindFirst("PersonId")?.Value, out var personId) ? personId : 0L, // Convert string to long safely
+
+                // Initialize permission lists as empty - will be populated by PermissionService
+                Roles = new List<Guid>(),
+                Areas = new List<long>(),
+                Organizations = new List<long>()
             };
 
-            // 🔥 If JWT is missing critical fields, fallback and load fresh from DB
-            if (string.IsNullOrEmpty(currentUser.UserName) || currentUser.Roles.Count == 0 || currentUser.Organizations.Count == 0)
+            // --- Fetch Permissions using IPermissionService (Leverages Caching) ---
+            try
             {
-                var dbUser = await _dbContext.AspnetUsers
-                    .Include(u => u.AspnetMembership)
-                    .Include(u => u.AspnetUsersInRoles)
-                        .ThenInclude(ur => ur.Role)
-                            .ThenInclude(r => r.OrganizationRoles)
-                    .Include(u => u.PersonAspnetUsers)
-                        .ThenInclude(pu => pu.Person)
-                            .ThenInclude(p => p.PersonAreas)
-                    .FirstOrDefaultAsync(u => u.UserId == userId);
-
-                if (dbUser == null)
-                    return null;
-
-                var person = dbUser.PersonAspnetUsers.FirstOrDefault()?.Person;
-
-                currentUser.PersonId = person?.PersonId ?? 0;
-                currentUser.UserName = dbUser.UserName ?? string.Empty;
-                currentUser.Email = dbUser.AspnetMembership?.Email ?? string.Empty;
-                currentUser.FirstName = person?.FirstName ?? string.Empty;
-                currentUser.LastName = person?.LastName ?? string.Empty;
-                currentUser.MiddleName = person?.MiddleName ?? string.Empty;
-                currentUser.UserCode = person?.Description ?? string.Empty;
-                currentUser.Roles = dbUser.AspnetUsersInRoles.Select(r => r.Role.RoleId).ToList();
-                currentUser.Organizations = ConvertToOrganizations(dbUser.AspnetUsersInRoles.Select(r => r.Role).ToList());
-                currentUser.Areas = await ConvertToAreasAsync(person);
+                // Note: IPermissionService needs GetUserRolesAsync method
+                // currentUser.Roles = await _permissionService.GetUserRolesAsync(userId); 
+                currentUser.Organizations = await _permissionService.GetUserOrganizationIdsAsync(userId);
+                currentUser.Areas = await _permissionService.GetUserAreaIdsAsync(userId);
+                _logger.LogDebug("Fetched permissions via IPermissionService for UserId: {UserId}", userId);
             }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error fetching permissions via IPermissionService for UserId: {UserId}", userId);
+                // Decide if failure to get permissions should prevent user retrieval
+                // return null; // Or proceed with potentially incomplete user data?
+            }
+            // --- End Permission Fetching ---
 
+            // --- Fallback for Basic Info (if missing from claims) ---
+            // Only fetch basic info if essential claims like UserName are missing
+            if (string.IsNullOrEmpty(currentUser.UserName))
+            {
+                _logger.LogWarning("Essential claims (e.g., UserName) missing from JWT for UserId: {UserId}. Falling back to database for basic info.", userId);
+                try
+                {
+                    // Query only for basic user/person info, not permissions
+                    var dbUser = await _dbContext.AspnetUsers
+                        .Include(u => u.AspnetMembership) // For Email
+                        .Include(u => u.PersonAspnetUsers).ThenInclude(pu => pu.Person) // For Name, UserCode
+                        .AsNoTracking() // Read-only for basic info
+                        .FirstOrDefaultAsync(u => u.UserId == userId);
+
+                    if (dbUser != null)
+                    {
+                        var person = dbUser.PersonAspnetUsers.FirstOrDefault()?.Person;
+                        currentUser.UserName = dbUser.UserName ?? currentUser.UserName; // Update if found
+                        currentUser.Email = dbUser.AspnetMembership?.Email ?? currentUser.Email;
+                        currentUser.FirstName = person?.FirstName ?? currentUser.FirstName;
+                        currentUser.LastName = person?.LastName ?? currentUser.LastName;
+                        currentUser.PersonId = person?.PersonId ?? currentUser.PersonId; // Add if needed
+                        _logger.LogDebug("Successfully fetched fallback basic info from DB for UserId: {UserId}", userId);
+                    }
+                    else
+                    {
+                        _logger.LogError("User not found in database during fallback check for UserId: {UserId}", userId);
+                        return null; // User exists in token but not DB? Critical error.
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Database error during fallback basic info fetch for UserId: {UserId}", userId);
+                    return null; // Failed to get essential info
+                }
+            }
+            // --- End Fallback --- 
+
+            // Cache the result for the current request
+            _cachedCurrentUser = currentUser;
+            _logger.LogInformation("Successfully constructed CurrentUser for UserId: {UserId}", userId);
             return currentUser;
         }
 
-        // Helper to safely parse long from claim
-        private static long ParseLongClaim(ClaimsPrincipal user, string claimType)
-        {
-            var value = user.FindFirst(claimType)?.Value;
-            return long.TryParse(value, out var result) ? result : 0;
-        }
-
-        // Helper to safely parse Guid list from JSON claim
-        private static List<Guid> ParseGuidListClaim(ClaimsPrincipal user, string claimType)
-        {
-            var value = user.FindFirst(claimType)?.Value;
-            if (string.IsNullOrEmpty(value))
-                return new List<Guid>();
-
-            try
-            {
-                return JsonSerializer.Deserialize<List<Guid>>(value) ?? new List<Guid>();
-            }
-            catch
-            {
-                return new List<Guid>();
-            }
-        }
-
-        // Helper to safely parse long list from JSON claim
-        private static List<long> ParseLongListClaim(ClaimsPrincipal user, string claimType)
-        {
-            var value = user.FindFirst(claimType)?.Value;
-            if (string.IsNullOrEmpty(value))
-                return new List<long>();
-
-            try
-            {
-                return JsonSerializer.Deserialize<List<long>>(value) ?? new List<long>();
-            }
-            catch
-            {
-                return new List<long>();
-            }
-        }
-
-        private static List<long> ConvertToOrganizations(List<Domain.Entities.AspnetRole> roles)
-        {
-            if (roles == null || roles.Count == 0)
-                return new List<long>();
-
-            return roles
-                .SelectMany(r => r.OrganizationRoles)
-                .Select(or => (long)or.OrganizationId)
-                .Distinct()
-                .ToList();
-        }
-
-        private async Task<List<long>> ConvertToAreasAsync(Domain.Entities.Person? person)
-        {
-            if (person == null || person.PersonAreas == null)
-                return new List<long>();
-
-            var areaIds = person.PersonAreas.Select(pa => (long)pa.AreaId).ToList();
-            var allAreas = new HashSet<long>(areaIds);
-
-            var firstLevel = await _dbContext.AreaAssociations
-                .Where(a => areaIds.Contains(a.AreaId))
-                .Select(a => a.RelatedAreaId)
-                .ToListAsync();
-
-            allAreas.UnionWith(firstLevel);
-
-            var secondLevel = await _dbContext.AreaAssociations
-                .Where(a => firstLevel.Contains(a.AreaId))
-                .Select(a => a.RelatedAreaId)
-                .ToListAsync();
-
-            allAreas.UnionWith(secondLevel);
-
-            var thirdLevel = await _dbContext.AreaAssociations
-                .Where(a => secondLevel.Contains(a.AreaId))
-                .Select(a => a.RelatedAreaId)
-                .ToListAsync();
-
-            allAreas.UnionWith(thirdLevel);
-
-            return allAreas.ToList();
-        }
+        // Removed claim parsing helpers (ParseLongClaim, ParseGuidListClaim, ParseLongListClaim)
+        // Removed permission calculation helpers (ConvertToOrganizations, ConvertToAreasAsync)
     }
 }
+
