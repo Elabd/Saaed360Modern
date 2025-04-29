@@ -1,0 +1,15 @@
+{
+  "providerId": "Microsoft.Tools.ServiceModel.Svcutil",
+  "version": "8.0.0",
+  "options": {
+    "inputs": [
+      "https://saaed360.saaed.ae/Saaed360WCF/MdtUserService.svc?wsdl"
+    ],
+    "namespaceMappings": [
+      "*, Saaed360Modern.Infrastructure.ExternalServices.MdtUserServiceRef"
+    ],
+    "outputFile": "Reference.cs",
+    "targetFramework": "net9.0",
+    "typeReuseMode": "All"
+  }
+}
