@@ -27,7 +27,7 @@ namespace Saaed360Modern.Infrastructure.ExternalServices
             };
 
             // TODO: Read endpoint address from configuration
-            var endpoint = new EndpointAddress("https://saaed360.saaed.ae/Saaed360MDTWCF/ReportService.svc");
+            var endpoint = new EndpointAddress("https://saaed360test.saaed.ae/Saaed360MDTWCF/ReportService.svc");
             _client = new ReportServiceClient(binding, endpoint);
         }
 
