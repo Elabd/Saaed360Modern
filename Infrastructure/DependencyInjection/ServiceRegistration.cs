@@ -17,7 +17,8 @@ using Infrastructure.Services.Auth;
 using Infrastructure.Services.Lookup;
 using Infrastructure.Services.Objection;
 using Microsoft.Extensions.Options;
-using Saaed360Modern.Application.Abstractions.AuthService; // Added for IPermissionService
+using Saaed360Modern.Application.Abstractions.AuthService;
+using Infrastructure.Services; // Added for IPermissionService
 
 namespace Infrastructure.DependencyInjection;
 
@@ -68,6 +69,7 @@ public static class ServiceRegistration
         services.AddScoped<ICurrentUserService, CurrentUserService>();
         services.AddScoped<IJwtFactory, JwtFactory>();
         services.AddScoped<IRefreshTokenStore, EfRefreshTokenStore>();
+        services.AddScoped<IReportTemplateService, RazorReportTemplateService>();
 
         // Register the new Permission Service (for hybrid auth approach)
         services.AddScoped<IPermissionService, PermissionService>();

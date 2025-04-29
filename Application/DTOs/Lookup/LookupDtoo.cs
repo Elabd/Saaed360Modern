@@ -2,7 +2,7 @@ using System.Runtime.Serialization;
 
 namespace Application.DTOs.Lookup;
 
-public class LookupDto
+public class LookupDtoo
 {
     public long Id { get; set; }
     public string Description { get; set; }

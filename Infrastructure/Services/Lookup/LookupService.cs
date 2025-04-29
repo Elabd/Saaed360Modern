@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Domain.Entities;
 using Saaed360Modern.Application.Abstractions;
 using Application.Abstractions;
+using Saaed360Modern.Contracts.Wcf;
 
 namespace Infrastructure.Services.Lookup;
 

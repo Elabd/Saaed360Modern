@@ -1,0 +1,1416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccidentNo" xml:space="preserve">
+    <value>Incident Number</value>
+  </data>
+  <data name="AccidentReason" xml:space="preserve">
+    <value>How Accident Happened</value>
+  </data>
+  <data name="AccidentReasonComment" xml:space="preserve">
+    <value>How Accident Happened Comment</value>
+  </data>
+  <data name="AccidentType" xml:space="preserve">
+    <value>Accident Type</value>
+  </data>
+  <data name="AccidentTypeComment" xml:space="preserve">
+    <value>Accident Type Comment</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="addComment" xml:space="preserve">
+    <value>Please Press Enter to add commnet</value>
+  </data>
+  <data name="AddnewApprovelCycle" xml:space="preserve">
+    <value>Add Approvel Cycle</value>
+  </data>
+  <data name="AddnewNotifier" xml:space="preserve">
+    <value>Add Notifier</value>
+  </data>
+  <data name="AddnewState" xml:space="preserve">
+    <value>Add State</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="ApprovalCycle" xml:space="preserve">
+    <value>Approval Cycles</value>
+  </data>
+  <data name="ApprovalCycleName" xml:space="preserve">
+    <value>Approval Cycle Name</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="Approvels" xml:space="preserve">
+    <value>Approvers</value>
+  </data>
+  <data name="ARCReports" xml:space="preserve">
+    <value>ARC Reports</value>
+  </data>
+  <data name="Arrows" xml:space="preserve">
+    <value>Arrows</value>
+  </data>
+  <data name="AssignDate" xml:space="preserve">
+    <value>Assign Date</value>
+  </data>
+  <data name="BasicData" xml:space="preserve">
+    <value>Report Basic Data</value>
+  </data>
+  <data name="CallerName" xml:space="preserve">
+    <value>Caller Name</value>
+  </data>
+  <data name="CallerNumber" xml:space="preserve">
+    <value>Caller Number</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Career" xml:space="preserve">
+    <value>Career</value>
+  </data>
+  <data name="ChassisNumber" xml:space="preserve">
+    <value>Chassis Number</value>
+  </data>
+  <data name="ChemicalMaterial" xml:space="preserve">
+    <value>Chemical Material</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="ClientApproval_CheckboxTxt" xml:space="preserve">
+    <value>Client Approval Signing</value>
+  </data>
+  <data name="ClientApproval_Titel" xml:space="preserve">
+    <value>Client Approval</value>
+  </data>
+  <data name="ClientApproval_Txt1" xml:space="preserve">
+    <value>اقرار في حاله وقوع حادث ضد مجهول</value>
+  </data>
+  <data name="ClientApproval_Txt2" xml:space="preserve">
+    <value>اقر انا الموقع ادناه بأن الحادث الذي وقع علي مركبتي ضد مجهول وجميع البيانات التي ادليت بها صحيحه وخلافا لذلك اتحمل كافه الاجراءات القانونيه التي تترتب عليه</value>
+  </data>
+  <data name="ClientApproval_Txt3" xml:space="preserve">
+    <value>Acknoledment,(Only Applicable in Case Of Unidentified Accident)</value>
+  </data>
+  <data name="ClientApproval_Txt4" xml:space="preserve">
+    <value>I, The Undersigned, Certify that the incident is against unidentified and all the Information given is correct, Otherwise I bear all legal related matters</value>
+  </data>
+  <data name="ClientData" xml:space="preserve">
+    <value>Client Data</value>
+  </data>
+  <data name="ClosedFrom" xml:space="preserve">
+    <value>Closed From</value>
+  </data>
+  <data name="ClosedTransferedReports" xml:space="preserve">
+    <value>Closed Transfered Reports</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="CollisionPoint" xml:space="preserve">
+    <value>Collision Point</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="CommentDate" xml:space="preserve">
+    <value>Comment Date</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="ConfiscationDocumentType" xml:space="preserve">
+    <value>Confiscation Document Type</value>
+  </data>
+  <data name="ConfiscationLocation" xml:space="preserve">
+    <value>Confiscation Location</value>
+  </data>
+  <data name="ConfiscationStatus" xml:space="preserve">
+    <value>Confiscation Status</value>
+  </data>
+  <data name="ConvertedFrom" xml:space="preserve">
+    <value>Converted From</value>
+  </data>
+  <data name="ConvertedTo" xml:space="preserve">
+    <value>Transferred To</value>
+  </data>
+  <data name="CountryOfOrigin" xml:space="preserve">
+    <value>Country Of Origin</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>Request Created By</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Created Date</value>
+  </data>
+  <data name="CreateNewServices" xml:space="preserve">
+    <value>Create New Services</value>
+  </data>
+  <data name="CreationDateTime" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="CrossingStreet" xml:space="preserve">
+    <value>Crossing Street</value>
+  </data>
+  <data name="CurrentServices" xml:space="preserve">
+    <value>Current Services</value>
+  </data>
+  <data name="DamagedObjectOthersDescription" xml:space="preserve">
+    <value>Damaged Object Others Description</value>
+  </data>
+  <data name="DamagedObjects" xml:space="preserve">
+    <value>Damaged Objects</value>
+  </data>
+  <data name="DamagedParts" xml:space="preserve">
+    <value>Damaged Parts</value>
+  </data>
+  <data name="DamagePartsDescription" xml:space="preserve">
+    <value>Vehicle Damage Description</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Date Of Birth</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Description2" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="DIcons" xml:space="preserve">
+    <value>3DIcons</value>
+  </data>
+  <data name="Dob" xml:space="preserve">
+    <value>Date of Birthday</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>Draw</value>
+  </data>
+  <data name="DriverDrikingStatus" xml:space="preserve">
+    <value>Driver Driking Status</value>
+  </data>
+  <data name="Drivername" xml:space="preserve">
+    <value>Driver name</value>
+  </data>
+  <data name="Drivers" xml:space="preserve">
+    <value>Drivers Data</value>
+  </data>
+  <data name="DriverStatus" xml:space="preserve">
+    <value>Driver Status</value>
+  </data>
+  <data name="DriverTrafficcode" xml:space="preserve">
+    <value>Driver Traffic code</value>
+  </data>
+  <data name="EasternCoordinates" xml:space="preserve">
+    <value>Eastern Coordinates</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EducationLevel" xml:space="preserve">
+    <value>Education Level</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Emirate" xml:space="preserve">
+    <value>Emirate</value>
+  </data>
+  <data name="EngineNumber" xml:space="preserve">
+    <value>Engine Number</value>
+  </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>Error Message</value>
+  </data>
+  <data name="EscapedStatus" xml:space="preserve">
+    <value>Escaped Status</value>
+  </data>
+  <data name="ExistingExternalRequests" xml:space="preserve">
+    <value>Existing External Requests</value>
+  </data>
+  <data name="ExistingServices" xml:space="preserve">
+    <value>Existing Services</value>
+  </data>
+  <data name="ExpiryDate" xml:space="preserve">
+    <value>Expiry Date</value>
+  </data>
+  <data name="ExternalRequests" xml:space="preserve">
+    <value>External Requests</value>
+  </data>
+  <data name="FieldName" xml:space="preserve">
+    <value>Field Name</value>
+  </data>
+  <data name="FollowupSerivces" xml:space="preserve">
+    <value>Follow up Serivces</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>Report Date From</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="GeneralNotes" xml:space="preserve">
+    <value>General Notes</value>
+  </data>
+  <data name="GlassColor" xml:space="preserve">
+    <value>Glass Color</value>
+  </data>
+  <data name="Groups" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="Images" xml:space="preserve">
+    <value>Images</value>
+  </data>
+  <data name="IncidentArea" xml:space="preserve">
+    <value>Incident Area</value>
+  </data>
+  <data name="IncidentEmirate" xml:space="preserve">
+    <value>Incident Emirate</value>
+  </data>
+  <data name="InitialPendingReports" xml:space="preserve">
+    <value>Initial Pending Reports</value>
+  </data>
+  <data name="InjuryLevel" xml:space="preserve">
+    <value>Injury Level</value>
+  </data>
+  <data name="InjuryType" xml:space="preserve">
+    <value>Injury Type</value>
+  </data>
+  <data name="InsuranceCompany" xml:space="preserve">
+    <value>Insurance Company</value>
+  </data>
+  <data name="InsurancePolicyNumber" xml:space="preserve">
+    <value>Insurance Policy Number</value>
+  </data>
+  <data name="InsuranceType" xml:space="preserve">
+    <value>Insurance Type</value>
+  </data>
+  <data name="Intersection" xml:space="preserve">
+    <value>Intersection</value>
+  </data>
+  <data name="IsHavingLicense" xml:space="preserve">
+    <value>The Driver Does Not Carry Driver License</value>
+  </data>
+  <data name="IssueDate" xml:space="preserve">
+    <value>Issue Date</value>
+  </data>
+  <data name="IsVechileTakenOutOfRoad" xml:space="preserve">
+    <value>Vehicle Is Roadworthy And Has Not Been Taken Out Of The Road</value>
+  </data>
+  <data name="LicenseCategory" xml:space="preserve">
+    <value>License Category</value>
+  </data>
+  <data name="LicenseNumber" xml:space="preserve">
+    <value>License Number</value>
+  </data>
+  <data name="LicenseSource" xml:space="preserve">
+    <value>License Source</value>
+  </data>
+  <data name="LockedItems" xml:space="preserve">
+    <value>Locked Items</value>
+  </data>
+  <data name="ManufactueYear" xml:space="preserve">
+    <value>Manufactue Year</value>
+  </data>
+  <data name="MobileNumber" xml:space="preserve">
+    <value>Mobile Number</value>
+  </data>
+  <data name="ModificationType" xml:space="preserve">
+    <value>Modification Type</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Nationality" xml:space="preserve">
+    <value>Nationality</value>
+  </data>
+  <data name="NewExternalRequests" xml:space="preserve">
+    <value>New External Request</value>
+  </data>
+  <data name="NewValue" xml:space="preserve">
+    <value>New Value</value>
+  </data>
+  <data name="NorthernCoordinates" xml:space="preserve">
+    <value>Northern Coordinates</value>
+  </data>
+  <data name="Notifier" xml:space="preserve">
+    <value>Notifier</value>
+  </data>
+  <data name="NotifierName" xml:space="preserve">
+    <value>Notifier Name</value>
+  </data>
+  <data name="NotUploaded" xml:space="preserve">
+    <value>Not Uploaded</value>
+  </data>
+  <data name="Numbers" xml:space="preserve">
+    <value>Numbers</value>
+  </data>
+  <data name="Object" xml:space="preserve">
+    <value>Object</value>
+  </data>
+  <data name="Objects" xml:space="preserve">
+    <value>Objects</value>
+  </data>
+  <data name="OldValue" xml:space="preserve">
+    <value>Old Value</value>
+  </data>
+  <data name="Organization" xml:space="preserve">
+    <value>Organization</value>
+  </data>
+  <data name="OrganizationOthersDescription" xml:space="preserve">
+    <value>Organization Others Description</value>
+  </data>
+  <data name="Ownername" xml:space="preserve">
+    <value>Owner name</value>
+  </data>
+  <data name="OwnerTrafficcode" xml:space="preserve">
+    <value>Owner Traffic code</value>
+  </data>
+  <data name="Pendingforapproval" xml:space="preserve">
+    <value>My Tasks</value>
+  </data>
+  <data name="PendingReports" xml:space="preserve">
+    <value>Pending Reports</value>
+  </data>
+  <data name="Person" xml:space="preserve">
+    <value>Person</value>
+  </data>
+  <data name="PersonName" xml:space="preserve">
+    <value>Person Name</value>
+  </data>
+  <data name="PlateCategory" xml:space="preserve">
+    <value>Plate Category</value>
+  </data>
+  <data name="PlateColor" xml:space="preserve">
+    <value>Plate Color</value>
+  </data>
+  <data name="PlateNumber" xml:space="preserve">
+    <value>Plate Number</value>
+  </data>
+  <data name="PlateSource" xml:space="preserve">
+    <value>Plate Source</value>
+  </data>
+  <data name="PlateType" xml:space="preserve">
+    <value>Plate Type</value>
+  </data>
+  <data name="PoliceApproval_CheckboxTxt" xml:space="preserve">
+    <value>Police Approval Signing</value>
+  </data>
+  <data name="PoliceApproval_Titel" xml:space="preserve">
+    <value>Police Approval</value>
+  </data>
+  <data name="PoliceApproval_Txt" xml:space="preserve">
+    <value>To use the special incidents office</value>
+  </data>
+  <data name="PrivateDamagedObjects" xml:space="preserve">
+    <value>Private Damaged Objects</value>
+  </data>
+  <data name="PublicDamagedObjects" xml:space="preserve">
+    <value>Public Damaged Objects</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="ReasonOfAccident" xml:space="preserve">
+    <value>Reason Of Accident</value>
+  </data>
+  <data name="ReasonOfAccidentComment" xml:space="preserve">
+    <value>Reason Of Accident Comment</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="rejectedReason" xml:space="preserve">
+    <value>Rejected Reason</value>
+  </data>
+  <data name="RelatedDocuments" xml:space="preserve">
+    <value>Related Documents</value>
+  </data>
+  <data name="RelatedLinks" xml:space="preserve">
+    <value>Related Links</value>
+  </data>
+  <data name="ReportADPStatus" xml:space="preserve">
+    <value>Report ADP Status</value>
+  </data>
+  <data name="ReportDate" xml:space="preserve">
+    <value>Report Date</value>
+  </data>
+  <data name="ReportNumber" xml:space="preserve">
+    <value>Report Number</value>
+  </data>
+  <data name="ReportStatus" xml:space="preserve">
+    <value>Report Status</value>
+  </data>
+  <data name="ReportTime" xml:space="preserve">
+    <value>Report Time</value>
+  </data>
+  <data name="ReportType" xml:space="preserve">
+    <value>Report Type</value>
+  </data>
+  <data name="RequestDate" xml:space="preserve">
+    <value>Request Date</value>
+  </data>
+  <data name="RequestDateFrom" xml:space="preserve">
+    <value>Request Date From</value>
+  </data>
+  <data name="RequestDateTo" xml:space="preserve">
+    <value>Request Date To</value>
+  </data>
+  <data name="RequestDetails" xml:space="preserve">
+    <value>Request Details</value>
+  </data>
+  <data name="RequestNumber" xml:space="preserve">
+    <value>Request Number</value>
+  </data>
+  <data name="RequestSource" xml:space="preserve">
+    <value>Request Source</value>
+  </data>
+  <data name="RequestType" xml:space="preserve">
+    <value>Request Type</value>
+  </data>
+  <data name="ResponsibleRole" xml:space="preserve">
+    <value>Responsible Role</value>
+  </data>
+  <data name="Roads" xml:space="preserve">
+    <value>Roads</value>
+  </data>
+  <data name="RoadSpeed" xml:space="preserve">
+    <value>Road Speed</value>
+  </data>
+  <data name="RoadSurface" xml:space="preserve">
+    <value>Road Surface</value>
+  </data>
+  <data name="RoleName" xml:space="preserve">
+    <value>Role Name</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SaveReport" xml:space="preserve">
+    <value>Save Report</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Sector" xml:space="preserve">
+    <value>Sector</value>
+  </data>
+  <data name="ServiceData" xml:space="preserve">
+    <value>Service Data</value>
+  </data>
+  <data name="ServiceName" xml:space="preserve">
+    <value>Service Name</value>
+  </data>
+  <data name="ServiceNumber" xml:space="preserve">
+    <value>Service Number</value>
+  </data>
+  <data name="ServicesNumber" xml:space="preserve">
+    <value>Services Number</value>
+  </data>
+  <data name="ServicesType" xml:space="preserve">
+    <value>Service Type</value>
+  </data>
+  <data name="ServiceTime" xml:space="preserve">
+    <value>Service Time</value>
+  </data>
+  <data name="Signs" xml:space="preserve">
+    <value>Signs</value>
+  </data>
+  <data name="SMS" xml:space="preserve">
+    <value>SMS</value>
+  </data>
+  <data name="StaffCode" xml:space="preserve">
+    <value>Staff Code</value>
+  </data>
+  <data name="StateDescription" xml:space="preserve">
+    <value>State Description</value>
+  </data>
+  <data name="StateName" xml:space="preserve">
+    <value>State Name</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="StatusPage" xml:space="preserve">
+    <value>Status Page</value>
+  </data>
+  <data name="Street" xml:space="preserve">
+    <value>Street</value>
+  </data>
+  <data name="SummaryPage" xml:space="preserve">
+    <value>Summary Page</value>
+  </data>
+  <data name="TEResponsibility" xml:space="preserve">
+    <value>Traffic Expert Responsibility</value>
+  </data>
+  <data name="Testimony" xml:space="preserve">
+    <value>Testimony</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>Report Date To</value>
+  </data>
+  <data name="TrafficCode" xml:space="preserve">
+    <value>TrafficCode</value>
+  </data>
+  <data name="TrafficCodeList" xml:space="preserve">
+    <value>Traffic Code List</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>Transfer</value>
+  </data>
+  <data name="TransferedReports" xml:space="preserve">
+    <value>Transfered Reports</value>
+  </data>
+  <data name="TransferedRequest" xml:space="preserve">
+    <value>Transfered Services</value>
+  </data>
+  <data name="TypeOfLockedItem" xml:space="preserve">
+    <value>Type Of Item</value>
+  </data>
+  <data name="UnifiedNumber" xml:space="preserve">
+    <value>Unified Number</value>
+  </data>
+  <data name="UpdateState" xml:space="preserve">
+    <value>Update State</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Uploaded</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="validationErrorMessages" xml:space="preserve">
+    <value>The following mandatory field(s) have been missed in the ARC Report. Click Close to continue editing.</value>
+  </data>
+  <data name="VehicleBrand" xml:space="preserve">
+    <value>Vehicle Brand</value>
+  </data>
+  <data name="VehicleCategory" xml:space="preserve">
+    <value>Vehicle Category</value>
+  </data>
+  <data name="VehicleColor" xml:space="preserve">
+    <value>Vehicle Color</value>
+  </data>
+  <data name="VehicleDesc" xml:space="preserve">
+    <value>Vehicle Description</value>
+  </data>
+  <data name="VehicleDriverDetails" xml:space="preserve">
+    <value>Vehicles and Drivers Details</value>
+  </data>
+  <data name="VehicleModel" xml:space="preserve">
+    <value>Vehicle Model</value>
+  </data>
+  <data name="VehicleRole" xml:space="preserve">
+    <value>Role in Accident</value>
+  </data>
+  <data name="Vehicles" xml:space="preserve">
+    <value>Vehicles Data</value>
+  </data>
+  <data name="VehicleStatus" xml:space="preserve">
+    <value>Vehicle Status</value>
+  </data>
+  <data name="VehiclesWithoutplatenumber" xml:space="preserve">
+    <value>Vehicle Without plate number</value>
+  </data>
+  <data name="VehicleType" xml:space="preserve">
+    <value>Vehicle Type</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="ViewHistory" xml:space="preserve">
+    <value>View History</value>
+  </data>
+  <data name="Weather" xml:space="preserve">
+    <value>Weather</value>
+  </data>
+  <data name="WeightEmpty" xml:space="preserve">
+    <value>Weight Empty</value>
+  </data>
+  <data name="WeightNonEmpty" xml:space="preserve">
+    <value>Weight Non Empty</value>
+  </data>
+  <data name="Witnesses" xml:space="preserve">
+    <value>Witnesses</value>
+  </data>
+  <data name="TransferDate" xml:space="preserve">
+    <value>Transfer Date</value>
+  </data>
+  <data name="TransferedBy" xml:space="preserve">
+    <value>Transfered By</value>
+  </data>
+  <data name="TransferedReason" xml:space="preserve">
+    <value>Transfer Reason</value>
+  </data>
+  <data name="VehiclesIcon" xml:space="preserve">
+    <value>Vehicles Icon</value>
+  </data>
+  <data name="Reupload" xml:space="preserve">
+    <value>Re Upload Report</value>
+  </data>
+  <data name="AccidentDetails" xml:space="preserve">
+    <value>Accident Details</value>
+  </data>
+  <data name="Area" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="ControlCenter" xml:space="preserve">
+    <value>Control Center</value>
+  </data>
+  <data name="FromIncident" xml:space="preserve">
+    <value>Incident Data From</value>
+  </data>
+  <data name="Incidentcategory" xml:space="preserve">
+    <value>Incident category</value>
+  </data>
+  <data name="Incidentlocation" xml:space="preserve">
+    <value>Incident location</value>
+  </data>
+  <data name="Incidenttype" xml:space="preserve">
+    <value>Incident type</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="ReportDetails" xml:space="preserve">
+    <value>Report Details</value>
+  </data>
+  <data name="ToIncident" xml:space="preserve">
+    <value>Incident Data To</value>
+  </data>
+  <data name="CallerTakerName" xml:space="preserve">
+    <value>Caller Taker Name</value>
+  </data>
+  <data name="DispatcherName" xml:space="preserve">
+    <value>Dispatcher Name</value>
+  </data>
+  <data name="IncidentDate" xml:space="preserve">
+    <value>Incident Date</value>
+  </data>
+  <data name="IncView" xml:space="preserve">
+    <value>Incident View</value>
+  </data>
+  <data name="TrafficExpertName" xml:space="preserve">
+    <value>Traffic Expert Name</value>
+  </data>
+  <data name="AdpDate" xml:space="preserve">
+    <value>ADP Date</value>
+  </data>
+  <data name="AdpNumber" xml:space="preserve">
+    <value>ADP Number</value>
+  </data>
+  <data name="By" xml:space="preserve">
+    <value>By</value>
+  </data>
+  <data name="CloseReason" xml:space="preserve">
+    <value>Close Reason</value>
+  </data>
+  <data name="CodeNumber" xml:space="preserve">
+    <value>Patrol Code Number</value>
+  </data>
+  <data name="ConversionLogs" xml:space="preserve">
+    <value>Conversion Logs</value>
+  </data>
+  <data name="DelayReason" xml:space="preserve">
+    <value>Delay Reason</value>
+  </data>
+  <data name="IncidentAddress" xml:space="preserve">
+    <value>Incident Address</value>
+  </data>
+  <data name="IncidentDateTime" xml:space="preserve">
+    <value>Incident Date Time</value>
+  </data>
+  <data name="IncidentDescription" xml:space="preserve">
+    <value>Incident Description</value>
+  </data>
+  <data name="IncidentLogList" xml:space="preserve">
+    <value>Incident Log List</value>
+  </data>
+  <data name="LandMark" xml:space="preserve">
+    <value>Incident LandMark</value>
+  </data>
+  <data name="PatrolDispatcherName" xml:space="preserve">
+    <value>Patrol Dispatcher Name</value>
+  </data>
+  <data name="PatrolList" xml:space="preserve">
+    <value>Patrol List</value>
+  </data>
+  <data name="PatrolStatusTime" xml:space="preserve">
+    <value>Patrol Status Time</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Incident Source</value>
+  </data>
+  <data name="SupporterList" xml:space="preserve">
+    <value>Supporter List</value>
+  </data>
+  <data name="TimeTaken" xml:space="preserve">
+    <value>Time Taken</value>
+  </data>
+  <data name="NewReports" xml:space="preserve">
+    <value>New Reports</value>
+  </data>
+  <data name="ReportADPNumber" xml:space="preserve">
+    <value>Report ADP Number</value>
+  </data>
+  <data name="ADPReportNumber" xml:space="preserve">
+    <value>ADP Report Number</value>
+  </data>
+  <data name="ModifiedDate" xml:space="preserve">
+    <value>Modified Date</value>
+  </data>
+  <data name="ReportYear" xml:space="preserve">
+    <value>Report Year</value>
+  </data>
+  <data name="RetryCount" xml:space="preserve">
+    <value>Retry Count</value>
+  </data>
+  <data name="SystemCode" xml:space="preserve">
+    <value>System Code</value>
+  </data>
+  <data name="UploadedMethod" xml:space="preserve">
+    <value>Uploaded Method</value>
+  </data>
+  <data name="UploadedReport" xml:space="preserve">
+    <value>Uploaded Report</value>
+  </data>
+  <data name="IntersectionComment" xml:space="preserve">
+    <value>Intersection Comment</value>
+  </data>
+  <data name="Newupload" xml:space="preserve">
+    <value>Upload Report</value>
+  </data>
+  <data name="ViewReq" xml:space="preserve">
+    <value>View Request</value>
+  </data>
+  <data name="VehicleStatusComment" xml:space="preserve">
+    <value>Vehicle Status Comment</value>
+  </data>
+  <data name="Arrival1DelayReason" xml:space="preserve">
+    <value>Arrival1 Delay Reason</value>
+  </data>
+  <data name="Arrival2Reason" xml:space="preserve">
+    <value>Arrival2 Reason</value>
+  </data>
+  <data name="AssginPatrolDelayReason" xml:space="preserve">
+    <value>Assgin Patrol Delay Reason</value>
+  </data>
+  <data name="EndARCDelayReason" xml:space="preserve">
+    <value>End ARC Delay Reason</value>
+  </data>
+  <data name="PoliceARCReports" xml:space="preserve">
+    <value>Police ARC Reports</value>
+  </data>
+  <data name="Ambulancedate" xml:space="preserve">
+    <value>Actual date of moving injured people</value>
+  </data>
+  <data name="Ambulanceisrequested" xml:space="preserve">
+    <value>Ambulance Is Requested</value>
+  </data>
+  <data name="AmbulanceNames" xml:space="preserve">
+    <value>Names of injured people</value>
+  </data>
+  <data name="Emp" xml:space="preserve">
+    <value>Employee Name</value>
+  </data>
+  <data name="SelectedYear" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="DateFilter" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="CurrentDay" xml:space="preserve">
+    <value>Today</value>
+  </data>
+  <data name="CurrentMonth" xml:space="preserve">
+    <value>Current Month</value>
+  </data>
+  <data name="CurrentWeek" xml:space="preserve">
+    <value>Current Week</value>
+  </data>
+  <data name="Yesterday" xml:space="preserve">
+    <value>Yesterday</value>
+  </data>
+  <data name="FromToDate" xml:space="preserve">
+    <value>From/To Date</value>
+  </data>
+  <data name="Patrol" xml:space="preserve">
+    <value>Patrol</value>
+  </data>
+  <data name="IncludeInjuries" xml:space="preserve">
+    <value>Include Injuries</value>
+  </data>
+  <data name="UnderProcess" xml:space="preserve">
+    <value>Under Process</value>
+  </data>
+  <data name="BigAccidentReport" xml:space="preserve">
+    <value>Big Accident Report</value>
+  </data>
+  <data name="PoliceReport" xml:space="preserve">
+    <value>Police Report</value>
+  </data>
+  <data name="TechSupportReport" xml:space="preserve">
+    <value>Tech Support Report</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="GeneralPoliceReport" xml:space="preserve">
+    <value>General Police Report</value>
+  </data>
+  <data name="MobileNumberWithoutCode" xml:space="preserve">
+    <value>Mobile Number (You should add country code if it was not exist)</value>
+  </data>
+  <data name="RelatedCustomerDocument" xml:space="preserve">
+    <value>Customer Documents</value>
+  </data>
+  <data name="ObjectionTitle" xml:space="preserve">
+    <value>Saaed e-Services</value>
+  </data>
+  <data name="ClientCommunication" xml:space="preserve">
+    <value>Client Communication</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="SMSValidation" xml:space="preserve">
+    <value>Please, Enter mobile number and message</value>
+  </data>
+  <data name="EservicesRequestNumber" xml:space="preserve">
+    <value>E-Services Request Number</value>
+  </data>
+  <data name="FineNumber" xml:space="preserve">
+    <value>Fine Number</value>
+  </data>
+  <data name="ConsentCreateor" xml:space="preserve">
+    <value>Consent Createor</value>
+  </data>
+  <data name="ConsentIncidentNumber" xml:space="preserve">
+    <value>Consent Incident Number</value>
+  </data>
+  <data name="Description3" xml:space="preserve">
+    <value>Consent incident description</value>
+  </data>
+  <data name="RoleInAccident" xml:space="preserve">
+    <value>Role In Accident</value>
+  </data>
+  <data name="SaaedIncidentNumber" xml:space="preserve">
+    <value>Saaed Incident Number</value>
+  </data>
+  <data name="VehicleType2" xml:space="preserve">
+    <value>Vehicle Type</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>test</value>
+  </data>
+  <data name="PoliceDepartment" xml:space="preserve">
+    <value>Police Department</value>
+  </data>
+  <data name="CancelationReason" xml:space="preserve">
+    <value>Cancelation Reason</value>
+  </data>
+  <data name="PoliceNumber" xml:space="preserve">
+    <value>Police Number</value>
+  </data>
+  <data name="LinkedRequest" xml:space="preserve">
+    <value>Linked Request</value>
+  </data>
+  <data name="AmbulanceName" xml:space="preserve">
+    <value>Ambulance Name</value>
+  </data>
+  <data name="ServiceType" xml:space="preserve">
+    <value>Change Type</value>
+  </data>
+  <data name="ShowCodeDetails" xml:space="preserve">
+    <value>Show Code Details</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>To Date</value>
+  </data>
+  <data name="PaiedStatus" xml:space="preserve">
+    <value>Paied Status</value>
+  </data>
+  <data name="RequestAdress" xml:space="preserve">
+    <value>Request Adress</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>From Date </value>
+  </data>
+  <data name="ReportSearch" xml:space="preserve">
+    <value>Search For report</value>
+  </data>
+  <data name="EmailAddressesTitle" xml:space="preserve">
+    <value>Email Addresses</value>
+  </data>
+  <data name="VehicalModels" xml:space="preserve">
+    <value>Vehical Models</value>
+  </data>
+  <data name="OtherDetails" xml:space="preserve">
+    <value>Other Details</value>
+  </data>
+  <data name="SearchForReport" xml:space="preserve">
+    <value>Search by vehicle and driver data</value>
+  </data>
+  <data name="ReportCode" xml:space="preserve">
+    <value>Report Code</value>
+  </data>
+  <data name="SketchedAccidentPersonName" xml:space="preserve">
+    <value>Sketched Accident Person Name</value>
+  </data>
+  <data name="DirectPayment" xml:space="preserve">
+    <value>Direct Payment</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="SendDirectPaymentLink" xml:space="preserve">
+    <value>Send Direct Payment Link</value>
+  </data>
+  <data name="DirectPaymentMessage" xml:space="preserve">
+    <value>The link will be sent to @Name on the phone number @PhoneNumber</value>
+  </data>
+  <data name="DirectPayReason" xml:space="preserve">
+    <value>Reason For Sending The Link</value>
+  </data>
+  <data name="Pay" xml:space="preserve">
+    <value>Payment Date</value>
+  </data>
+  <data name="PayFrom" xml:space="preserve">
+    <value>Payment Status Date From</value>
+  </data>
+  <data name="PaySMS" xml:space="preserve">
+    <value>Payment SMS Date</value>
+  </data>
+  <data name="PaySMSFrom" xml:space="preserve">
+    <value>Payment SMS Date From </value>
+  </data>
+  <data name="PaySMSTo" xml:space="preserve">
+    <value>Payment SMS Date To</value>
+  </data>
+  <data name="PayStatus" xml:space="preserve">
+    <value>Payment Status</value>
+  </data>
+  <data name="PayTo" xml:space="preserve">
+    <value>Payment Status Date To</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="DetaileDirectPaymentReport" xml:space="preserve">
+    <value>Detailed Direct Payment Report</value>
+  </data>
+  <data name="FinancialInquiryReportList" xml:space="preserve">
+    <value>Financial Inquiry Report</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Not Paid</value>
+  </data>
+  <data name="AdpInquiryResult" xml:space="preserve">
+    <value>The status of the violation was inquired by the police is</value>
+  </data>
+  <data name="ErrorOccurred" xml:space="preserve">
+    <value>an error occurred</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Not Paid</value>
+  </data>
+  <data name="Paid" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Saved</value>
+  </data>
+  <data name="PaymentInquiryDetails" xml:space="preserve">
+    <value>Payment Inquiry Details</value>
+  </data>
+  <data name="ClickHere" xml:space="preserve">
+    <value>For Invoice Click Here</value>
+  </data>
+  <data name="ErrorAdpTitle" xml:space="preserve">
+    <value>Upload Report Error message</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="ReportNew" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="ReportUnuploaded" xml:space="preserve">
+    <value>Unuploaded</value>
+  </data>
+  <data name="ReportUploaded" xml:space="preserve">
+    <value>Uploaded</value>
+  </data>
+  <data name="RecalculationDetails" xml:space="preserve">
+    <value>Recalculation Request Details</value>
+  </data>
+  <data name="EmployeeDetails" xml:space="preserve">
+    <value>Recalculation Request Details</value>
+  </data>
+  <data name="EmployeeName" xml:space="preserve">
+    <value>الرقم الوظيفي</value>
+  </data>
+  <data name="UserNumber" xml:space="preserve">
+    <value>User Number</value>
+  </data>
+  <data name="ViewDetails" xml:space="preserve">
+    <value>View Details</value>
+  </data>
+  <data name="RequestReason" xml:space="preserve">
+    <value>  Request Reason </value>
+  </data>
+  <data name="RecalculationList" xml:space="preserve">
+    <value>Fee Recalculation Request List</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="UploadedRejected" xml:space="preserve">
+    <value>Uploaded Rejected</value>
+  </data>
+  <data name="UploadedSuccess" xml:space="preserve">
+    <value>Uploaded Success</value>
+  </data>
+  <data name="RequestCreatedBy" xml:space="preserve">
+    <value>Request Created By</value>
+  </data>
+  <data name="ReportDateTime" xml:space="preserve">
+    <value>Report Date</value>
+  </data>
+  <data name="RequestDateTime" xml:space="preserve">
+    <value>Request Date</value>
+  </data>
+  <data name="ViewReport" xml:space="preserve">
+    <value>View Report</value>
+  </data>
+  <data name="ViewRequest" xml:space="preserve">
+    <value>View Request</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="CreateRecalculationRequest" xml:space="preserve">
+    <value>Create Fee Recalculation Request</value>
+  </data>
+  <data name="RequestStatus" xml:space="preserve">
+    <value>Request Status</value>
+  </data>
+  <data name="ApprovedBy" xml:space="preserve">
+    <value>Approved By</value>
+  </data>
+  <data name="ApprovedDateTime" xml:space="preserve">
+    <value>Approved DateTime</value>
+  </data>
+  <data name="ApprovedModification" xml:space="preserve">
+    <value>ApprovedModifications</value>
+  </data>
+  <data name="UploadCreatedDateTime" xml:space="preserve">
+    <value>Upload DateTime</value>
+  </data>
+  <data name="RecalculationExcute" xml:space="preserve">
+    <value>Recalculation Excute</value>
+  </data>
+  <data name="AttachmentsDetails" xml:space="preserve">
+    <value>Attachments Details</value>
+  </data>
+  <data name="RecalculationRequestDetails" xml:space="preserve">
+    <value>ARecalculation Request Details</value>
+  </data>
+  <data name="RecalculationRequest" xml:space="preserve">
+    <value>Recalculation Request</value>
+  </data>
+  <data name="UploadPoliceReport" xml:space="preserve">
+    <value>Upload Police Report</value>
+  </data>
+  <data name="RecalculationRequestTypeCommect" xml:space="preserve">
+    <value>Enter requestReason</value>
+  </data>
+  <data name="ViewStatus" xml:space="preserve">
+    <value>View Status</value>
+  </data>
+  <data name="CurrentDepartment" xml:space="preserve">
+    <value>Current Department</value>
+  </data>
+  <data name="IsRequestClosed" xml:space="preserve">
+    <value>Is Request Closed?</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="CopartPortal" xml:space="preserve">
+    <value>Copart Portal</value>
+  </data>
+  <data name="VehicleDataInquiry" xml:space="preserve">
+    <value>Vehicle Data</value>
+  </data>
+  <data name="RoadAssistPortal" xml:space="preserve">
+    <value>Saaed Auto Services Portal</value>
+  </data>
+  <data name="RepairServicePortal" xml:space="preserve">
+    <value>Vehicle Repair Service</value>
+  </data>
+  <data name="MobileRequests" xml:space="preserve">
+    <value>Mobile Requests</value>
+  </data>
+  <data name="MobileRequests_Title" xml:space="preserve">
+    <value>Mobile Requests</value>
+  </data>
+  <data name="MobileRequests_ReportDateFrom" xml:space="preserve">
+    <value>Report Date From</value>
+  </data>
+  <data name="MobileRequests_ReportDateTo" xml:space="preserve">
+    <value>Report Date To</value>
+  </data>
+  <data name="MobileRequests_RequestDateFrom" xml:space="preserve">
+    <value>Request Date From</value>
+  </data>
+  <data name="MobileRequests_RequestDateTo" xml:space="preserve">
+    <value>Request Date To</value>
+  </data>
+  <data name="MobileRequests_ReportStatus" xml:space="preserve">
+    <value>Report Status</value>
+  </data>
+  <data name="MobileRequests_ReportStatus_Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="MobileRequests_ReportStatus_Preliminary" xml:space="preserve">
+    <value>Preliminary (Sketch)</value>
+  </data>
+  <data name="MobileRequests_ReportStatus_InProgress" xml:space="preserve">
+    <value>In Progress</value>
+  </data>
+  <data name="MobileRequests_ReportStatus_Canceled" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="MobileRequests_ReportStatus_ActiveTemp" xml:space="preserve">
+    <value>Active - Temporary</value>
+  </data>
+  <data name="MobileRequests_ReportStatus_PreliminaryTemp" xml:space="preserve">
+    <value>Preliminary (Sketch) - Temporary</value>
+  </data>
+  <data name="MobileRequests_ReportStatus_InProgressTemp" xml:space="preserve">
+    <value>In Progress - Temporary</value>
+  </data>
+  <data name="MobileRequests_ReportStatus_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="MobileRequests_Emirate_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="MobileRequests_Emirate_AbuDhabi" xml:space="preserve">
+    <value>Abu Dhabi</value>
+  </data>
+  <data name="MobileRequests_Emirate_Dubai" xml:space="preserve">
+    <value>Dubai</value>
+  </data>
+  <data name="MobileRequests_Emirate_Sharjah" xml:space="preserve">
+    <value>Sharjah</value>
+  </data>
+  <data name="MobileRequests_Emirate_Ajman" xml:space="preserve">
+    <value>Ajman</value>
+  </data>
+  <data name="MobileRequests_Emirate_UmmAlQuawain" xml:space="preserve">
+    <value>Umm Al Quawain</value>
+  </data>
+  <data name="MobileRequests_Emirate_RasAlkhaimah" xml:space="preserve">
+    <value>Ras al Khaimah</value>
+  </data>
+  <data name="MobileRequests_Emirate_Fujairah" xml:space="preserve">
+    <value>Fujairah</value>
+  </data>
+  <data name="MobileRequests_Grid_RequestNumber" xml:space="preserve">
+    <value>Request Number</value>
+  </data>
+  <data name="MobileRequests_Grid_ReportNumber" xml:space="preserve">
+    <value>Report Number</value>
+  </data>
+  <data name="MobileRequests_Grid_ReportDate" xml:space="preserve">
+    <value>Report Date</value>
+  </data>
+  <data name="MobileRequests_Grid_RequestDate" xml:space="preserve">
+    <value>Request Date</value>
+  </data>
+  <data name="MobileRequests_Grid_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="MobileRequests_Grid_PhoneNumber" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="MobileRequests_Grid_Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="MobileRequests_Grid_Status" xml:space="preserve">
+    <value>Planning Request Status</value>
+  </data>
+  <data name="MobileRequests_Grid_PlanAccident" xml:space="preserve">
+    <value>Plan Accident</value>
+  </data>
+  <data name="MobileRequests_Section_ResultsHeader" xml:space="preserve">
+    <value>Search Results</value>
+  </data>
+  <data name="MobileRequests_ResetSearchForm" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="MobileRequests_Grid_ReportStatus" xml:space="preserve">
+    <value>Report Status</value>
+  </data>
+  <data name="MobileRequests_RequestStatus_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="MobileRequests_RequestStatus" xml:space="preserve">
+    <value>Planning Request Status</value>
+  </data>
+  <data name="MobileRequests_RequestStatus_New" xml:space="preserve">
+    <value>New Request</value>
+  </data>
+  <data name="MobileRequests_RequestStatus_InProgress" xml:space="preserve">
+    <value>In Progress</value>
+  </data>
+  <data name="MobileRequests_RequestStatus_Completed" xml:space="preserve">
+    <value>Planning Completed</value>
+  </data>
+  <data name="TransferTime" xml:space="preserve">
+    <value>Transfer Date</value>
+  </data>
+</root>

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Application.DTOs.Lookup;
 using Domain.Entities;
 using Application.Abstractions;
+using Saaed360Modern.Contracts.Wcf;
 
 namespace Api.Controllers;
 
@@ -93,11 +94,12 @@ public class LookupController : ControllerBase
     {
         try
         {
-            var sectors = await _lookupService.GetSectorByAreaId(areaId, personId);
-            if (sectors == null || !sectors.Any())
-            {
-                return NotFound(new { message = "No sectors found for the specified area" });
-            }
+            // Corrected method call to match the available method in ILookupService
+            var sectors = await _lookupService.GetSectorsAndPatrolsAsync(areaId, personId);
+            //if (sectors == null || !sectors.Any())
+            //{
+            //    return NotFound(new { message = "No sectors found for the specified area" });
+            //}
             return Ok(sectors);
         }
         catch (Exception ex)

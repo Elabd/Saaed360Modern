@@ -1,3 +1,5 @@
+using Saaed360Modern.Contracts.Wcf;
+
 namespace Application.DTOs.Lookup;
 
 public class SectorAndPatrolDto

@@ -1,0 +1,1413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccidentNo" xml:space="preserve">
+    <value>رقم البلاغ</value>
+  </data>
+  <data name="AccidentReason" xml:space="preserve">
+    <value>كيفية حدوث الحادث</value>
+  </data>
+  <data name="AccidentReasonComment" xml:space="preserve">
+    <value>كيفية حدوث الحادث (اخرى)</value>
+  </data>
+  <data name="AccidentType" xml:space="preserve">
+    <value>نوع الحادث</value>
+  </data>
+  <data name="AccidentTypeComment" xml:space="preserve">
+    <value>نوع الحادث (اخرى)</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>الاجراء</value>
+  </data>
+  <data name="addComment" xml:space="preserve">
+    <value>اضف تعليق أو ملاحظة ثم اضغط على زر الادخال</value>
+  </data>
+  <data name="AddnewApprovelCycle" xml:space="preserve">
+    <value>إضافة جهه اعتماد</value>
+  </data>
+  <data name="AddnewNotifier" xml:space="preserve">
+    <value>اضافة مخطر جديد</value>
+  </data>
+  <data name="AddnewState" xml:space="preserve">
+    <value>اضافة مشعر</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="ApprovalCycle" xml:space="preserve">
+    <value>جهات الاعتماد</value>
+  </data>
+  <data name="ApprovalCycleName" xml:space="preserve">
+    <value>جهه الاعتماد</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>اعتماد بالموافقة</value>
+  </data>
+  <data name="Approvels" xml:space="preserve">
+    <value>جهات الاعتماد</value>
+  </data>
+  <data name="ARCReports" xml:space="preserve">
+    <value>البحث عن تقارير الحوادث</value>
+  </data>
+  <data name="Arrows" xml:space="preserve">
+    <value>الاسهم</value>
+  </data>
+  <data name="AssignDate" xml:space="preserve">
+    <value>تاريخ الاسناد</value>
+  </data>
+  <data name="BasicData" xml:space="preserve">
+    <value>بيانات الحادث الاساسية</value>
+  </data>
+  <data name="CallerName" xml:space="preserve">
+    <value>اسم المبلغ</value>
+  </data>
+  <data name="CallerNumber" xml:space="preserve">
+    <value>رقم المبلغ</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>الغاء</value>
+  </data>
+  <data name="Career" xml:space="preserve">
+    <value>المهنه</value>
+  </data>
+  <data name="ChassisNumber" xml:space="preserve">
+    <value>رقم القاعدة</value>
+  </data>
+  <data name="ChemicalMaterial" xml:space="preserve">
+    <value>مواد كيماوية</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>المدينة</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>مسح</value>
+  </data>
+  <data name="ClientApproval_CheckboxTxt" xml:space="preserve">
+    <value>اقرار توقيع العميل</value>
+  </data>
+  <data name="ClientApproval_Titel" xml:space="preserve">
+    <value>اقرار العميل</value>
+  </data>
+  <data name="ClientApproval_Txt1" xml:space="preserve">
+    <value>اقرار في حاله وقوع حادث ضد مجهول</value>
+  </data>
+  <data name="ClientApproval_Txt2" xml:space="preserve">
+    <value>اقر انا الموقع ادناه بأن الحادث الذي وقع علي مركبتي ضد مجهول وجميع البيانات التي ادليت بها صحيحه وخلافا لذلك اتحمل كافه الاجراءات القانونيه التي تترتب عليه</value>
+  </data>
+  <data name="ClientApproval_Txt3" xml:space="preserve">
+    <value>Acknoledment,(Only Applicable in Case Of Unidentified Accident)</value>
+  </data>
+  <data name="ClientApproval_Txt4" xml:space="preserve">
+    <value>I, The Undersigned, Certify that the incident is against unidentified and all the Information given is correct, Otherwise I bear all legal related matters</value>
+  </data>
+  <data name="ClientData" xml:space="preserve">
+    <value>بيانات مقدم الطلب</value>
+  </data>
+  <data name="ClosedFrom" xml:space="preserve">
+    <value>مغلق بواسطة</value>
+  </data>
+  <data name="ClosedTransferedReports" xml:space="preserve">
+    <value>التقارير المحوله الى المركز المغلقة</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>الكود</value>
+  </data>
+  <data name="CollisionPoint" xml:space="preserve">
+    <value>نقطه التصادم</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>ملاحظات عامه على التقرير</value>
+  </data>
+  <data name="CommentDate" xml:space="preserve">
+    <value>تاريخ ووقت التعليق</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>التعليقات والملاحظات</value>
+  </data>
+  <data name="ConfiscationDocumentType" xml:space="preserve">
+    <value>المحجوزات</value>
+  </data>
+  <data name="ConfiscationLocation" xml:space="preserve">
+    <value>مكان المحجوزات</value>
+  </data>
+  <data name="ConfiscationStatus" xml:space="preserve">
+    <value>حاله المحجوزات</value>
+  </data>
+  <data name="ConvertedFrom" xml:space="preserve">
+    <value>محول من</value>
+  </data>
+  <data name="ConvertedTo" xml:space="preserve">
+    <value>القسم / المركز</value>
+  </data>
+  <data name="CountryOfOrigin" xml:space="preserve">
+    <value>بلد المركبة</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>انشئ بواسطة</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>تاريخ الانشاء</value>
+  </data>
+  <data name="CreateNewServices" xml:space="preserve">
+    <value>التقديم على طلب خدمة</value>
+  </data>
+  <data name="CreationDateTime" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="CrossingStreet" xml:space="preserve">
+    <value>الشارع المقاطع</value>
+  </data>
+  <data name="CurrentServices" xml:space="preserve">
+    <value>متابعة الطلب - طلبات تحت الاجراء</value>
+  </data>
+  <data name="DamagedObjectOthersDescription" xml:space="preserve">
+    <value>الشاخص (اخرى)</value>
+  </data>
+  <data name="DamagedObjects" xml:space="preserve">
+    <value>خسائر الممتلكات</value>
+  </data>
+  <data name="DamagedParts" xml:space="preserve">
+    <value>الاجزاء المتضرره</value>
+  </data>
+  <data name="DamagePartsDescription" xml:space="preserve">
+    <value>الاجزاء المتضرره (اخرى)</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>القسم المحول اليه</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>وصف الطلب</value>
+  </data>
+  <data name="Description2" xml:space="preserve">
+    <value>وصف الموقع</value>
+  </data>
+  <data name="DIcons" xml:space="preserve">
+    <value>المركبات</value>
+  </data>
+  <data name="Dob" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>الملف</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>مخطط الحادث</value>
+  </data>
+  <data name="DriverDrikingStatus" xml:space="preserve">
+    <value>حالة السكر</value>
+  </data>
+  <data name="Drivername" xml:space="preserve">
+    <value>اسم السائق</value>
+  </data>
+  <data name="Drivers" xml:space="preserve">
+    <value>بيانات السائق</value>
+  </data>
+  <data name="DriverStatus" xml:space="preserve">
+    <value>حالة السائق</value>
+  </data>
+  <data name="DriverTrafficcode" xml:space="preserve">
+    <value>الرمز المرورى للسائق</value>
+  </data>
+  <data name="EasternCoordinates" xml:space="preserve">
+    <value>الاحداثيات الشرقية</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="EducationLevel" xml:space="preserve">
+    <value>المستوى التعليمى</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>البريد الالكترونى</value>
+  </data>
+  <data name="Emirate" xml:space="preserve">
+    <value>الإمارة</value>
+  </data>
+  <data name="EngineNumber" xml:space="preserve">
+    <value>رقم المحرك</value>
+  </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>اسباب عدم الرفع</value>
+  </data>
+  <data name="EscapedStatus" xml:space="preserve">
+    <value>حاله الهروب</value>
+  </data>
+  <data name="ExistingExternalRequests" xml:space="preserve">
+    <value>الطلبات الخارجية المنتهية</value>
+  </data>
+  <data name="ExistingServices" xml:space="preserve">
+    <value>الطلبات المنتهيه</value>
+  </data>
+  <data name="ExpiryDate" xml:space="preserve">
+    <value>تاريخ الانتهاء</value>
+  </data>
+  <data name="ExternalRequests" xml:space="preserve">
+    <value>الطلبات الخارجية المقدمة من موقع ساعد</value>
+  </data>
+  <data name="FieldName" xml:space="preserve">
+    <value>الحقل المعدل </value>
+  </data>
+  <data name="FollowupSerivces" xml:space="preserve">
+    <value>متابعة طلبات الخدمات المقدمة </value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>تاريخ التقرير من</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>الجنس</value>
+  </data>
+  <data name="GeneralNotes" xml:space="preserve">
+    <value>ملاحظات عامة</value>
+  </data>
+  <data name="GlassColor" xml:space="preserve">
+    <value>لون الزجاج</value>
+  </data>
+  <data name="Groups" xml:space="preserve">
+    <value>المجموعات</value>
+  </data>
+  <data name="Images" xml:space="preserve">
+    <value>الصور</value>
+  </data>
+  <data name="IncidentArea" xml:space="preserve">
+    <value>منطقة البلاغ</value>
+  </data>
+  <data name="IncidentEmirate" xml:space="preserve">
+    <value>امارة البلاغ</value>
+  </data>
+  <data name="InitialPendingReports" xml:space="preserve">
+    <value>التقارير المبدئية - الكروكي</value>
+  </data>
+  <data name="InjuryLevel" xml:space="preserve">
+    <value>مستوى الضرر</value>
+  </data>
+  <data name="InjuryType" xml:space="preserve">
+    <value>نوع الضرر</value>
+  </data>
+  <data name="InsuranceCompany" xml:space="preserve">
+    <value>شركة التامين</value>
+  </data>
+  <data name="InsurancePolicyNumber" xml:space="preserve">
+    <value>رقم بوليصة التامين</value>
+  </data>
+  <data name="InsuranceType" xml:space="preserve">
+    <value>نوع التامين</value>
+  </data>
+  <data name="Intersection" xml:space="preserve">
+    <value>التقاطع</value>
+  </data>
+  <data name="IsHavingLicense" xml:space="preserve">
+    <value>السائق لا يحمل رخصة قيادة</value>
+  </data>
+  <data name="IssueDate" xml:space="preserve">
+    <value>تاريخ الاصدار</value>
+  </data>
+  <data name="IsVechileTakenOutOfRoad" xml:space="preserve">
+    <value>المركبه صالحة للسير و لم يتم اخراجها من الطريق</value>
+  </data>
+  <data name="LicenseCategory" xml:space="preserve">
+    <value>نوع الرخصة</value>
+  </data>
+  <data name="LicenseNumber" xml:space="preserve">
+    <value>رقم الرخصة</value>
+  </data>
+  <data name="LicenseSource" xml:space="preserve">
+    <value>مصدر الرخصة</value>
+  </data>
+  <data name="LockedItems" xml:space="preserve">
+    <value>المحجوزات</value>
+  </data>
+  <data name="ManufactueYear" xml:space="preserve">
+    <value>سنة الصنع</value>
+  </data>
+  <data name="MobileNumber" xml:space="preserve">
+    <value>الجوال</value>
+  </data>
+  <data name="ModificationType" xml:space="preserve">
+    <value>نوع التغيير</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="Nationality" xml:space="preserve">
+    <value>الجنسية</value>
+  </data>
+  <data name="NewExternalRequests" xml:space="preserve">
+    <value>الطلبات الخارجية الجديدة</value>
+  </data>
+  <data name="NewValue" xml:space="preserve">
+    <value>القيمة الجديدة</value>
+  </data>
+  <data name="NorthernCoordinates" xml:space="preserve">
+    <value>الاحداثيات الشمالية</value>
+  </data>
+  <data name="Notifier" xml:space="preserve">
+    <value>دور المشعر</value>
+  </data>
+  <data name="NotifierName" xml:space="preserve">
+    <value>اسم المشعر</value>
+  </data>
+  <data name="NotUploaded" xml:space="preserve">
+    <value>لم يتم الرفع</value>
+  </data>
+  <data name="Numbers" xml:space="preserve">
+    <value>الارقام</value>
+  </data>
+  <data name="Object" xml:space="preserve">
+    <value>شاخص</value>
+  </data>
+  <data name="Objects" xml:space="preserve">
+    <value>الشواخص</value>
+  </data>
+  <data name="OldValue" xml:space="preserve">
+    <value>القيمة القديمه</value>
+  </data>
+  <data name="Organization" xml:space="preserve">
+    <value>الجهة التابع لها</value>
+  </data>
+  <data name="OrganizationOthersDescription" xml:space="preserve">
+    <value>الجهه التابع لها (أخري)</value>
+  </data>
+  <data name="Ownername" xml:space="preserve">
+    <value>اسم المالك</value>
+  </data>
+  <data name="OwnerTrafficcode" xml:space="preserve">
+    <value>الرمز المرورى للمالك</value>
+  </data>
+  <data name="Pendingforapproval" xml:space="preserve">
+    <value>الطلبات المطلوب اعتمادها</value>
+  </data>
+  <data name="PendingReports" xml:space="preserve">
+    <value>التقارير المعلقة</value>
+  </data>
+  <data name="Person" xml:space="preserve">
+    <value>الشخص</value>
+  </data>
+  <data name="PersonName" xml:space="preserve">
+    <value>اسم الشخص</value>
+  </data>
+  <data name="PlateCategory" xml:space="preserve">
+    <value>نوع اللوحة</value>
+  </data>
+  <data name="PlateColor" xml:space="preserve">
+    <value>لون اللوحة</value>
+  </data>
+  <data name="PlateNumber" xml:space="preserve">
+    <value>رقم اللوحة</value>
+  </data>
+  <data name="PlateSource" xml:space="preserve">
+    <value>مصدر اللوحة</value>
+  </data>
+  <data name="PlateType" xml:space="preserve">
+    <value>فئة اللوحة</value>
+  </data>
+  <data name="PoliceApproval_CheckboxTxt" xml:space="preserve">
+    <value>اقرار باستلام البلاغ من قبل دوريه الشرطه</value>
+  </data>
+  <data name="PoliceApproval_Titel" xml:space="preserve">
+    <value>اقرار الشرطة</value>
+  </data>
+  <data name="PoliceApproval_Txt" xml:space="preserve">
+    <value>خاص لأستعمال مكتب الحوادث</value>
+  </data>
+  <data name="PrivateDamagedObjects" xml:space="preserve">
+    <value>ممتلكات خاصة</value>
+  </data>
+  <data name="PublicDamagedObjects" xml:space="preserve">
+    <value>ممتلكات عامة</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>سبب التعديل</value>
+  </data>
+  <data name="ReasonOfAccident" xml:space="preserve">
+    <value>أسباب الحادث</value>
+  </data>
+  <data name="ReasonOfAccidentComment" xml:space="preserve">
+    <value>أسباب الحادث (اخرى)</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>المنطقة</value>
+  </data>
+  <data name="rejectedReason" xml:space="preserve">
+    <value>سبب الرفض</value>
+  </data>
+  <data name="RelatedDocuments" xml:space="preserve">
+    <value>المرفقات</value>
+  </data>
+  <data name="RelatedLinks" xml:space="preserve">
+    <value>بقية الخدمات والتقارير</value>
+  </data>
+  <data name="ReportADPStatus" xml:space="preserve">
+    <value>حالة الرفع </value>
+  </data>
+  <data name="ReportDate" xml:space="preserve">
+    <value>تاريخ ووقت التقرير</value>
+  </data>
+  <data name="ReportNumber" xml:space="preserve">
+    <value>رقم التقرير</value>
+  </data>
+  <data name="ReportStatus" xml:space="preserve">
+    <value>حالة التقرير</value>
+  </data>
+  <data name="ReportTime" xml:space="preserve">
+    <value>وقت التقرير</value>
+  </data>
+  <data name="ReportType" xml:space="preserve">
+    <value>نوع التقرير</value>
+  </data>
+  <data name="RequestDate" xml:space="preserve">
+    <value>تاريخ الطلب</value>
+  </data>
+  <data name="RequestDateFrom" xml:space="preserve">
+    <value>تاريخ الطلب من</value>
+  </data>
+  <data name="RequestDateTo" xml:space="preserve">
+    <value>تاريخ الطلب الى</value>
+  </data>
+  <data name="RequestDetails" xml:space="preserve">
+    <value>تفاصيل الطلب</value>
+  </data>
+  <data name="RequestNumber" xml:space="preserve">
+    <value>رقم الطلب</value>
+  </data>
+  <data name="RequestSource" xml:space="preserve">
+    <value>مصدر الطلب</value>
+  </data>
+  <data name="RequestType" xml:space="preserve">
+    <value>نوع الطلب</value>
+  </data>
+  <data name="ResponsibleRole" xml:space="preserve">
+    <value>دور جهه الاعتماد</value>
+  </data>
+  <data name="Roads" xml:space="preserve">
+    <value>الطرق</value>
+  </data>
+  <data name="RoadSpeed" xml:space="preserve">
+    <value>سرعة الطريق</value>
+  </data>
+  <data name="RoadSurface" xml:space="preserve">
+    <value>سطح الطريق</value>
+  </data>
+  <data name="RoleName" xml:space="preserve">
+    <value>اسم الصلاحية</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="SaveReport" xml:space="preserve">
+    <value>حفظ التقرير</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="Sector" xml:space="preserve">
+    <value>القطاع</value>
+  </data>
+  <data name="ServiceData" xml:space="preserve">
+    <value>بيانات الطلب</value>
+  </data>
+  <data name="ServiceName" xml:space="preserve">
+    <value>اسم الخدمة</value>
+  </data>
+  <data name="ServiceNumber" xml:space="preserve">
+    <value>رقم الخدمة</value>
+  </data>
+  <data name="ServicesNumber" xml:space="preserve">
+    <value>رقم الطلب</value>
+  </data>
+  <data name="ServicesType" xml:space="preserve">
+    <value>نوع الطلب</value>
+  </data>
+  <data name="ServiceTime" xml:space="preserve">
+    <value>تاريخ الخدمة</value>
+  </data>
+  <data name="Signs" xml:space="preserve">
+    <value>علامات المرور</value>
+  </data>
+  <data name="SMS" xml:space="preserve">
+    <value>رسالة قصيرة</value>
+  </data>
+  <data name="StaffCode" xml:space="preserve">
+    <value>كود الموظف</value>
+  </data>
+  <data name="StateDescription" xml:space="preserve">
+    <value>وصف المرحلة</value>
+  </data>
+  <data name="StateName" xml:space="preserve">
+    <value>اسم المرحلة</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="StatusPage" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="Street" xml:space="preserve">
+    <value>الشارع</value>
+  </data>
+  <data name="SummaryPage" xml:space="preserve">
+    <value>ملخص التعديل </value>
+  </data>
+  <data name="TEResponsibility" xml:space="preserve">
+    <value>مسئولية خبير السير</value>
+  </data>
+  <data name="Testimony" xml:space="preserve">
+    <value>الشهادة</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>تاريخ التقرير الى</value>
+  </data>
+  <data name="TrafficCode" xml:space="preserve">
+    <value>الرمز المرورى</value>
+  </data>
+  <data name="TrafficCodeList" xml:space="preserve">
+    <value>قائمة الرمز المروري </value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>التحويل إلى المركز</value>
+  </data>
+  <data name="TransferDate" xml:space="preserve">
+    <value>تاريخ الارجاع</value>
+  </data>
+  <data name="TransferedBy" xml:space="preserve">
+    <value>تم الارجاع بواسطة</value>
+  </data>
+  <data name="TransferedReason" xml:space="preserve">
+    <value>سبب التحويل</value>
+  </data>
+  <data name="TransferedReports" xml:space="preserve">
+    <value>التقارير المحوله الى المركز</value>
+  </data>
+  <data name="TransferedRequest" xml:space="preserve">
+    <value>الطلبات المردوده</value>
+  </data>
+  <data name="TypeOfLockedItem" xml:space="preserve">
+    <value>المحجوزات</value>
+  </data>
+  <data name="UnifiedNumber" xml:space="preserve">
+    <value>الرقم الموحد</value>
+  </data>
+  <data name="UpdateState" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>رفع</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>تم الرفع</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="validationErrorMessages" xml:space="preserve">
+    <value>أن الحقل (الحقول) الإلزامي(ة) التالية تم تجاهلها في تقرير ARC. اضغط على إغلاق لمتابعة التعديل.</value>
+  </data>
+  <data name="VehicleBrand" xml:space="preserve">
+    <value>نوع المركبة</value>
+  </data>
+  <data name="VehicleCategory" xml:space="preserve">
+    <value>فئة المركبة</value>
+  </data>
+  <data name="VehicleColor" xml:space="preserve">
+    <value>لون المركبه</value>
+  </data>
+  <data name="VehicleDesc" xml:space="preserve">
+    <value>وصف المركبة</value>
+  </data>
+  <data name="VehicleDriverDetails" xml:space="preserve">
+    <value>بيانات المركبات و السائقين</value>
+  </data>
+  <data name="VehicleModel" xml:space="preserve">
+    <value>موديل المركبة</value>
+  </data>
+  <data name="VehicleRole" xml:space="preserve">
+    <value>الدور فى الحادث</value>
+  </data>
+  <data name="Vehicles" xml:space="preserve">
+    <value>بيانات المركبة</value>
+  </data>
+  <data name="VehiclesIcon" xml:space="preserve">
+    <value>المركبات</value>
+  </data>
+  <data name="VehicleStatus" xml:space="preserve">
+    <value>حالة المركبة</value>
+  </data>
+  <data name="VehiclesWithoutplatenumber" xml:space="preserve">
+    <value>المركبه بدون لوحة ارقام</value>
+  </data>
+  <data name="VehicleType" xml:space="preserve">
+    <value>صنف المركبة</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>عرض التقرير</value>
+  </data>
+  <data name="ViewHistory" xml:space="preserve">
+    <value>تاريخ الحقل </value>
+  </data>
+  <data name="Weather" xml:space="preserve">
+    <value>الطقس</value>
+  </data>
+  <data name="WeightEmpty" xml:space="preserve">
+    <value>الوزن فارغة</value>
+  </data>
+  <data name="WeightNonEmpty" xml:space="preserve">
+    <value>الوزن المحملة</value>
+  </data>
+  <data name="Witnesses" xml:space="preserve">
+    <value>الشهود</value>
+  </data>
+  <data name="Reupload" xml:space="preserve">
+    <value>اعادة رفع التقرير</value>
+  </data>
+  <data name="AccidentDetails" xml:space="preserve">
+    <value>تفاصيل الحادث</value>
+  </data>
+  <data name="Area" xml:space="preserve">
+    <value>المنطقة</value>
+  </data>
+  <data name="CallerTakerName" xml:space="preserve">
+    <value>اسم متلقى البلاغات</value>
+  </data>
+  <data name="ControlCenter" xml:space="preserve">
+    <value>مركز التحكم</value>
+  </data>
+  <data name="DispatcherName" xml:space="preserve">
+    <value>اسم قائد المنصة</value>
+  </data>
+  <data name="FromIncident" xml:space="preserve">
+    <value>تاريخ الحادث من</value>
+  </data>
+  <data name="Incidentcategory" xml:space="preserve">
+    <value>فئة الحادث</value>
+  </data>
+  <data name="IncidentDate" xml:space="preserve">
+    <value>تاريخ البلاغ</value>
+  </data>
+  <data name="Incidentlocation" xml:space="preserve">
+    <value>موقع الحادث</value>
+  </data>
+  <data name="Incidenttype" xml:space="preserve">
+    <value>نوع الحادث</value>
+  </data>
+  <data name="IncView" xml:space="preserve">
+    <value>عرض البلاغ</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>أولوية</value>
+  </data>
+  <data name="ReportDetails" xml:space="preserve">
+    <value>تفاصيل التقرير</value>
+  </data>
+  <data name="ToIncident" xml:space="preserve">
+    <value>تاريخ الحادث الى</value>
+  </data>
+  <data name="TrafficExpertName" xml:space="preserve">
+    <value>اسم خبير السير</value>
+  </data>
+  <data name="AdpDate" xml:space="preserve">
+    <value>تاريخ بلاغ الشرطة</value>
+  </data>
+  <data name="AdpNumber" xml:space="preserve">
+    <value>رقم بلاغ الشرطة</value>
+  </data>
+  <data name="By" xml:space="preserve">
+    <value>بواسطة</value>
+  </data>
+  <data name="CloseReason" xml:space="preserve">
+    <value>سبب اغلاق البلاغ</value>
+  </data>
+  <data name="CodeNumber" xml:space="preserve">
+    <value>رمز الدورية</value>
+  </data>
+  <data name="ConversionLogs" xml:space="preserve">
+    <value>التحويل للمركز</value>
+  </data>
+  <data name="DelayReason" xml:space="preserve">
+    <value>سبب التاخير</value>
+  </data>
+  <data name="IncidentAddress" xml:space="preserve">
+    <value>عنوان الحادث</value>
+  </data>
+  <data name="IncidentDateTime" xml:space="preserve">
+    <value>تاريخ و وقت البلاغ</value>
+  </data>
+  <data name="IncidentDescription" xml:space="preserve">
+    <value>تفاصيل البلاغ</value>
+  </data>
+  <data name="IncidentLogList" xml:space="preserve">
+    <value>سجل حاله البلاغ</value>
+  </data>
+  <data name="LandMark" xml:space="preserve">
+    <value>المعلم</value>
+  </data>
+  <data name="PatrolDispatcherName" xml:space="preserve">
+    <value>خبير السير</value>
+  </data>
+  <data name="PatrolList" xml:space="preserve">
+    <value>الدوريات المسندة</value>
+  </data>
+  <data name="PatrolStatusTime" xml:space="preserve">
+    <value>وقت المرحلة</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>مصدر البلاغ</value>
+  </data>
+  <data name="SupporterList" xml:space="preserve">
+    <value>الدعم المطلوب</value>
+  </data>
+  <data name="TimeTaken" xml:space="preserve">
+    <value>الوقت المستغرق</value>
+  </data>
+  <data name="NewReports" xml:space="preserve">
+    <value>تقرير جديد</value>
+  </data>
+  <data name="ReportADPNumber" xml:space="preserve">
+    <value>رقم التقرير على سيرفر الشرطه</value>
+  </data>
+  <data name="ADPReportNumber" xml:space="preserve">
+    <value>رقم التقرير على سيرفر الشرطه</value>
+  </data>
+  <data name="ModifiedDate" xml:space="preserve">
+    <value>تاريخ التعديل</value>
+  </data>
+  <data name="ReportYear" xml:space="preserve">
+    <value>سنة التقرير</value>
+  </data>
+  <data name="RetryCount" xml:space="preserve">
+    <value>عدد المحاولات</value>
+  </data>
+  <data name="SystemCode" xml:space="preserve">
+    <value>كود النظام</value>
+  </data>
+  <data name="UploadedMethod" xml:space="preserve">
+    <value>حدث التحميل</value>
+  </data>
+  <data name="UploadedReport" xml:space="preserve">
+    <value>تقرير رفع التقارير</value>
+  </data>
+  <data name="IntersectionComment" xml:space="preserve">
+    <value>التقاطع(اخرى)</value>
+  </data>
+  <data name="Newupload" xml:space="preserve">
+    <value>رفع التقرير</value>
+  </data>
+  <data name="ViewReq" xml:space="preserve">
+    <value>عرض الطلب</value>
+  </data>
+  <data name="VehicleStatusComment" xml:space="preserve">
+    <value>حالة المركبة(اخرى)</value>
+  </data>
+  <data name="Arrival1DelayReason" xml:space="preserve">
+    <value>سبب تأخير الوصول الاولى</value>
+  </data>
+  <data name="Arrival2Reason" xml:space="preserve">
+    <value>سبب الوصول التانى</value>
+  </data>
+  <data name="AssginPatrolDelayReason" xml:space="preserve">
+    <value>سبب تأخير الاسناد</value>
+  </data>
+  <data name="EndARCDelayReason" xml:space="preserve">
+    <value>سبب تأخير التخطيط</value>
+  </data>
+  <data name="PoliceARCReports" xml:space="preserve">
+    <value>البحث عن تقارير الحوادث (الشرطة)</value>
+  </data>
+  <data name="Ambulancedate" xml:space="preserve">
+    <value>التاريخ الفعلى لنقل المصابين</value>
+  </data>
+  <data name="Ambulanceisrequested" xml:space="preserve">
+    <value>نقل المصابين بواسطة الاسعاف</value>
+  </data>
+  <data name="AmbulanceNames" xml:space="preserve">
+    <value>اسماء المصابين الذين تم نفلهم بواسطة الاسعاف</value>
+  </data>
+  <data name="Emp" xml:space="preserve">
+    <value>اسم الموظف</value>
+  </data>
+  <data name="SelectedYear" xml:space="preserve">
+    <value>السنة</value>
+  </data>
+  <data name="DateFilter" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="CurrentDay" xml:space="preserve">
+    <value>اليوم</value>
+  </data>
+  <data name="CurrentMonth" xml:space="preserve">
+    <value>الشهر الحالي</value>
+  </data>
+  <data name="CurrentWeek" xml:space="preserve">
+    <value>الاسبوع الحالي</value>
+  </data>
+  <data name="Yesterday" xml:space="preserve">
+    <value>الأمس</value>
+  </data>
+  <data name="FromToDate" xml:space="preserve">
+    <value>من و إلي تاريخ</value>
+  </data>
+  <data name="Patrol" xml:space="preserve">
+    <value>المركبة</value>
+  </data>
+  <data name="IncludeInjuries" xml:space="preserve">
+    <value>وجود مصابين</value>
+  </data>
+  <data name="UnderProcess" xml:space="preserve">
+    <value>قيد الاجراء</value>
+  </data>
+  <data name="BigAccidentReport" xml:space="preserve">
+    <value>احصاء التقارير المحوله للمركز / الحوادث الجسيمة</value>
+  </data>
+  <data name="PoliceReport" xml:space="preserve">
+    <value>احصاء التقارير المحوله للمركز / المباحث</value>
+  </data>
+  <data name="TechSupportReport" xml:space="preserve">
+    <value>احصاء التقارير المحوله للمركز / الدعم الفني - ساعد</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>اغلاق</value>
+  </data>
+  <data name="GeneralPoliceReport" xml:space="preserve">
+    <value>احصاء التقارير المحولة الى المركز</value>
+  </data>
+  <data name="MobileNumberWithoutCode" xml:space="preserve">
+    <value> رقم الجوال ( يجب اضافة كود البلد ان لم يوجد)</value>
+  </data>
+  <data name="RelatedCustomerDocument" xml:space="preserve">
+    <value>مرفقات العملاء</value>
+  </data>
+  <data name="ObjectionTitle" xml:space="preserve">
+    <value>خدمات ساعد الإلكترونية</value>
+  </data>
+  <data name="ClientCommunication" xml:space="preserve">
+    <value>التواصل مع العميل</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>الرسالة</value>
+  </data>
+  <data name="SMSValidation" xml:space="preserve">
+    <value>يرجى ادخال رقم الجوال و الرسالة</value>
+  </data>
+  <data name="EservicesRequestNumber" xml:space="preserve">
+    <value>رقم الطلب الالكتروني</value>
+  </data>
+  <data name="FineNumber" xml:space="preserve">
+    <value>رقم المخالفة</value>
+  </data>
+  <data name="ConsentCreateor" xml:space="preserve">
+    <value>اسم منشأ البلاغ</value>
+  </data>
+  <data name="ConsentIncidentNumber" xml:space="preserve">
+    <value>رقم بلاغ التراضي</value>
+  </data>
+  <data name="Description3" xml:space="preserve">
+    <value>وصف البلاغ</value>
+  </data>
+  <data name="RoleInAccident" xml:space="preserve">
+    <value>الدور بالحادث</value>
+  </data>
+  <data name="SaaedIncidentNumber" xml:space="preserve">
+    <value>رقم بلاغ ساعد</value>
+  </data>
+  <data name="VehicleType2" xml:space="preserve">
+    <value>نوع المركبة</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>test</value>
+  </data>
+  <data name="PoliceDepartment" xml:space="preserve">
+    <value>قسم الشرطة</value>
+  </data>
+  <data name="CancelationReason" xml:space="preserve">
+    <value>سبب الالغاء</value>
+  </data>
+  <data name="PoliceNumber" xml:space="preserve">
+    <value>رقم طلب الشرطة</value>
+  </data>
+  <data name="LinkedRequest" xml:space="preserve">
+    <value>رقم الخدمة المرتبط به</value>
+  </data>
+  <data name="AmbulanceName" xml:space="preserve">
+    <value>اسماء المصابين</value>
+  </data>
+  <data name="ServiceType" xml:space="preserve">
+    <value>نوع التعديل</value>
+  </data>
+  <data name="ShowCodeDetails" xml:space="preserve">
+    <value>عرض تفاصيل الكود</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>التفاصيل</value>
+  </data>
+  <data name="PaiedStatus" xml:space="preserve">
+    <value>حالة الدفع</value>
+  </data>
+  <data name="RequestAdress" xml:space="preserve">
+    <value>عنوان الطلب</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>تاريخ الطلب من</value>
+  </data>
+  <data name="ReportSearch" xml:space="preserve">
+    <value>البحث عن التقرير</value>
+  </data>
+  <data name="EmailAddressesTitle" xml:space="preserve">
+    <value>عناوين البريد الإلكتروني</value>
+  </data>
+  <data name="VehicalModels" xml:space="preserve">
+    <value>انواع المركبات</value>
+  </data>
+  <data name="OtherDetails" xml:space="preserve">
+    <value>تفاصيل أخرى</value>
+  </data>
+  <data name="SearchForReport" xml:space="preserve">
+    <value>البحث ببيانات المركبات و السائقين</value>
+  </data>
+  <data name="ReportCode" xml:space="preserve">
+    <value>كود التقرير</value>
+  </data>
+  <data name="SketchedAccidentPersonName" xml:space="preserve">
+    <value>اسم مخطط الحادث</value>
+  </data>
+  <data name="DirectPayment" xml:space="preserve">
+    <value>الدفع المباشر</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
+  <data name="SendDirectPaymentLink" xml:space="preserve">
+    <value>ارسال رابط الدفع المباشر</value>
+  </data>
+  <data name="DirectPaymentMessage" xml:space="preserve">
+    <value>سوف يتم ارسال الرابط للطرف @Name على رقم التليفون@PhoneNumber</value>
+  </data>
+  <data name="DirectPayReason" xml:space="preserve">
+    <value>سبب ارسال الرابط </value>
+  </data>
+  <data name="Pay" xml:space="preserve">
+    <value>تاريخ الدفع</value>
+  </data>
+  <data name="PayFrom" xml:space="preserve">
+    <value>تاريخ  حالة الدفع من</value>
+  </data>
+  <data name="PaySMS" xml:space="preserve">
+    <value>تاريخ رسالة الدفع</value>
+  </data>
+  <data name="PaySMSFrom" xml:space="preserve">
+    <value>تاريخ رسالة الدفع من </value>
+  </data>
+  <data name="PaySMSTo" xml:space="preserve">
+    <value>تاريخ رسالة الدفع الى </value>
+  </data>
+  <data name="PayStatus" xml:space="preserve">
+    <value>حالة الدفع</value>
+  </data>
+  <data name="PayTo" xml:space="preserve">
+    <value>تاريخ  حالة الدفع الى</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>النظام</value>
+  </data>
+  <data name="DetaileDirectPaymentReport" xml:space="preserve">
+    <value>التقرير التفصيلى للدفع المباشر</value>
+  </data>
+  <data name="FinancialInquiryReportList" xml:space="preserve">
+    <value>الاستعلام عن حاله الدفع </value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>لم يتم الدفع</value>
+  </data>
+  <data name="AdpInquiryResult" xml:space="preserve">
+    <value>تم الاستعلام عن حاله المخالفه عن طريق الشرطه حاله المخالفه </value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>لم يتم الدفع</value>
+  </data>
+  <data name="Paid" xml:space="preserve">
+    <value>تم الدفع</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>تم الحفط</value>
+  </data>
+  <data name="ErrorOccurred" xml:space="preserve">
+    <value>حدث خطا ما</value>
+  </data>
+  <data name="ClickHere" xml:space="preserve">
+    <value>للايصال المالى اضغط هنا</value>
+  </data>
+  <data name="ErrorAdpTitle" xml:space="preserve">
+    <value>رساله خطا رفع التقرير الى الشرطه</value>
+  </data>
+  <data name="PaymentInquiryDetails" xml:space="preserve">
+    <value>تفاصيل الدفع</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>اعاده تحمبل</value>
+  </data>
+  <data name="ReportNew" xml:space="preserve">
+    <value>جديد</value>
+  </data>
+  <data name="ReportUnuploaded" xml:space="preserve">
+    <value>لم يتم الرفع</value>
+  </data>
+  <data name="ReportUploaded" xml:space="preserve">
+    <value>تم الرفع</value>
+  </data>
+  <data name="RecalculationDetails" xml:space="preserve">
+    <value>تنفيذ طلب إعادة احتساب </value>
+  </data>
+  <data name="EmployeeDetails" xml:space="preserve">
+    <value>بيانات الموظف</value>
+  </data>
+  <data name="EmployeeName" xml:space="preserve">
+    <value>اسم الموظف</value>
+  </data>
+  <data name="UserNumber" xml:space="preserve">
+    <value>الرقم الوظيفي</value>
+  </data>
+  <data name="ViewDetails" xml:space="preserve">
+    <value>عرض التعديلات المنفذة</value>
+  </data>
+  <data name="RequestReason" xml:space="preserve">
+    <value>  سبب الطلب</value>
+  </data>
+  <data name="RecalculationList" xml:space="preserve">
+    <value>طلبات إعادة إحتساب الرسوم</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>قيد الاجراء</value>
+  </data>
+  <data name="UploadedRejected" xml:space="preserve">
+    <value>عدم نجاح الرفع</value>
+  </data>
+  <data name="UploadedSuccess" xml:space="preserve">
+    <value>تم الرفع</value>
+  </data>
+  <data name="RequestCreatedBy" xml:space="preserve">
+    <value>طالب إعادة الإحتساب</value>
+  </data>
+  <data name="ReportDateTime" xml:space="preserve">
+    <value>تاريخ التقرير</value>
+  </data>
+  <data name="RequestDateTime" xml:space="preserve">
+    <value>تاريخ الطلب</value>
+  </data>
+  <data name="ViewReport" xml:space="preserve">
+    <value>عرض التقرير</value>
+  </data>
+  <data name="ViewRequest" xml:space="preserve">
+    <value>عرض الطلب</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>الكل</value>
+  </data>
+  <data name="CreateRecalculationRequest" xml:space="preserve">
+    <value>تنفيذ طلب إعادة احتساب</value>
+  </data>
+  <data name="RequestStatus" xml:space="preserve">
+    <value>حالة الطلب</value>
+  </data>
+  <data name="ApprovedBy" xml:space="preserve">
+    <value>المعتمد</value>
+  </data>
+  <data name="ApprovedDateTime" xml:space="preserve">
+    <value>تاريخ ووقت الإعتماد</value>
+  </data>
+  <data name="ApprovedModification" xml:space="preserve">
+    <value>قائمة التعديلات المنفذه على التقرير</value>
+  </data>
+  <data name="UploadCreatedDateTime" xml:space="preserve">
+    <value>آخر وقت رفع للشرطة</value>
+  </data>
+  <data name="RecalculationExcute" xml:space="preserve">
+    <value>تنفيذ اعادة الاحتساب</value>
+  </data>
+  <data name="AttachmentsDetails" xml:space="preserve">
+    <value>المرفقات الداعمة</value>
+  </data>
+  <data name="RecalculationRequestDetails" xml:space="preserve">
+    <value>بيانات طلب إعادة الإحتساب</value>
+  </data>
+  <data name="RecalculationRequest" xml:space="preserve">
+    <value>طلب إعادة الإحتساب</value>
+  </data>
+  <data name="UploadPoliceReport" xml:space="preserve">
+    <value>رفع التقرير للشرطة</value>
+  </data>
+  <data name="RecalculationRequestTypeCommect" xml:space="preserve">
+    <value>ادخل سبب الطلب</value>
+  </data>
+  <data name="ViewStatus" xml:space="preserve">
+    <value>سجل الحالة</value>
+  </data>
+  <data name="CurrentDepartment" xml:space="preserve">
+    <value>القسم الحالى</value>
+  </data>
+  <data name="IsRequestClosed" xml:space="preserve">
+    <value>هل تم اغلاق الطلب؟</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>لا</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>نعم</value>
+  </data>
+  <data name="CopartPortal" xml:space="preserve">
+    <value>نظام كوبارت</value>
+  </data>
+  <data name="VehicleDataInquiry" xml:space="preserve">
+    <value>بيانات المركبة</value>
+  </data>
+  <data name="RoadAssistPortal" xml:space="preserve">
+    <value>خدمة ساعد أوتو سيرفسز</value>
+  </data>
+  <data name="RepairServicePortal" xml:space="preserve">
+    <value>نظام صيانة المركبات</value>
+  </data>
+  <data name="MobileRequests" xml:space="preserve">
+    <value>طلبات الهاتف</value>
+  </data>
+  <data name="MobileRequests_Title" xml:space="preserve">
+    <value>طلبات الهاتف</value>
+  </data>
+  <data name="MobileRequests_ReportDateFrom" xml:space="preserve">
+    <value>تاريخ التقرير من</value>
+  </data>
+  <data name="MobileRequests_ReportDateTo" xml:space="preserve">
+    <value>تاريخ التقرير إلى</value>
+  </data>
+  <data name="MobileRequests_RequestDateFrom" xml:space="preserve">
+    <value>تاريخ الطلب من</value>
+  </data>
+  <data name="MobileRequests_RequestDateTo" xml:space="preserve">
+    <value>تاريخ الطلب إلى</value>
+  </data>
+  <data name="MobileRequests_ReportStatus" xml:space="preserve">
+    <value>حالة التقرير</value>
+  </data>
+  <data name="MobileRequests_ReportStatus_Active" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="MobileRequests_ReportStatus_Preliminary" xml:space="preserve">
+    <value>مبدئي (كروكي)</value>
+  </data>
+  <data name="MobileRequests_ReportStatus_InProgress" xml:space="preserve">
+    <value>قيد الإجراء</value>
+  </data>
+  <data name="MobileRequests_ReportStatus_Canceled" xml:space="preserve">
+    <value>ملغي</value>
+  </data>
+  <data name="MobileRequests_ReportStatus_ActiveTemp" xml:space="preserve">
+    <value>فعال - مؤقت</value>
+  </data>
+  <data name="MobileRequests_ReportStatus_PreliminaryTemp" xml:space="preserve">
+    <value>مبدئي (كروكي) - مؤقت</value>
+  </data>
+  <data name="MobileRequests_ReportStatus_InProgressTemp" xml:space="preserve">
+    <value>قيد الإجراء - مؤقت</value>
+  </data>
+  <data name="MobileRequests_ReportStatus_All" xml:space="preserve">
+    <value>الكل</value>
+  </data>
+  <data name="MobileRequests_Emirate_All" xml:space="preserve">
+    <value>الكل</value>
+  </data>
+  <data name="MobileRequests_Emirate_Fujairah" xml:space="preserve">
+    <value>الفجيرة</value>
+  </data>
+  <data name="MobileRequests_Emirate_RasAlkhaimah" xml:space="preserve">
+    <value>رأس الخيمة</value>
+  </data>
+  <data name="MobileRequests_Emirate_UmmAlQuawain" xml:space="preserve">
+    <value>ام القيوين</value>
+  </data>
+  <data name="MobileRequests_Emirate_Ajman" xml:space="preserve">
+    <value>عجمان</value>
+  </data>
+  <data name="MobileRequests_Emirate_Sharjah" xml:space="preserve">
+    <value>الشارقة</value>
+  </data>
+  <data name="MobileRequests_Emirate_Dubai" xml:space="preserve">
+    <value>دبي</value>
+  </data>
+  <data name="MobileRequests_Emirate_AbuDhabi" xml:space="preserve">
+    <value>أبوظبي</value>
+  </data>
+  <data name="MobileRequests_Grid_RequestNumber" xml:space="preserve">
+    <value>رقم الطلب</value>
+  </data>
+  <data name="MobileRequests_Grid_ReportNumber" xml:space="preserve">
+    <value>رقم التقرير</value>
+  </data>
+  <data name="MobileRequests_Grid_ReportDate" xml:space="preserve">
+    <value>تاريخ التقرير</value>
+  </data>
+  <data name="MobileRequests_Grid_RequestDate" xml:space="preserve">
+    <value>تاريخ الطلب</value>
+  </data>
+  <data name="MobileRequests_Grid_Name" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="MobileRequests_Grid_PhoneNumber" xml:space="preserve">
+    <value>رقم الموبايل</value>
+  </data>
+  <data name="MobileRequests_Grid_Region" xml:space="preserve">
+    <value>المنطقة</value>
+  </data>
+  <data name="MobileRequests_Grid_Status" xml:space="preserve">
+    <value>حالة طلب التخطيط</value>
+  </data>
+  <data name="MobileRequests_Grid_PlanAccident" xml:space="preserve">
+    <value>تخطيط الحادث</value>
+  </data>
+  <data name="MobileRequests_Section_ResultsHeader" xml:space="preserve">
+    <value>نتائج البحث</value>
+  </data>
+  <data name="MobileRequests_ResetSearchForm" xml:space="preserve">
+    <value>مسح</value>
+  </data>
+  <data name="MobileRequests_Grid_ReportStatus" xml:space="preserve">
+    <value>حالة التقرير</value>
+  </data>
+  <data name="MobileRequests_RequestStatus_All" xml:space="preserve">
+    <value>الكل</value>
+  </data>
+  <data name="MobileRequests_RequestStatus" xml:space="preserve">
+    <value>حالة طلب التخطيط</value>
+  </data>
+  <data name="MobileRequests_RequestStatus_New" xml:space="preserve">
+    <value>طلب جديد</value>
+  </data>
+  <data name="MobileRequests_RequestStatus_InProgress" xml:space="preserve">
+    <value>قيد الإجراء</value>
+  </data>
+  <data name="MobileRequests_RequestStatus_Completed" xml:space="preserve">
+    <value>تم الانتهاء من التخطيط</value>
+  </data>
+  <data name="TransferTime" xml:space="preserve">
+    <value>تاريخ التحويل</value>
+  </data>
+</root>

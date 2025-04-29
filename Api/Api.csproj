@@ -5,20 +5,55 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <InvariantGlobalization>false</InvariantGlobalization>
+	  <!-- RazorLight needs this -->
+	  <PreserveCompilationContext>true</PreserveCompilationContext>
+
+	  <!-- helps when you publish -->
+	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="10.0.0-preview.3.25171.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4" />
+    <!--<PackageReference Include="RazorEngine.NetCore" Version="4.5.1" />-->
+    <!--<PackageReference Include="SelectPdf" Version="2024.1.0" />-->
+    <!--<PackageReference Include="NReco.PdfGenerator" Version="1.2.1" />-->
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj" />
 	  <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
 
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="app_globalresources\MdtBlResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MdtBlResource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="app_globalresources\MdtBlResource.ar.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>MdtBl</CustomToolNamespace>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Update="app_globalresources\MdtBlResource.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>MdtBl</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Update="app_globalresources\MdtBlResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MdtBlResource.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>MdtBl</CustomToolNamespace>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
