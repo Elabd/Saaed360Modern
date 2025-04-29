@@ -17,6 +17,7 @@ using Infrastructure.Services.Auth;
 using Infrastructure.Services.Lookup;
 using Infrastructure.Services.Objection;
 using Microsoft.Extensions.Options;
+using Saaed360Modern.Application.Abstractions.AuthService; // Added for IPermissionService
 
 namespace Infrastructure.DependencyInjection;
 
@@ -32,18 +33,21 @@ public static class ServiceRegistration
     /// <exception cref="InvalidOperationException"></exception>
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration cfg)
     {
+        // --------------------  Caching (Required for PermissionService) --------------------
+        // Use MemoryCache for single-server deployments.
+        // For multi-server/cloud deployments, consider replacing with services.AddStackExchangeRedisCache(...)
+        // and configuring Redis connection string.
+        services.AddMemoryCache();
+
         // --------------------  Persistence  --------------------
         var connStr = cfg.GetConnectionString("DefaultConnection") ??
                       throw new InvalidOperationException("Connection string 'Default' not found.");
 
-        //services.AddDbContext<ApplicationDbContext>(opt =>
-        //    opt.UseSqlServer(connStr, sql => sql.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
-        services.AddDbContext<ApplicationDbContext>(options => {
+        // Using Compiled Models and DbContext Pooling (Recommended)
+        services.AddDbContextPool<ApplicationDbContext>(options => {
             options.UseSqlServer(cfg.GetConnectionString("DefaultConnection"), o => o.UseCompatibilityLevel(110));
             options.UseModel(Infrastructure.Persistence.CompiledModels.ApplicationDbContextModel.Instance);
-        }
-    );
-        
+        });
 
         // Expose DbContext to upper layers via abstraction
         services.AddScoped<IAppDbContext>(sp => sp.GetRequiredService<ApplicationDbContext>());
@@ -56,15 +60,19 @@ public static class ServiceRegistration
         // --------------------  Mapping / utilities  --------------------
         // Example: AutoMapper profiles that live in Infrastructure
         // services.AddAutoMapper(typeof(ServiceCollectionExtensions).Assembly);
-        // APPLICATION-LEVEL SERVICES
+
+        // --------------------  APPLICATION-LEVEL SERVICES  --------------------
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<ILookupService, LookupService>();
         services.AddScoped<IObjectionService, ObjectionService>();
         services.AddScoped<ICurrentUserService, CurrentUserService>();
         services.AddScoped<IJwtFactory, JwtFactory>();
-        // Register the Refresh Token store service
         services.AddScoped<IRefreshTokenStore, EfRefreshTokenStore>();
+
+        // Register the new Permission Service (for hybrid auth approach)
+        services.AddScoped<IPermissionService, PermissionService>();
 
         return services;
     }
 }
+

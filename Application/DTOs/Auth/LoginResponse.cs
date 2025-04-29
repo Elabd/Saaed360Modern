@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.DTOs.Auth;
 
-namespace Application.DTOs.Auth
+public class LoginResponse
 {
-    public class LoginResponse
-    {
-        public string AccessToken { get; set; }
-        public DateTime AccessTokenExpiration { get; set; }
+    public string AccessToken { get; set; }
+    public DateTime AccessTokenExpiration { get; set; }
 
-        public string RefreshToken { get; set; }
-        public DateTime RefreshTokenExpiration { get; set; }
+    // RefreshToken and RefreshTokenExpiration removed - will be handled via HttpOnly cookie
 
-        public UserInfoDto User { get; set; }
-    }
+    public UserInfoDto User { get; set; }
 }

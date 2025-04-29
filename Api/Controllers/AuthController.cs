@@ -27,13 +27,13 @@ public class AuthController : ControllerBase
         }
 
         // Set refresh token cookie
-        Response.Cookies.Append("refreshToken", result.RefreshToken,
+        Response.Cookies.Append("refreshToken", result.CookieDetails.Token,
             new CookieOptions
             {
                 HttpOnly = true,
                 Secure = true,
                 SameSite = SameSiteMode.Strict,
-                Expires = result.RefreshTokenExpiration
+                Expires = result.CookieDetails.Expiration
             });
 
         return Ok(result);
@@ -66,13 +66,13 @@ public class AuthController : ControllerBase
             }
 
             // Set new refresh token cookie
-            Response.Cookies.Append("refreshToken", result.RefreshToken,
+            Response.Cookies.Append("refreshToken", result.CookieDetails.Token,
            new CookieOptions
            {
                HttpOnly = true,
                Secure = true,
                SameSite = SameSiteMode.Strict,
-               Expires = result.RefreshTokenExpiration
+               Expires = result.CookieDetails.Expiration
            });
 
             return Ok(result);
