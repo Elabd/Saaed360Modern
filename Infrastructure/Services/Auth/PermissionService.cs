@@ -113,35 +113,35 @@ namespace Infrastructure.Services.Auth // Adjust if your services namespace is d
             return areaIds ?? new List<long>();
         }
 
-        public async Task<List<string>> GetUserRolesAsync(Guid userId, CancellationToken ct = default)
+        public async Task<List<Guid>> GetUserRolesAsync(Guid userId, CancellationToken ct = default)
         {
             string cacheKey = $"{RoleCachePrefix}{userId}";
-            if (!_cache.TryGetValue(cacheKey, out List<string> roleNames))
+            if (!_cache.TryGetValue(cacheKey, out List<Guid> roleIds))
             {
                 _logger.LogDebug("Cache miss for role names for UserId: {UserId}", userId);
                 try
                 {
-                    roleNames = await _db.AspnetUsersInRoles
+                    roleIds = await _db.AspnetUsersInRoles
                         .Where(ur => ur.UserId == userId)
                         .Include(ur => ur.Role) // Include Role to get the name
-                        .Select(ur => ur.Role.RoleName) // Select the RoleName
+                        .Select(ur => ur.Role.RoleId) // Select the RoleName
                         .Where(rn => rn != null) // Ensure RoleName is not null
                         .ToListAsync(ct);
 
-                    _cache.Set(cacheKey, roleNames, _cacheOptions);
-                    _logger.LogDebug("Cached {Count} role names for UserId: {UserId}", roleNames.Count, userId);
+                    _cache.Set(cacheKey, roleIds, _cacheOptions);
+                    _logger.LogDebug("Cached {Count} role names for UserId: {UserId}", roleIds.Count, userId);
                 }
                 catch (Exception ex)
                 {
                     _logger.LogError(ex, "Error fetching role names for UserId: {UserId}", userId);
-                    roleNames = new List<string>(); // Return empty list on error
+                    roleIds = new List<Guid>(); // Return empty list on error
                 }
             }
             else
             {
                 _logger.LogDebug("Cache hit for role names for UserId: {UserId}", userId);
             }
-            return roleNames ?? new List<string>();
+            return roleIds ?? new List<Guid>();
         }
 
         public void InvalidateUserCache(Guid userId)

@@ -32,7 +32,7 @@ namespace Saaed360Modern.Application.Abstractions.AuthService // Assuming this i
         /// <param name="userId">The user's unique identifier.</param>
         /// <param name="ct">Cancellation token.</param>
         /// <returns>A list of role names or IDs.</returns>
-        Task<List<string>> GetUserRolesAsync(Guid userId, CancellationToken ct = default); // Example: Added roles
+        Task<List<Guid>> GetUserRolesAsync(Guid userId, CancellationToken ct = default); // Example: Added roles
 
         /// <summary>
         /// Invalidates the cached permissions for a specific user.

@@ -61,7 +61,7 @@ builder.Services.AddSwaggerGen(c =>
 
 
 // INFRASTRUCTURE  (DbContext, WCF wrapper, repositories …)
-builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration , builder.Environment);
 
 
 // JWT AUTHENTICATION

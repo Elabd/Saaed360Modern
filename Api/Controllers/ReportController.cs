@@ -1124,7 +1124,7 @@ namespace Saaed360Modern.Api.Controllers
         }
 
         [HttpGet("{reportId}/pdf-details")] // Different endpoint from GetIncidentReportPdfByReportId
-        [ProducesResponseType(typeof(ReportDTO), StatusCodes.Status200OK)] // Assuming it returns DTO, not PDF bytes
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)] // Assuming it returns DTO, not PDF bytes
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
         [ProducesResponseType(StatusCodes.Status504GatewayTimeout)]

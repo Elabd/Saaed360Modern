@@ -90,6 +90,7 @@ namespace Infrastructure.Services.Auth
                 // currentUser.Roles = await _permissionService.GetUserRolesAsync(userId); 
                 currentUser.Organizations = await _permissionService.GetUserOrganizationIdsAsync(userId);
                 currentUser.Areas = await _permissionService.GetUserAreaIdsAsync(userId);
+                currentUser.Roles = await _permissionService.GetUserRolesAsync(userId);
                 _logger.LogDebug("Fetched permissions via IPermissionService for UserId: {UserId}", userId);
             }
             catch (Exception ex)
