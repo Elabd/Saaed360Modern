@@ -157,6 +157,19 @@ else
 }
 
 // Middleware order
+// Custom middleware to automatically add Bearer prefix if missing
+app.Use(async (context, next) =>
+{
+    var authHeader = context.Request.Headers["Authorization"].ToString();
+    if (!string.IsNullOrEmpty(authHeader) && !authHeader.StartsWith("Bearer ", StringComparison.OrdinalIgnoreCase))
+    {
+        // If token doesn't start with Bearer, add it
+        context.Request.Headers["Authorization"] = $"Bearer {authHeader}";
+        Console.WriteLine($"Added Bearer prefix to token: {context.Request.Headers["Authorization"]}");
+    }
+
+    await next();
+});
 app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();
