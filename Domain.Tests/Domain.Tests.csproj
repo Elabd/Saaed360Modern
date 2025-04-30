@@ -17,12 +17,10 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-		<PackageReference Include="Castle.Core" Version="5.1.1" />
-		<PackageReference Include="Moq" Version="4.20.70" />
 		<PackageReference Include="FluentAssertions" Version="6.12.0" />
+		<PackageReference Include="NetArchTest.Rules" Version="1.2.1" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\Application\Application.csproj" />
 		<ProjectReference Include="..\Domain\Domain.csproj" />
 	</ItemGroup>
 </Project>

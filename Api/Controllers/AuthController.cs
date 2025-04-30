@@ -2,6 +2,7 @@ using Application.Abstractions.AuthService;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
+using System.Text.Json;
 
 namespace Api.Controllers;
 
@@ -36,6 +37,9 @@ public class AuthController : ControllerBase
                 Expires = result.CookieDetails.Expiration
             });
 
+        // Manually serialize the response to avoid PipeWriter issues
+        //var jsonString = JsonSerializer.Serialize(result.ClientResponse);
+        //return Content(jsonString, "application/json");
         return Ok(result.ClientResponse);
     }
 
@@ -75,6 +79,9 @@ public class AuthController : ControllerBase
                Expires = result.CookieDetails.Expiration
            });
 
+            //// Manually serialize the response to avoid PipeWriter issues
+            //var jsonString = JsonSerializer.Serialize(result.ClientResponse.AccessToken);
+            //return Content(jsonString, "application/json");
             return Ok(result.ClientResponse.AccessToken); // Return only the access token string
         }
         catch (Exception ex)
