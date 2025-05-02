@@ -16,12 +16,10 @@ using Infrastructure.Repositories;
 using Infrastructure.Services.Auth;
 using Infrastructure.Services.Lookup;
 using Infrastructure.Services.Objection;
-using Microsoft.Extensions.Options;
 using Saaed360Modern.Application.Abstractions.AuthService;
 using Infrastructure.Services; // Added for IPermissionService
 using RazorLight.Extensions; // Added for AddRazorLight
 using Microsoft.AspNetCore.Hosting; // Added for IWebHostEnvironment
-using System.IO; // Added for Path
 
 namespace Infrastructure.DependencyInjection;
 
@@ -67,6 +65,7 @@ public static class ServiceRegistration
         services.AddScoped<ICurrentUserService, CurrentUserService>();
         services.AddScoped<IJwtFactory, JwtFactory>();
         services.AddScoped<IRefreshTokenStore, EfRefreshTokenStore>();
+        services.AddScoped<IRequestService, RequestService>();
 
         // Register RazorLight Engine with proper project setup
         var templateRoot = Path.Combine(env.ContentRootPath, "Templates");

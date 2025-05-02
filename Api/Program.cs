@@ -107,6 +107,7 @@ public class Program
                 };
             });
 
+
         // BUILD PIPELINE
         var app = builder.Build();
         app.Lifetime.ApplicationStarted.Register(async () =>
@@ -131,7 +132,7 @@ public class Program
         }
         else
         {
-            // Production Swagger – adjusts server URL, serves under /Saaed360TSAPI
+            // Production Swagger ï¿½ adjusts server URL, serves under /Saaed360TSAPI
             app.UseSwagger(c =>
             {
                 c.PreSerializeFilters.Add((doc, req) =>
