@@ -156,6 +156,7 @@ namespace Saaed360Modern.Api.Controllers
             // return result;
         }
 
+        [NonAction]
         [HttpPost] // Save new report
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)] // Assuming returns report ID or similar
         [ProducesResponseType(StatusCodes.Status400BadRequest)] // For validation errors
@@ -200,6 +201,7 @@ namespace Saaed360Modern.Api.Controllers
 
 
 
+        [NonAction]
         [HttpGet("lookups/rsp-fields-factor")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -209,6 +211,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetRspFieldsFactorAsync(), nameof(GetRspFieldsFactor));
         }
 
+        [NonAction]
         [HttpGet("lookups/rsp-procedures")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -218,6 +221,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetRspProceduresAsync(), nameof(GetRspProcedures));
         }
 
+        [NonAction]
         [HttpGet("lookups/rsp-traffic-status")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -227,6 +231,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetRspTrafficStatusAsync(), nameof(GetRspTrafficStatus));
         }
 
+        [NonAction]
         [HttpGet("lookups/rsp-damaged-level")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -236,6 +241,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetRspDamagedLevelAsync(), nameof(GetRspDamagedLevel));
         }
 
+        [NonAction]
         [HttpGet("lookups/rsp-incident-lane")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -245,6 +251,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetRspIncidentLaneAsync(), nameof(GetRspIncidentLane));
         }
 
+        [NonAction]
         [HttpGet("lookups/cities")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -254,6 +261,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetAllCitiesAsync(), nameof(GetAllCities));
         }
 
+        [NonAction]
         [HttpGet("lookups/sectors/{sectorId}/streets")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -263,6 +271,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetStreetBySectorIdAsync(sectorId), nameof(GetStreetBySectorId));
         }
 
+        [NonAction]
         [HttpGet("lookups/streets/{streetId}/cross-streets")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -272,6 +281,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetCrossStreetByStreetIdAsync(streetId), nameof(GetCrossStreetByStreetId));
         }
 
+        [NonAction]
         [HttpGet("lookups/emirates/{emiratesId}/service-center")]
         [ProducesResponseType(typeof(LookupDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -285,6 +295,7 @@ namespace Saaed360Modern.Api.Controllers
             return result;
         }
 
+        [NonAction]
         [HttpGet("lookups/emirates/{emirateId}/cities")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -294,6 +305,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetCityBySelectedEmirateIdAsync(emirateId), nameof(GetCityBySelectedEmirateId));
         }
 
+        [NonAction]
         [HttpGet("lookups/cities/{cityId}/areas")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -303,6 +315,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetAreaByCityIdAsync(cityId), nameof(GetAreaByCityId));
         }
 
+        [NonAction]
         [HttpGet("lookups/areas")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -312,6 +325,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetAllAreasAsync(), nameof(GetAllAreas));
         }
 
+        [NonAction]
         [HttpGet("lookups/areas/{areaId}/sectors-alt")] // Alt route to avoid conflict
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -321,6 +335,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetSectorByAreaIdAsync(areaId), nameof(GetSectorByAreaId));
         }
 
+        [NonAction]
         [HttpGet("lookups/sectors")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -330,6 +345,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetAllSectorsAsync(), nameof(GetAllSectors));
         }
 
+        [NonAction]
         [HttpGet("lookups/streets")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -339,6 +355,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetAllStreetsAsync(), nameof(GetAllStreets));
         }
 
+        [NonAction]
         [HttpGet("lookups/cross-streets")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -348,6 +365,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetAllCrossStreetsAsync(), nameof(GetAllCrossStreets));
         }
 
+        [NonAction]
         [HttpGet("lookups/areas/{areaId}/streets")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -357,6 +375,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetStreetBySelectedAreaIdAsync(areaId), nameof(GetStreetBySelectedAreaId));
         }
 
+        [NonAction]
         [HttpGet("lookups/areas/{areaId}/crossing-streets")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -366,6 +385,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetCrossingStreetBySelectedAreaIdAsync(areaId), nameof(GetCrossingStreetBySelectedAreaId));
         }
 
+        [NonAction]
         [HttpGet("lookups/report-types")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -375,6 +395,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetReportTypeValuesAsync(statusid), nameof(GetReportTypeValues));
         }
 
+        [NonAction]
         [HttpGet("lookups/weather")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -384,6 +405,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfWeatherAsync(), nameof(GetListOfWeather));
         }
 
+        [NonAction]
         [HttpGet("lookups/road-surface")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -393,6 +415,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfRoadSurfaceAsync(), nameof(GetListOfRoadSurface));
         }
 
+        [NonAction]
         [HttpGet("lookups/road-speed")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -402,6 +425,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfRoadSpeedAsync(), nameof(GetListOfRoadSpeed));
         }
 
+        [NonAction]
         [HttpGet("lookups/intersections")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -411,6 +435,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfIntersectionsAsync(), nameof(GetListOfIntersections));
         }
 
+        [NonAction]
         [HttpGet("lookups/accident-types")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -420,6 +445,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfAccidentTypesAsync(), nameof(GetListOfAccidentTypes));
         }
 
+        [NonAction]
         [HttpGet("lookups/nationalities")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -429,6 +455,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfNationalityAsync(), nameof(GetListOfNationality));
         }
 
+        [NonAction]
         [HttpGet("lookups/injury-level")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -438,6 +465,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfInjuryLevelAsync(), nameof(GetListOfInjuryLevel));
         }
 
+        [NonAction]
         [HttpGet("lookups/injury-type")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -447,6 +475,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfInjuryTypeAsync(), nameof(GetListOfInjuryType));
         }
 
+        [NonAction]
         [HttpGet("lookups/organisations")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -456,6 +485,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfOrganisationAsync(), nameof(GetListOfOrganisation));
         }
 
+        [NonAction]
         [HttpGet("lookups/public-damage-part")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -465,6 +495,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetPublicDamagePartAsync(), nameof(GetPublicDamagePart));
         }
 
+        [NonAction]
         [HttpGet("lookups/private-damage-part")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -474,6 +505,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetPrivateDamagePartAsync(), nameof(GetPrivateDamagePart));
         }
 
+        [NonAction]
         [HttpGet("lookups/organisations/{organisationId}/objects")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -484,6 +516,7 @@ namespace Saaed360Modern.Api.Controllers
         }
 
         // Note: Plate lookups might need complex query parameters or a POST with a body
+        [NonAction]
         [HttpGet("lookups/plate-sources-by-type1")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -493,6 +526,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetPlateSourceByPlateTypeId1Async(plateColor, PlateCategory, plateTypeId), nameof(GetPlateSourceByPlateTypeId1));
         }
 
+        [NonAction]
         [HttpGet("lookups/plate-sources-by-type")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -502,6 +536,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetPlateSourceByPlateTypeIdAsync(plateTypeId), nameof(GetPlateSourceByPlateTypeId));
         }
 
+        [NonAction]
         [HttpPost("lookups/plate-sources-by-types")] // Use POST for array in body
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -516,6 +551,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetPlateSourceByListofPlateTypeIdsAsync(plateTypeIds), nameof(GetPlateSourceByListofPlateTypeIds));
         }
 
+        [NonAction]
         [HttpGet("lookups/plate-classes-by-color")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -525,6 +561,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetPlateClassByPlateColorIdAsync(plateColorId), nameof(GetPlateClassByPlateColorId));
         }
 
+        [NonAction]
         [HttpPost("lookups/plate-classes-by-colors")] // Use POST for array in body
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -539,6 +576,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetPlateClassByListofPlateColorIdAsync(plateColorIds), nameof(GetPlateClassByListofPlateColorId));
         }
 
+        [NonAction]
         [HttpGet("lookups/plate-colors")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -548,6 +586,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetPlateColorAsync(), nameof(GetPlateColor));
         }
 
+        [NonAction]
         [HttpGet("lookups/plate-types-by-class1")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -557,6 +596,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetPlateTypeByPlateClassId1Async(plateClassId, plateColorId), nameof(GetPlateTypeByPlateClassId1));
         }
 
+        [NonAction]
         [HttpGet("lookups/plate-types-by-class")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -566,6 +606,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetPlateTypeByPlateClassIdAsync(plateClassId), nameof(GetPlateTypeByPlateClassId));
         }
 
+        [NonAction]
         [HttpPost("lookups/plate-types-by-classes")] // Use POST for array in body
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -580,6 +621,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetPlateTypeByListofPlateClassIdsAsync(plateClassIds), nameof(GetPlateTypeByListofPlateClassIds));
         }
 
+        [NonAction]
         [HttpGet("lookups/vehicle-brands")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -589,6 +631,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfVehicleBrandsAsync(), nameof(GetListOfVehicleBrands));
         }
 
+        [NonAction]
         [HttpGet("lookups/vehicle-brands/{vehicleBrandId}/models")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -598,6 +641,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfVehicleModelBySelectedVehicleBrandAsync(vehicleBrandId), nameof(GetListOfVehicleModelBySelectedVehicleBrand));
         }
 
+        [NonAction]
         [HttpGet("lookups/vehicle-models/{vehicleModelId}/types")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -607,6 +651,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfVehicleTypeBySelectedVehicleModelAsync(vehicleModelId), nameof(GetListOfVehicleTypeBySelectedVehicleModel));
         }
 
+        [NonAction]
         [HttpGet("lookups/vehicle-types/{vehicleTypeId}/categories")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -616,6 +661,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfVehicleCategoryBySelectedVehicleTypeAsync(vehicleTypeId), nameof(GetListOfVehicleCategoryBySelectedVehicleType));
         }
 
+        [NonAction]
         [HttpPost("lookups/vehicle-models-by-brands")] // Use POST for array in body
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -630,6 +676,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfVehicleModelBySelectedVehicleBrandsAsync(vehicleBrandIds), nameof(GetListOfVehicleModelBySelectedVehicleBrands));
         }
 
+        [NonAction]
         [HttpPost("lookups/vehicle-types-by-models")] // Use POST for array in body
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -644,6 +691,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfVehicleTypesAsync(vehicleModelIds), nameof(GetListOfVehicleTypes));
         }
 
+        [NonAction]
         [HttpPost("lookups/vehicle-categories-by-types")] // Use POST for array in body
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -658,6 +706,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfVehicleCategoryBySelectedVehicleTypesAsync(vehicleTypeIds), nameof(GetListOfVehicleCategoryBySelectedVehicleTypes));
         }
 
+        [NonAction]
         [HttpGet("lookups/manufacture-years")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -667,6 +716,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfManufatureYearsAsync(), nameof(GetListOfManufatureYears));
         }
 
+        [NonAction]
         [HttpGet("lookups/manufacture-years/{year}")]
         [ProducesResponseType(typeof(LookupDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -679,6 +729,7 @@ namespace Saaed360Modern.Api.Controllers
             return result;
         }
 
+        [NonAction]
         [HttpGet("lookups/countries-of-origin")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -688,6 +739,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfCountryOfOriginsAsync(), nameof(GetListOfCountryOfOrigins));
         }
 
+        [NonAction]
         [HttpGet("lookups/countries-of-origin/{code}")]
         [ProducesResponseType(typeof(LookupDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -700,6 +752,7 @@ namespace Saaed360Modern.Api.Controllers
             return result;
         }
 
+        [NonAction]
         [HttpGet("lookups/reasons-of-accident")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -709,6 +762,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetAllReasonOfAccidentsAsync(), nameof(GetAllReasonOfAccidents));
         }
 
+        [NonAction]
         [HttpGet("lookups/vehicle-colors")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -718,6 +772,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfVehileColorsAsync(), nameof(GetListOfVehileColors));
         }
 
+        [NonAction]
         [HttpGet("lookups/insurance-companies")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -727,6 +782,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfInsuranceCompanyAsync(), nameof(GetListOfInsuranceCompany));
         }
 
+        [NonAction]
         [HttpGet("lookups/insurance-types")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -736,6 +792,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfInsuranceTypesAsync(), nameof(GetListOfInsuranceTypes));
         }
 
+        [NonAction]
         [HttpGet("lookups/glass-colors")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -745,6 +802,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfGlassColorsAsync(), nameof(GetListOfGlassColors));
         }
 
+        [NonAction]
         [HttpGet("lookups/collision-points")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -754,6 +812,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfCollisionPointsAsync(), nameof(GetListOfCollisionPoints));
         }
 
+        [NonAction]
         [HttpGet("lookups/chemicals")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -763,6 +822,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfChemicalsAsync(), nameof(GetListOfChemicals));
         }
 
+        [NonAction]
         [HttpGet("lookups/vehicle-state")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -772,7 +832,8 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfVehicleStateAsync(), nameof(GetListOfVehicleState));
         }
 
-        [HttpGet("lookups/reasons-of-accident-alt")] // Alt route
+        [NonAction]
+        [HttpGet("lookups/reasons-of-accident-alt")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
         [ProducesResponseType(StatusCodes.Status504GatewayTimeout)]
@@ -781,6 +842,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfReasonOfAccidentsAsync(), nameof(GetListOfReasonOfAccidents));
         }
 
+        [NonAction]
         [HttpGet("lookups/license-source")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -790,6 +852,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfLicenseSourceAsync(), nameof(GetListOfLicenseSource));
         }
 
+        [NonAction]
         [HttpGet("lookups/license-category")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -799,6 +862,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfLicenseCategoryAsync(), nameof(GetListOfLicenseCategory));
         }
 
+        [NonAction]
         [HttpGet("lookups/gender")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -808,6 +872,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfGenderAsync(), nameof(GetListOfGender));
         }
 
+        [NonAction]
         [HttpGet("lookups/career")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -817,6 +882,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfCareerAsync(), nameof(GetListOfCareer));
         }
 
+        [NonAction]
         [HttpGet("lookups/education-level")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -826,6 +892,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetListOfEducationLevelAsync(), nameof(GetListOfEducationLevel));
         }
 
+        [NonAction]
         [HttpGet("lookups/escaped-status")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -834,7 +901,7 @@ namespace Saaed360Modern.Api.Controllers
         {
             return ExecuteWcfCall(() => _reportService.GetListOfEscapedStatusAsync(), nameof(GetListOfEscapedStatus));
         }
-
+        [NonAction]
         [HttpGet("lookups/driver-status")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -843,7 +910,7 @@ namespace Saaed360Modern.Api.Controllers
         {
             return ExecuteWcfCall(() => _reportService.GetListOfDriverStatusAsync(), nameof(GetListOfDriverStatus));
         }
-
+        [NonAction]
         [HttpGet("lookups/driver-drinking-status")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -852,7 +919,7 @@ namespace Saaed360Modern.Api.Controllers
         {
             return ExecuteWcfCall(() => _reportService.GetListOfDriverDrinkingStatusAsync(), nameof(GetListOfDriverDrinkingStatus));
         }
-
+        [NonAction]
         [HttpGet("lookups/confiscation-document-types")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -861,7 +928,7 @@ namespace Saaed360Modern.Api.Controllers
         {
             return ExecuteWcfCall(() => _reportService.GetListOfConfiscationsDocumentTypesAsync(), nameof(GetListOfConfiscationsDocumentTypes));
         }
-
+        [NonAction]
         [HttpGet("lookups/confiscation-status")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -870,7 +937,7 @@ namespace Saaed360Modern.Api.Controllers
         {
             return ExecuteWcfCall(() => _reportService.GetAllConfiscationStatusAsync(), nameof(GetAllConfiscationStatus));
         }
-
+        [NonAction]
         [HttpGet("lookups/confiscation-locations")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -879,7 +946,7 @@ namespace Saaed360Modern.Api.Controllers
         {
             return ExecuteWcfCall(() => _reportService.GetListOfConfiscationsLocationsAsync(), nameof(GetListOfConfiscationsLocations));
         }
-
+        [NonAction]
         [HttpGet("lookups/report-emirate")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -888,7 +955,7 @@ namespace Saaed360Modern.Api.Controllers
         {
             return ExecuteWcfCall(() => _reportService.GetReportEmirateAsync(), nameof(GetReportEmirate));
         }
-
+        [NonAction]
         [HttpGet("lookups/how-accident-happened")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -897,7 +964,7 @@ namespace Saaed360Modern.Api.Controllers
         {
             return ExecuteWcfCall(() => _reportService.GetHowAccidentHappenedAsync(), nameof(GetHowAccidentHappened));
         }
-
+        [NonAction]
         [HttpGet("lookups/source-of-modification")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -906,7 +973,7 @@ namespace Saaed360Modern.Api.Controllers
         {
             return ExecuteWcfCall(() => _reportService.GetSourceOfModificationAsync(), nameof(GetSourceOfModification));
         }
-
+        [NonAction]
         [HttpGet("lookups/report-modification-responsibility")]
         [ProducesResponseType(typeof(LookupDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -915,7 +982,7 @@ namespace Saaed360Modern.Api.Controllers
         {
             return ExecuteWcfCall(() => _reportService.GetReportModificationResponsibilityDIMAsync(), nameof(GetReportModificationResponsibilityDIM));
         }
-
+        [NonAction]
         [HttpGet("lookups/transfered-status")]
         [ProducesResponseType(typeof(TransferStatusDTO[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -928,7 +995,7 @@ namespace Saaed360Modern.Api.Controllers
 
 
         // --- Incident/Report Endpoints (Continued) ---
-
+        [NonAction]
         [HttpGet("incidents/{incidentId}/tickets/print-data")]
         [ProducesResponseType(typeof(TicketDTO[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -937,7 +1004,7 @@ namespace Saaed360Modern.Api.Controllers
         {
             return ExecuteWcfCall(() => _reportService.GetPrintingTicketDataAsync(incidentId), nameof(GetPrintingTicketData));
         }
-
+        [NonAction]
         [HttpGet("rsp/activities/{activityId}/basic-details")]
         [ProducesResponseType(typeof(RspBasicDetailsDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -949,7 +1016,7 @@ namespace Saaed360Modern.Api.Controllers
             if (result is OkObjectResult okResult && okResult.Value == null) return NotFound();
             return result;
         }
-
+        [NonAction]
         [HttpGet("incidents/{incidentId}/reports")]
         [ProducesResponseType(typeof(ReportDTO[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -958,7 +1025,7 @@ namespace Saaed360Modern.Api.Controllers
         {
             return ExecuteWcfCall(() => _reportService.GetIncidentReportAsync(incidentId), nameof(GetIncidentReport));
         }
-
+        [NonAction]
         [HttpPost("offline")] // Save offline report
         [ProducesResponseType(typeof(SaveReportResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -981,7 +1048,7 @@ namespace Saaed360Modern.Api.Controllers
             public ReportAmbulanceDTO ReportAmbulance { get; set; } // Assuming this DTO exists
             public string ReportDtoRaw { get; set; }
         }
-
+        [NonAction]
         [HttpGet("can-save")]
         [ProducesResponseType(typeof(CanSaveReportResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -990,7 +1057,7 @@ namespace Saaed360Modern.Api.Controllers
         {
             return ExecuteWcfCall(() => _reportService.CanSaveReportAsync(incidentNo, reportNumber, patrolId), nameof(CanSaveReport));
         }
-
+        [NonAction]
         [HttpPost("rsp")] // Save RSP report
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1004,7 +1071,7 @@ namespace Saaed360Modern.Api.Controllers
             }
             return ExecuteWcfCall(() => _reportService.SaveRspIncidentReportAsync(reportObject), nameof(SaveRspIncidentReport));
         }
-
+        [NonAction]
         [HttpGet("accidents/{accidentId}/vehicles-drivers/mdt-view")]
         [ProducesResponseType(typeof(VehicleDriverModelDTO[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1013,7 +1080,7 @@ namespace Saaed360Modern.Api.Controllers
         {
             return ExecuteWcfCall(() => _reportService.GetMdtViewVehicleDataByAccidentIdAsync(accidentId), nameof(GetMdtViewVehicleDataByAccidentId));
         }
-
+        [NonAction]
         [HttpGet("accidents/{accidentId}/images/mdt-view")]
         [ProducesResponseType(typeof(SlideShowModelDTO[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1022,7 +1089,7 @@ namespace Saaed360Modern.Api.Controllers
         {
             return ExecuteWcfCall(() => _reportService.GetMdtViewReportImagesByAccidentIdAsync(accidentId), nameof(GetMdtViewReportImagesByAccidentId));
         }
-
+        [NonAction]
         [HttpGet("rsp/activities/{activityId}/images")]
         [ProducesResponseType(typeof(RspImagesDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1031,7 +1098,7 @@ namespace Saaed360Modern.Api.Controllers
         {
             return ExecuteWcfCall(() => _reportService.GetRspReportImagesByActivityIdAsync(activityId), nameof(GetRspReportImagesByActivityId));
         }
-
+        [NonAction]
         [HttpGet("rsp/activities/{activityId}/procedures")]
         [ProducesResponseType(typeof(RspProceduresDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -1043,7 +1110,7 @@ namespace Saaed360Modern.Api.Controllers
             if (result is OkObjectResult okResult && okResult.Value == null) return NotFound();
             return result;
         }
-
+        [NonAction]
         [HttpGet("rsp/activities/{activityId}/vehicles")]
         [ProducesResponseType(typeof(RspVehicleDataDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1052,7 +1119,7 @@ namespace Saaed360Modern.Api.Controllers
         {
             return ExecuteWcfCall(() => _reportService.GetRspReportVehicleDataByActivityIdAsync(activityId), nameof(GetRspReportVehicleDataByActivityId));
         }
-
+        [NonAction]
         [HttpGet("rsp/incidents/{incidentId}")]
         [ProducesResponseType(typeof(RspReportDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -1064,7 +1131,7 @@ namespace Saaed360Modern.Api.Controllers
             if (result is OkObjectResult okResult && okResult.Value == null) return NotFound();
             return result;
         }
-
+        [NonAction]
         [HttpGet("incidents/{incidentId}/pdf")]
         [ProducesResponseType(typeof(FileContentResult), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -1081,7 +1148,7 @@ namespace Saaed360Modern.Api.Controllers
             if (result is OkObjectResult okResult3 && okResult3.Value is byte[] pdfBytes2 && pdfBytes2.Length == 0) return NotFound(); // If service returns empty byte array
             return result; // Return original error result if not OK
         }
-
+        [NonAction]
         [HttpGet("{reportId}/pdf")]
         [ProducesResponseType(typeof(FileContentResult), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -1098,7 +1165,7 @@ namespace Saaed360Modern.Api.Controllers
             if (result is OkObjectResult okResult3 && okResult3.Value is byte[] pdfBytes2 && pdfBytes2.Length == 0) return NotFound();
             return result;
         }
-
+        [NonAction]
         [HttpGet("{reportId}/accident-details")]
         [ProducesResponseType(typeof(ReportDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -1110,7 +1177,7 @@ namespace Saaed360Modern.Api.Controllers
             if (result is OkObjectResult okResult && okResult.Value == null) return NotFound();
             return result;
         }
-
+        [NonAction]
         [HttpGet("by-number/{reportNumber}")]
         [ProducesResponseType(typeof(ReportDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -1122,7 +1189,7 @@ namespace Saaed360Modern.Api.Controllers
             if (result is OkObjectResult okResult && okResult.Value == null) return NotFound();
             return result;
         }
-
+        [NonAction]
         [HttpGet("{reportId}/pdf-details")] // Different endpoint from GetIncidentReportPdfByReportId
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)] // Assuming it returns DTO, not PDF bytes
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -1140,6 +1207,7 @@ namespace Saaed360Modern.Api.Controllers
             return NotFound();
         }
 
+        [NonAction]
         [HttpGet("{reportId}/slideshow")]
         [ProducesResponseType(typeof(SlideShowModelDTO[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1149,6 +1217,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetReportSlideShowAsync(reportId), nameof(GetReportSlideShow));
         }
 
+        [NonAction]
         [HttpGet("{reportId}/last-renew-request")]
         [ProducesResponseType(typeof(Tuple<int, DateTime>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1159,6 +1228,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetLastRenewRequestReportAsync(reportId), nameof(GetLastRenewRequestReport));
         }
 
+        [NonAction]
         [HttpPost("save-with-approval")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1181,6 +1251,7 @@ namespace Saaed360Modern.Api.Controllers
             public FieldsToBeApprovedDTO[] Fields { get; set; }
         }
 
+        [NonAction]
         [HttpPost("modification-list")]
         [ProducesResponseType(typeof(DifferentValues[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1195,6 +1266,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetModificationListAsync(modifiedReport), nameof(GetModificationList));
         }
 
+        [NonAction]
         [HttpPost("incidents/{accidentId}/upload")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1207,6 +1279,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.UploadIncidentReportAsync(accidentId), nameof(UploadIncidentReport));
         }
 
+        [NonAction]
         [HttpPost("accidents/{accidentNumber}/image-count")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1228,6 +1301,7 @@ namespace Saaed360Modern.Api.Controllers
             public int ReportId { get; set; }
         }
 
+        [NonAction]
         [HttpGet("escorting/activities/{activityId}/basic-details")]
         [ProducesResponseType(typeof(EscortingBasicDetailsDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -1240,6 +1314,7 @@ namespace Saaed360Modern.Api.Controllers
             return result;
         }
 
+        [NonAction]
         [HttpGet("escorting/activities/{activityId}/images")]
         [ProducesResponseType(typeof(EscortingImagesDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1249,6 +1324,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetEscortingReportImagesByActivityIdAsync(activityId), nameof(GetEscortingReportImagesByActivityId));
         }
 
+        [NonAction]
         [HttpGet("tunnel/activities/{activityId}/basic-details")]
         [ProducesResponseType(typeof(TunnelBasicDetailsDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -1261,6 +1337,7 @@ namespace Saaed360Modern.Api.Controllers
             return result;
         }
 
+        [NonAction]
         [HttpGet("tunnel/activities/{activityId}/images")]
         [ProducesResponseType(typeof(TunnelImagesDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1274,6 +1351,7 @@ namespace Saaed360Modern.Api.Controllers
 
         // --- Vehicle/Driver Endpoints ---
 
+        [NonAction]
         [HttpPost("vehicle-info")]
         [ProducesResponseType(typeof(VehicleInfoResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1295,6 +1373,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetVehicleInfoAsync(requestDto, userName, password), nameof(GetVehicleInfo));
         }
 
+        [NonAction]
         [HttpPost("vehicle-info/fta")]
         [ProducesResponseType(typeof(FTAVehicleInfoResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1314,6 +1393,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.FTAGetVehicleInfoAsync(requestDto, userName, password), nameof(FTAGetVehicleInfo));
         }
 
+        [NonAction]
         [HttpPost("driver-info")]
         [ProducesResponseType(typeof(TrafficProfileResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1333,6 +1413,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetDriverInfoAsync(requestDto, userName, password), nameof(GetDriverInfo));
         }
 
+        [NonAction]
         [HttpPost("driver-info/fta")]
         [ProducesResponseType(typeof(TrafficProfileResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1352,6 +1433,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetFTATrafficProfileInfoAsync(requestDto, userName, password), nameof(GetFTATrafficProfileInfo));
         }
 
+        [NonAction]
         [HttpGet("vehicles/{vehiclePlateNumber}/accident-history/last")]
         [ProducesResponseType(typeof(VehicleAccidentHistory), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -1364,6 +1446,7 @@ namespace Saaed360Modern.Api.Controllers
             return result;
         }
 
+        [NonAction]
         [HttpGet("persons/{personId}")]
         [ProducesResponseType(typeof(MobilePersonDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -1378,6 +1461,7 @@ namespace Saaed360Modern.Api.Controllers
 
         // --- Misc Endpoints (Continued) ---
 
+        [NonAction]
         [HttpGet("misc/google-map-credentials")]
         [ProducesResponseType(typeof(ClientCredentials), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1387,6 +1471,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetGoogleMapClientCredentialsAsync(), nameof(GetGoogleMapClientCredentials));
         }
 
+        [NonAction]
         [HttpGet("misc/google-map-api-key")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1396,6 +1481,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetGoogleMapAPIKeyAsync(), nameof(GetGoogleMapAPIKey));
         }
 
+        [NonAction]
         [HttpPost("misc/send-survey")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1423,6 +1509,7 @@ namespace Saaed360Modern.Api.Controllers
             public string PlateNumber { get; set; }
         }
 
+        [NonAction]
         [HttpPost("misc/mobile-request-transaction")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1446,6 +1533,7 @@ namespace Saaed360Modern.Api.Controllers
             public DateTime CreationDate { get; set; }
         }
 
+        [NonAction]
         [HttpGet("misc/translations")]
         [ProducesResponseType(typeof(TranslationDto[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1455,6 +1543,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetTranslationAsync(), nameof(GetTranslation));
         }
 
+        [NonAction]
         [HttpGet("misc/is-valid-for-display")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1464,6 +1553,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.IsValidReportForDisplayAsync(reportnumber, numberOfValidReportDays, numberOfValidRenewalDays), nameof(IsValidReportForDisplay));
         }
 
+        [NonAction]
         [HttpPost("misc/send-sms/all-tickets")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1483,6 +1573,7 @@ namespace Saaed360Modern.Api.Controllers
             }, nameof(SendReportSMSForAllTickets));
         }
 
+        [NonAction]
         [HttpPost("misc/send-sms/one-ticket")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1509,6 +1600,7 @@ namespace Saaed360Modern.Api.Controllers
             public string ReportNumber { get; set; }
         }
 
+        [NonAction]
         [HttpPost("misc/send-sms/private-ticket")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1532,6 +1624,7 @@ namespace Saaed360Modern.Api.Controllers
             public string Lang { get; set; }
         }
 
+        [NonAction]
         [HttpPost("misc/send-sms/one-ticket-lang")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1554,6 +1647,7 @@ namespace Saaed360Modern.Api.Controllers
             public string Lang { get; set; }
         }
 
+        [NonAction]
         [HttpPost("misc/notify-applicant-extended-service/{reportId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1568,6 +1662,7 @@ namespace Saaed360Modern.Api.Controllers
             }, nameof(SendApplicantExtendedServiceNotificationMessage));
         }
 
+        [NonAction]
         [HttpGet("misc/allowed-inquiry-clicks")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1580,6 +1675,7 @@ namespace Saaed360Modern.Api.Controllers
         // --- Request/Transfer/Confiscation/Traffic Code Endpoints ---
         // Note: These endpoints likely require authorization checks based on user roles/areas
 
+        [NonAction]
         [HttpPost("requests/search")]
         [ProducesResponseType(typeof(RequestListDTO[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1603,6 +1699,7 @@ namespace Saaed360Modern.Api.Controllers
             return await ExecuteWcfCall(() => _reportService.GetRequestsListAsync(searchCriteria, permittedAreas, roleIds, isExternal, myTask), nameof(GetRequestsList));
         }
 
+        [NonAction]
         [HttpPost("requests/closed/search")]
         [ProducesResponseType(typeof(RequestListDTO[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1623,6 +1720,7 @@ namespace Saaed360Modern.Api.Controllers
             return await ExecuteWcfCall(() => _reportService.GetClosedRequestsListAsync(searchCriteria, permittedAreas, roleIds, isExternal), nameof(GetClosedRequestsList));
         }
 
+        [NonAction]
         [HttpGet("requests/{requestId}")]
         [ProducesResponseType(typeof(ReportRequestDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -1639,6 +1737,7 @@ namespace Saaed360Modern.Api.Controllers
             return result;
         }
 
+        [NonAction]
         [HttpGet("requests/transfered/{requestId}")]
         [ProducesResponseType(typeof(ReportRequestDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -1652,6 +1751,7 @@ namespace Saaed360Modern.Api.Controllers
             return result;
         }
 
+        [NonAction]
         [HttpPost("reports/under-process")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1667,6 +1767,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.UnderProcessReportAsync(report), nameof(UnderProcessReport));
         }
 
+        [NonAction]
         [HttpPost("requests/transfered/search")]
         [ProducesResponseType(typeof(RequestListDTO[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1688,6 +1789,7 @@ namespace Saaed360Modern.Api.Controllers
             return await ExecuteWcfCall(() => _reportService.GetTransferedRequestsListAsync(searchCriteria, permittedAreas, roleIds, userId), nameof(GetTransferedRequestsList));
         }
 
+        [NonAction]
         [HttpPost("requests")] // Save Request
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1703,6 +1805,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.SaveRequestAsync(request), nameof(SaveRequest));
         }
 
+        [NonAction]
         [HttpPost("requests/transfer")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1718,6 +1821,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.TransferRequestAsync(request), nameof(TransferRequest));
         }
 
+        [NonAction]
         [HttpGet("requests/{requestId}/can-transfer")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1728,6 +1832,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.CanTransferRequestAsync(requestId), nameof(CanTransferRequest));
         }
 
+        [NonAction]
         [HttpPost("reports/transfer")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1743,6 +1848,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.TransferReportAsync(convertedReport), nameof(TransferReport));
         }
 
+        [NonAction]
         [HttpPost("reports/transfering/close")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1758,6 +1864,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.CloseReportTransferingAsync(convertedReport), nameof(CloseReportTransfering));
         }
 
+        [NonAction]
         [HttpPost("reports/transfered/search")]
         [ProducesResponseType(typeof(ReportTransferingDTO[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1778,6 +1885,7 @@ namespace Saaed360Modern.Api.Controllers
             return await ExecuteWcfCall(() => _reportService.GetTransferedReportListAsync(search, permittedAreas, orgs, transferStatusId, skip, take), nameof(GetTransferedReportList));
         }
 
+        [NonAction]
         [HttpPost("reports/transfered/status/search")]
         [ProducesResponseType(typeof(ReportTransferingDTO[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1798,6 +1906,7 @@ namespace Saaed360Modern.Api.Controllers
             return await ExecuteWcfCall(() => _reportService.GetTransferedReportStatusListAsync(search, permittedAreas, orgs, skip, take), nameof(GetTransferedReportStatusList));
         }
 
+        [NonAction]
         [HttpGet("reports/{reportId}/is-transfered")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1808,6 +1917,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.CheckReportTransferedAsync(reportId), nameof(CheckReportTransfered));
         }
 
+        [NonAction]
         [HttpPost("reports/transfered/closed/search")]
         [ProducesResponseType(typeof(ReportTransferingDTO[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1828,6 +1938,7 @@ namespace Saaed360Modern.Api.Controllers
             return await ExecuteWcfCall(() => _reportService.GetClosedTransferedReportListAsync(search, permittedAreas, orgs, skip, take), nameof(GetClosedTransferedReportList));
         }
 
+        [NonAction]
         [HttpGet("reports/transfered/{reportId}")]
         [ProducesResponseType(typeof(ReportTransferingDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -1841,6 +1952,7 @@ namespace Saaed360Modern.Api.Controllers
             return result;
         }
 
+        [NonAction]
         [HttpGet("reports/transfered/{reportId}/log")]
         [ProducesResponseType(typeof(TransferedReportLog[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1851,6 +1963,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetTransferedReportLogAsync(reportId), nameof(GetTransferedReportLog));
         }
 
+        [NonAction]
         [HttpPost("confiscations/search")]
         [ProducesResponseType(typeof(ConfiscationDTO[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1870,6 +1983,7 @@ namespace Saaed360Modern.Api.Controllers
             return await ExecuteWcfCall(() => _reportService.GetConfiscationListAsync(search, permittedAreas), nameof(GetConfiscationList));
         }
 
+        [NonAction]
         [HttpGet("confiscations/drivers/{driverDataId}")]
         [ProducesResponseType(typeof(ConfiscationDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -1886,6 +2000,7 @@ namespace Saaed360Modern.Api.Controllers
             return result;
         }
 
+        [NonAction]
         [HttpPut("confiscations")] // Use PUT for update
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1901,6 +2016,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.SaveConfiscationNewStatusAndCommentAsync(confiscation), nameof(SaveConfiscationNewStatusAndComment));
         }
 
+        [NonAction]
         [HttpPost("traffic-codes/search")]
         [ProducesResponseType(typeof(TrafficCodeDTO[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1916,6 +2032,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetTrafficCodeListAsync(search, take, skip), nameof(GetTrafficCodeList));
         }
 
+        [NonAction]
         [HttpGet("traffic-codes/{trafficCodeId}")]
         [ProducesResponseType(typeof(TrafficCodeDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -1929,6 +2046,7 @@ namespace Saaed360Modern.Api.Controllers
             return result;
         }
 
+        [NonAction]
         [HttpPost("traffic-codes")] // Save new or update existing
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1944,6 +2062,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.SaveTrafficCodeAsync(dto), nameof(SaveTrafficCode));
         }
 
+        [NonAction]
         [HttpDelete("traffic-codes/{trafficCodeId}")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
@@ -1960,6 +2079,7 @@ namespace Saaed360Modern.Api.Controllers
 
         // --- TS Incident List / Mobile Request Endpoints ---
 
+        [NonAction]
         [HttpPost("ts-incidents/search")]
         [ProducesResponseType(typeof(TSIncidentListDTO[]), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -1975,6 +2095,7 @@ namespace Saaed360Modern.Api.Controllers
             return ExecuteWcfCall(() => _reportService.GetIncidentListAsync(search), nameof(GetIncidentList));
         }
 
+        [NonAction]
         [HttpGet("mobile-requests/{mobileRequestId}/detailed")]
         [ProducesResponseType(typeof(MobileRequestDetailedDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
